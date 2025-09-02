@@ -1,0 +1,29 @@
+/* Contenedor del carrusel */
+.carousel-inner {
+ width: 100%;
+  max-width: 400px;      /* ancho fijo del carrusel */
+  aspect-ratio: 1 / 1;   /* altura igual al ancho, cuadrado */
+  margin: auto;
+  overflow: hidden;
+}
+
+/* Cada imagen del carrusel */
+.carousel-item img {
+  width: 100%;        /* ancho completo del contenedor */
+  height: 100%;       /* ocupa todo el alto del contenedor */
+  object-fit: cover;  /* rellena el contenedor recortando proporcionalmente */
+}
+
+/* Cambiar color de las flechas */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+  background-color: rgba(0, 0, 0, 0.5); /* fondo semi-transparente negro */
+  width: 40px;                          /* tamaño de la flecha */
+  height: 40px;
+}
+
+/* Opcional: aumentar la visibilidad al pasar el mouse */
+.carousel-control-prev-icon:hover,
+.carousel-control-next-icon:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
