@@ -10,11 +10,9 @@ import { CommonModule } from '@angular/common';
 })
 export class CarruselComponent {
 
-  imagenes: string[] = [                    // Declarás una propiedad del componente: un array de rutas de imágenes.
-  'peluqueria1.jpg',               // Cada elemento es la URL de una imagen en tu proyecto.
+  imagenes: string[] = [                   
+  'peluqueria1.jpg',               
   'peluqueria2.jpg',
   'peluqueria3.webp'
 ];
-
-
 }

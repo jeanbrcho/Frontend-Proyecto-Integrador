@@ -5,20 +5,21 @@
   aspect-ratio: 1 / 1;   /* altura igual al ancho, cuadrado */
   margin: auto;
   overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 /* Cada imagen del carrusel */
 .carousel-item img {
-  width: 100%;        /* ancho completo del contenedor */
-  height: 100%;       /* ocupa todo el alto del contenedor */
-  object-fit: cover;  /* rellena el contenedor recortando proporcionalmente */
+  width: 100%;       
+  height: 100%;       
+  object-fit: cover;  
 }
 
 /* Cambiar color de las flechas */
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
-  background-color: rgba(0, 0, 0, 0.5); /* fondo semi-transparente negro */
-  width: 40px;                          /* tamaño de la flecha */
+  background-color: rgba(0, 0, 0, 0.5); 
+  width: 40px;                          
   height: 40px;
 }
 
