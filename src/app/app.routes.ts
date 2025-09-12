@@ -1,7 +1,9 @@
 import { Routes } from '@angular/router';
-import { CarruselComponent } from './components/carrusel/carrusel.component';
-import { Component } from '@angular/core';
+import { Home } from './home/home';
+
 
 export const routes: Routes = [
-    {path:"carrusel", component: CarruselComponent}
+   { path: '', 
+    component: Home }
 ];
+

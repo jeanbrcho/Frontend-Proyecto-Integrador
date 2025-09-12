@@ -1,0 +1,208 @@
+.home-container {
+  text-align: center;
+  background-color: #fff7ec;
+  padding: 20px;
+  min-height: 100vh;
+}
+
+.bienvenida {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 40px;
+}
+
+.bienvenida-contenido {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.bienvenida-texto {
+  max-width: 400px;
+  text-align: left;
+}
+
+.bienvenida h2 {
+  font-size: 26px;
+  margin-bottom: 15px;
+}
+
+.dog-image {
+  width: 180px;
+}
+
+.btn-establecimientos {
+  background-color: #ff9e57;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  border-radius: 25px;
+  cursor: pointer;
+  font-weight: bold;
+  font-size: large;
+}
+
+.btn-establecimientos:hover {
+  background-color: #d9762c;
+}
+
+
+.opciones-section {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  max-width: 500px;
+  margin: 0 auto 40px auto;
+}
+
+.opcion-card {
+  background: #ffbe8b;
+  padding: 15px 20px;
+  border-radius: 12px;
+  display: flex;
+  align-items: center;
+  gap: 25px;
+  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  text-align: left;
+}
+
+.opcion-card img {
+  width: 50px;
+}
+
+.opcion-card h4 {
+  margin: 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #333;
+}
+
+.opcion-card p {
+  margin: 0;
+  font-size: 16px;
+  color: #444;
+}
+
+
+/*  Beneficios */
+
+.beneficios-section {
+  display: flex;
+  align-content: center;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+  margin: 50px 0;
+}
+
+.beneficios-texto {
+  text-align: left;
+}
+
+.beneficios-section h3 {
+  margin-bottom: 15px;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.beneficios-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.beneficios-section li {
+  margin: 12px 0;
+  font-size: 16px;
+  line-height: 1.5;
+}
+
+/* contacto */
+.contacto {
+  display: flex;
+  flex-direction: column; 
+  align-items: center;
+  gap: 15px;
+}
+
+.contacto-dog {
+  max-width: 150px;
+  height: auto;
+}
+
+.btn-contacto {
+  background: #ff9e57;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: large;
+}
+
+.btn-contacto:hover {
+  background: #d9762c;
+}
+
+
+/* responsive para pantallas mas chicas  */
+
+
+/* Tablet (≥ 768px) */
+@media (max-width: 991px) {
+  .bienvenida {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .bienvenida-texto {
+    text-align: center;
+  }
+
+  .opciones-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr; 
+  }
+
+  .beneficios-section {
+    grid-template-columns: 1fr; 
+    text-align: center;
+  }
+
+  .beneficios-texto {
+    text-align: center;
+  }
+}
+
+/* Mobile (≤ 600px) */
+@media (max-width: 600px) {
+  .bienvenida h2 {
+    font-size: 20px;
+  }
+
+  .dog-image {
+    width: 120px;
+  }
+
+  .opciones-section {
+    grid-template-columns: 1fr; 
+  }
+
+  .opcion-card {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .beneficios-section {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .contacto-dog {
+    max-width: 120px;
+  }
+}
