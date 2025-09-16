@@ -1,0 +1,22 @@
+.app-footer {
+  width: 100%;
+  position: relative;
+  bottom: 0;
+  left: 0;
+}
+
+/* Barra gris superior */
+.footer-top {
+  background-color: #455A64;
+  height: 60px; /* ajusta la altura a tu gusto */
+}
+
+/* Barra negra inferior con el texto */
+.footer-bottom {
+  background-color: black;
+  color: white;
+  text-align: center;
+  font-size: 0.7rem;
+  line-height: 0;    /* controla la altura de línea */
+  padding: 1px;   /* apenas espacio arriba/abajo del texto */
+}
