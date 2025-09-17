@@ -16,11 +16,12 @@ body{
     left: 35%; */
     border-radius: 0 0 0 120px;
     position: fixed;   
-    bottom: 20%;      
-    right: 10%; 
+    bottom: 14%;      
+    right: 8%; 
     z-index: 9999;   
       
 }
+
 .body{
     background-color: #fdb44e;
     height: 100px;
@@ -99,3 +100,4 @@ body{
     bottom: 490px;
     left: 50px;
 }
+

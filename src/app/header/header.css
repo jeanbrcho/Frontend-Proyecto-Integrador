@@ -1,0 +1,112 @@
+/* Header general */
+.app-header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  background-color: #455A64;
+  height: 100px; /* antes 2.5cm */
+  padding: 0 1rem 0 0;
+  color: white;
+  gap: 2rem;
+}
+
+/* Logo */
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.logo {
+  width: 100px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+}
+
+.logo-container h1 {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #FF9E57;
+}
+
+/* Menú */
+.menu {
+  display: flex;
+  gap: 2rem;
+}
+
+.menu a {
+  text-decoration: none;
+  color: #FF9E57;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+.menu a:hover {
+  color: white;
+}
+
+/* Botón Login */
+.login-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  margin-left: auto;
+  background-color: #FF9E57;
+  color: white;
+  border: none;
+  border-radius: 9999px;
+  padding: 0.6rem 1.5rem;
+  font-weight: bold;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-btn:hover {
+  background-color: white;
+  color: #FF9E57;
+}
+
+.login-btn:hover .paw-icon {
+  color: #FF9E57;
+}
+
+.paw-icon {
+  font-size: 1.2rem;
+  color: white;
+}
+
+/* Media queries para móviles */
+@media (max-width: 768px) {
+  .app-header {
+    height: 70px;      /* más compacto en móviles */
+    padding: 0 0.5rem;
+    gap: 1rem;
+  }
+
+  .logo {
+    width: 60px;
+    height: 60px;
+  }
+
+  .logo-container h1 {
+    font-size: 1rem;   /* título más pequeño */
+  }
+
+  .menu a {
+    font-size: 0.80rem; /* links más pequeños */
+    gap: 0.4rem;
+  }
+
+  .login-btn {
+    padding: 0.3rem 0.8rem;
+    font-size: 0.75rem;
+  }
+
+  .paw-icon {
+    font-size: 0.9rem;
+  }
+}
