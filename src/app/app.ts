@@ -1,12 +1,15 @@
 import { Component } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
+import { Header } from './header/header';
+import { Footer } from './footer/footer';
+import { Perrito } from "./components/perrito/perrito";
 
 
 
 @Component({
   selector: 'app-root',
+  imports: [RouterOutlet, Header, Footer, Perrito],
   standalone: true,
-  imports: [RouterOutlet],
   templateUrl: './app.html',
   styleUrl: './app.css'
 })
