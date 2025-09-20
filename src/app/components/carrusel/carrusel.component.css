@@ -1,30 +1,49 @@
-/* Contenedor del carrusel */
-.carousel-inner {
- width: 100%;
-  max-width: 400px;      /* ancho fijo del carrusel */
-  aspect-ratio: 1 / 1;   /* altura igual al ancho, cuadrado */
-  margin: auto;
-  overflow: hidden;
+#carouselExampleAutoplaying {
+  position: relative;
+  max-width: 80%;   /* deja espacio a los costados */
+  margin: 0 auto;   /* centra el carrusel */
   box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
-/* Cada imagen del carrusel */
-.carousel-item img {
-  width: 100%;       
-  height: 100%;       
-  object-fit: cover;  
+#carouselExampleAutoplaying .carousel-item img {
+  height: 800px;        /* altura rectangular */
+  object-fit: cover;    /* recorta sin deformar */
 }
 
-/* Cambiar color de las flechas */
-.carousel-control-prev-icon,
-.carousel-control-next-icon {
-  background-color: rgba(0, 0, 0, 0.5); 
-  width: 40px;                          
-  height: 40px;
+#carouselExampleAutoplaying .carousel-control-prev,
+#carouselExampleAutoplaying .carousel-control-next {
+  width: auto;          /* achica el área de clic */
+  top: 50%;             /* centra verticalmente */
+  transform: translateY(-50%);
 }
 
-/* Opcional: aumentar la visibilidad al pasar el mouse */
-.carousel-control-prev-icon:hover,
-.carousel-control-next-icon:hover {
-  background-color: rgba(0, 0, 0, 0.8);
+#carouselExampleAutoplaying .carousel-control-prev {
+  left: -50px;          /* mueve flecha a la izquierda, fuera de la imagen */
+}
+
+#carouselExampleAutoplaying .carousel-control-next {
+  right: -50px;         /* mueve flecha a la derecha, fuera de la imagen */
+}
+
+#carouselExampleAutoplaying .carousel-control-prev-icon,
+#carouselExampleAutoplaying .carousel-control-next-icon {
+  filter: invert(1) sepia(1) saturate(10000%) hue-rotate(200deg);
+}
+
+/* Titulo */
+.carousel-header {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* logo a la izquierda */
+}
+
+.header-logo {
+  height: 50px;  /* ajusta al tamaño del logo */
+  width: auto;
+}
+
+.header-title {
+  font-size: 1.5rem;  /* tamaño del texto */
+  font-weight: bold;
+  color: #333333;      /* ejemplo color azul profundo */
 }
