@@ -1,0 +1,47 @@
+<body>
+    <!-- Sección Sobre Nosotros -->
+    <div class="nosotros-container">
+        <div class="nosotros-contenido">
+            <div class="nosotros-texto">
+                <h1>Sobre Nosotros</h1>
+                <p>
+                    Somos una plataforma que conecta a dueños de mascotas con peluquerías caninas y veterinarias de
+                    confianza.
+                    Nuestro objetivo es facilitar la vida de los peluditos y sus familias, brindando un sistema rápido,
+                    seguro y sencillo
+                    para reservar turnos, descubrir nuevos lugares y acceder a promociones.
+                </p>
+            </div>
+
+            <img src="/perritoNos.png" alt="Perrito feliz" class="nosotros-img">
+        </div>
+    </div>
+
+    <!-- Sección Frontend -->
+    <div class="equipo-seccion">
+        <div class="equipo-titulo">
+            <h1>Frontend</h1>
+            <img src="/iconoNos.png" alt="icono" class="icono-nos">
+        </div>
+        <div class="equipo-container">
+            <div class="miembro-card" *ngFor="let miembro of equipo1">
+                <img [src]="miembro.img" alt="{{miembro.nombre}}">
+                <h2>{{miembro.nombre}}</h2>
+            </div>
+        </div>
+    </div>
+
+    <!-- Sección Backend -->
+    <div class="equipo-seccion">
+        <div class="equipo-titulo">
+            <h1>Backend</h1>
+            <img src="/iconoNos.png" alt="icono" class="icono-nos">
+        </div>
+        <div class="equipo-container">
+            <div class="miembro-card" *ngFor="let miembro of equipo2">
+                <img [src]="miembro.img" alt="{{miembro.nombre}}">
+                <h2>{{miembro.nombre}}</h2>
+            </div>
+        </div>
+    </div>
+</body>
