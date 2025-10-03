@@ -1,8 +1,10 @@
-/* Sobre Nosotros */
-body{
+/* ============================
+   Sobre Nosotros
+============================ */
+body {
   background-color: #fff7ec;
-  
 }
+
 .nosotros-container {
   padding: 40px 20px 20px 20px;
   display: flex;
@@ -40,20 +42,14 @@ body{
   height: auto;
 }
 
-/* Equipo */
-.equipo-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 1000px;
-  margin: 40px auto 0 auto; /* separado un poco de la sección anterior */
-  padding: 0 20px;
-}
+/* ============================
+   Equipo
+============================ */
 .equipo-seccion {
   text-align: center;
   margin: 60px 20px 20px 20px;
 }
+
 .equipo-titulo {
   display: flex;
   align-items: center; /* centra verticalmente H1 e icono */
@@ -73,9 +69,71 @@ body{
   height: auto;
 }
 
+.equipo-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 40px auto 0 auto; /* separado un poco de la sección anterior */
+  padding: 0 20px;
+}
 
-/* Responsive */
+/* Tarjeta de miembro */
+.miembro-card {
+  /* tamaños definidos en responsive */
+}
+
+.miembro-card img {
+  /* tamaños definidos en responsive */
+}
+
+.miembro-card h4 {
+  /* tamaños definidos en responsive */
+}
+
+.miembro-card p {
+  /* tamaños definidos en responsive */
+}
+
+/* ============================
+   Contacto (dos columnas)
+============================ */
+.contacto-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.contacto-izquierda,
+.contacto-derecha {
+  flex: 1;
+}
+
+.contacto-izquierda h2,
+.contacto-derecha h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contacto-izquierda p,
+.contacto-derecha p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ============================
+   Responsive
+============================ */
 @media (max-width: 768px) {
+
+  /* Sobre Nosotros */
   .nosotros-contenido {
     flex-direction: column;
     text-align: center;
@@ -99,6 +157,7 @@ body{
     font-size: 16px;
   }
 
+  /* Equipo */
   .equipo-container {
     justify-content: center;
   }
@@ -119,9 +178,32 @@ body{
   .miembro-card p {
     font-size: 12px;
   }
+
+  /* Contacto */
+  .contacto-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contacto-izquierda,
+  .contacto-derecha {
+    width: 100%;
+  }
+
+  .contacto-izquierda h2,
+  .contacto-derecha h2 {
+    font-size: 24px;
+  }
+
+  .contacto-izquierda p,
+  .contacto-derecha p {
+    font-size: 16px;
+  }
 }
 
 @media (max-width: 480px) {
+
+  /* Sobre Nosotros */
   .nosotros-texto h1 {
     font-size: 20px;
   }
@@ -134,6 +216,7 @@ body{
     max-width: 150px;
   }
 
+  /* Equipo */
   .miembro-card img {
     width: 50px;
     height: 50px;
@@ -145,5 +228,16 @@ body{
 
   .miembro-card p {
     font-size: 10px;
+  }
+
+  /* Contacto */
+  .contacto-izquierda h2,
+  .contacto-derecha h2 {
+    font-size: 20px;
+  }
+
+  .contacto-izquierda p,
+  .contacto-derecha p {
+    font-size: 14px;
   }
 }
