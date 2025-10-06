@@ -1,0 +1,26 @@
+<div class="carousel-header d-flex align-items-center mb-3">
+  <h2 class="header-title mb-0 ms-2">Veterinarias Recomendadas</h2>
+  <img src="estetoscopio.png" alt="Logo" class="header-logo">
+</div>
+
+<div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-pause="hover"  data-bs-interval="2000">
+  <div class="carousel-inner">
+    <div
+      *ngFor="let img of imagenes; let i = index"
+      class="carousel-item"
+      [class.active]="i === 0"
+    >
+      <img [src]="img" class="d-block w-100" alt="imagen {{ i + 1 }}">
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+
+  <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
+    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+</div>

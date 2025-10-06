@@ -206,3 +206,9 @@
     max-width: 120px;
   }
 }
+
+/* se agrego para que los elementos al rededor del carrusel no choquen  */
+app-carrusel {
+  display: block;       
+  margin: 40px auto;    
+}
