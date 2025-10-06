@@ -12,7 +12,7 @@
   </div>
 
   <app-carrusel></app-carrusel>
-  
+
   <section class="opciones-section">
     <div class="opcion-card">
       <img src="/turnos.png" alt="Turnos">
@@ -43,7 +43,8 @@
   <section class="beneficios-section">
     <div class="contacto">
       <img src="/contacto.png" alt="Icono perro" class="contacto-dog">
-      <button class="btn-contacto">CONTACTANOS</button>
+      <a [routerLink]="['/nosotros']" fragment="contacto" class="btn-contacto">CONTACTANOS</a>
+
     </div>
 
     <div class="beneficios-texto">
@@ -58,7 +59,4 @@
       </ul>
     </div>
   </section>
-
-
-
 </div>
