@@ -1,0 +1,23 @@
+<div class="container py-4">
+  <div class="row g-4">
+    <div class="col-md-6" *ngFor="let card of cards">
+      <div class="card servicio-card shadow-sm">
+        <!-- Imagen -->
+        <div class="servicio-imagen position-relative">
+          <img [src]="card.imagen" alt="Veterinaria" />
+          <div class="favorito">
+            <i class="bi bi-star"></i>
+          </div>
+        </div>
+
+        <!-- Contenido -->
+        <div class="servicio-contenido">
+          <h5 class="nombre">{{ card.nombre }}</h5>
+          <p class="servicios"><strong>Servicios:</strong> {{ card.servicios }}</p>
+          <p class="horarios"><strong>Horarios:</strong> {{ card.horarios }}</p>
+          <p class="direccion"><strong>Dirección:</strong> {{ card.direccion }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
