@@ -69,6 +69,37 @@
   margin-bottom: 8px;
 }
 
+/* Contenedor del filtro */
+.filtro-tipo {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Label del select */
+.filtro-tipo label {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Select */
+.filtro-tipo select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filtro-tipo select:focus {
+  border-color: #029cdc; /* color celeste principal */
+  box-shadow: 0 0 5px rgba(2, 156, 220, 0.5);
+}
+
+
 /* Responsive: vertical en pantallas pequeñas */
 @media (max-width: 992px) {
   .servicio-card {
