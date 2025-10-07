@@ -72,6 +72,46 @@ export class CardsService {
       horarios: 'Lun a Sab 10-19',
       direccion: 'Av. Sol 654',
       imagen: 'peluqueria2.jpg'
+    },
+    {
+      nombre: 'Peluquería Canina Bella',
+      tipo: 'peluqueria',
+      servicios: 'Baños, cortes y accesorios',
+      horarios: 'Lun a Sab 10-19',
+      direccion: 'Av. Sol 654',
+      imagen: 'peluqueria2.jpg'
+    },
+    {
+      nombre: 'Peluquería Canina Bella',
+      tipo: 'peluqueria',
+      servicios: 'Baños, cortes y accesorios',
+      horarios: 'Lun a Sab 10-19',
+      direccion: 'Av. Sol 654',
+      imagen: 'peluqueria2.jpg'
+    },
+    {
+      nombre: 'Peluquería Canina Bella',
+      tipo: 'peluqueria',
+      servicios: 'Baños, cortes y accesorios',
+      horarios: 'Lun a Sab 10-19',
+      direccion: 'Av. Sol 654',
+      imagen: 'peluqueria2.jpg'
+    },
+    {
+      nombre: 'Peluquería Canina Bella',
+      tipo: 'peluqueria',
+      servicios: 'Baños, cortes y accesorios',
+      horarios: 'Lun a Sab 10-19',
+      direccion: 'Av. Sol 654',
+      imagen: 'peluqueria2.jpg'
+    },
+    {
+      nombre: 'Peluquería Canina Bella',
+      tipo: 'peluqueria',
+      servicios: 'Baños, cortes y accesorios',
+      horarios: 'Lun a Sab 10-19',
+      direccion: 'Av. Sol 654',
+      imagen: 'peluqueria2.jpg'
     }
   ];
 

@@ -37,30 +37,3 @@
       </div>
     }
   </div>
-
-  <!-- Sección de Productos -->
-  <div class="productos-section">
-    <h2 class="productos-title text-center mb-4">Productos Disponibles</h2>
-    
-    <div class="productos-grid">
-      @for (producto of productos; track producto.id) {
-        <div class="producto-card">
-          <div class="producto-imagen">
-            <img [src]="producto.img" [alt]="producto.nombre">
-          </div>
-          <div class="producto-info">
-            <h3 class="producto-nombre">{{ producto.nombre }}</h3>
-            <p class="producto-categoria">{{ producto.categoria }}</p>
-            @if (producto.descripcion) {
-              <p class="producto-descripcion">{{ producto.descripcion }}</p>
-            }
-            <div class="producto-precio">
-              <span class="precio">${{ producto.precio | number:'1.0-0' }}</span>
-            </div>
-            <button class="btn-agregar">Agregar al carrito</button>
-          </div>
-        </div>
-      }
-    </div>
-  </div>
-</div>

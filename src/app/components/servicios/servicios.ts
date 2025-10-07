@@ -3,8 +3,7 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Card } from '../../models/card.model';
 import { CardsService } from '../../services/cards.service';
-import { Producto } from '../../models/producto.model';
-import { listaProductos } from '../../mocks/productos.mock';
+
 
 @Component({
   selector: 'app-servicios',
@@ -15,14 +14,12 @@ import { listaProductos } from '../../mocks/productos.mock';
 })
 export class Servicios implements OnInit {
   cards: Card[] = [];
-  productos: Producto[] = [];
   filtroTipo: string = '';
 
   constructor(private cardsService: CardsService) {}
 
   ngOnInit(): void {
     this.cardsService.getCards().subscribe(cards => this.cards = cards);
-    this.productos = listaProductos;
   }
 
   cardsFiltradas(): Card[] {
