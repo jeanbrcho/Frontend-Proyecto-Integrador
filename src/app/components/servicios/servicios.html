@@ -10,29 +10,57 @@
     </select>
   </div>
 
-  <!-- Cards -->
-  <div class="row g-4">
-    <div class="col-md-6" *ngFor="let card of cardsFiltradas()">
-      <div class="card servicio-card shadow-sm">
-        
-        <!-- Imagen -->
-        <div class="servicio-imagen position-relative">
-          <img [src]="card.imagen" alt="{{ card.nombre }}" />
-          <div class="favorito">
-            <i class="bi bi-star"></i>
+  <!-- Cards de Servicios -->
+  <div class="row g-4 mb-5">
+    @for (card of cardsFiltradas(); track card.nombre) {
+      <div class="col-md-6">
+        <div class="card servicio-card shadow-sm">
+          
+          <!-- Imagen -->
+          <div class="servicio-imagen position-relative">
+            <img [src]="card.imagen" alt="{{ card.nombre }}" />
+            <div class="favorito">
+              <i class="bi bi-star"></i>
+            </div>
+          </div>
+
+          <!-- Contenido -->
+          <div class="servicio-contenido">
+            <h5 class="nombre">{{ card.nombre }}</h5>
+            <p class="tipo"><strong>Tipo:</strong> {{ card.tipo }}</p>
+            <p class="servicios"><strong>Servicios:</strong> {{ card.servicios }}</p>
+            <p class="horarios"><strong>Horarios:</strong> {{ card.horarios }}</p>
+            <p class="direccion"><strong>Dirección:</strong> {{ card.direccion }}</p>
+          </div>
+
+        </div>
+      </div>
+    }
+  </div>
+
+  <!-- Sección de Productos -->
+  <div class="productos-section">
+    <h2 class="productos-title text-center mb-4">Productos Disponibles</h2>
+    
+    <div class="productos-grid">
+      @for (producto of productos; track producto.id) {
+        <div class="producto-card">
+          <div class="producto-imagen">
+            <img [src]="producto.img" [alt]="producto.nombre">
+          </div>
+          <div class="producto-info">
+            <h3 class="producto-nombre">{{ producto.nombre }}</h3>
+            <p class="producto-categoria">{{ producto.categoria }}</p>
+            @if (producto.descripcion) {
+              <p class="producto-descripcion">{{ producto.descripcion }}</p>
+            }
+            <div class="producto-precio">
+              <span class="precio">${{ producto.precio | number:'1.0-0' }}</span>
+            </div>
+            <button class="btn-agregar">Agregar al carrito</button>
           </div>
         </div>
-
-        <!-- Contenido -->
-        <div class="servicio-contenido">
-          <h5 class="nombre">{{ card.nombre }}</h5>
-          <p class="tipo"><strong>Tipo:</strong> {{ card.tipo }}</p>
-          <p class="servicios"><strong>Servicios:</strong> {{ card.servicios }}</p>
-          <p class="horarios"><strong>Horarios:</strong> {{ card.horarios }}</p>
-          <p class="direccion"><strong>Dirección:</strong> {{ card.direccion }}</p>
-        </div>
-
-      </div>
+      }
     </div>
   </div>
 </div>
