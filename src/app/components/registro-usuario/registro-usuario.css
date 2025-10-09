@@ -1,0 +1,170 @@
+/* --- Variables para colores y fuentes para fácil mantenimiento --- */
+:root {
+  --primary-color: #FF7F50; /* Naranja para el botón */
+  --secondary-color: #5DADE2; /* Azul para el logo y detalles */
+  --background-color: #FFF9F2; /* Crema de fondo */
+  --text-color: #5D6D7E; /* Gris oscuro para texto */
+  --card-background: #FFFFFF;
+  --border-color: #EAECEE;
+  --font-family: 'Nunito', sans-serif; /* Fuente amigable, similar a la del diseño */
+}
+
+/* --- Estilo general del contenedor --- */
+.register-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  font-family: var(--font-family);
+  padding: 2rem;
+  position: relative;
+  overflow: hidden; /* Oculta partes de las formas que se salen */
+}
+
+/* --- Formas decorativas del fondo --- */
+.register-container::before, .register-container::after {
+  content: '';
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.5;
+  z-index: 0;
+}
+
+.register-container::before {
+  width: 300px;
+  height: 300px;
+  background-color: #fce1e1; /* Rosa pálido */
+  top: -100px;
+  left: -100px;
+}
+
+.register-container::after {
+  width: 250px;
+  height: 250px;
+  background-color: #cce7e8; /* Turquesa pálido */
+  bottom: -80px;
+  right: -80px;
+}
+
+/* --- Tarjeta de registro --- */
+.register-card {
+  background-color: var(--card-background);
+  padding: 2.5rem 3rem;
+  border-radius: 25px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+  width: 100%;
+  max-width: 450px;
+  text-align: center;
+  z-index: 1; /* Asegura que la tarjeta esté sobre las formas */
+}
+
+/* --- Encabezado y Logo --- */
+.card-header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+/* --- Cuerpo de la tarjeta --- */
+.card-body h1 {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #34495E;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+}
+
+.dog-illustration {
+  width: 100px;
+  margin-bottom: 2rem;
+}
+
+/* --- Campos del formulario --- */
+.input-group {
+  margin-bottom: 1rem;
+}
+
+.input-group input {
+  width: 100%;
+  padding: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 12px;
+  font-size: 1rem;
+  font-family: var(--font-family);
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.input-group input::placeholder {
+  color: #AEB6BF;
+}
+
+.input-group input:focus {
+  outline: none;
+  border-color: var(--secondary-color);
+  box-shadow: 0 0 0 3px rgba(93, 173, 226, 0.2);
+}
+
+/* --- Requisitos de contraseña --- */
+.password-requirements {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: -0.5rem 0.5rem 1.5rem 0.5rem;
+}
+
+.password-requirements p {
+  font-size: 0.8rem;
+  color: #85929E;
+}
+
+.strength-indicator {
+  background-color: #D4E6F1;
+  color: #2E86C1;
+  font-size: 0.75rem;
+  font-weight: 700;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+}
+
+/* --- Botón de registro --- */
+.register-button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 1rem;
+  background-color: #FF9E57; /* Amarillo-naranja similar al login */
+  color: white;
+  border: 1px solid transparent; /* ← mantiene el espacio del borde */
+  border-radius: 9999px; /* Totalmente redondeado */
+  font-size: 1.1rem;
+  font-weight: bold;
+  font-family: var(--font-family);
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.register-button:hover {
+  background-color: white;
+  color: #FF9E57; /* Invierte los colores al pasar el puntero */
+  border-color: #FF9E57; /* ← solo cambia el color del borde */
+}
+
+/* --- Pie de tarjeta y enlace de login --- */
+.card-footer {
+  margin-top: 2rem;
+  font-size: 0.9rem;
+  color: var(--text-color);
+}
+
+.card-footer a {
+  color: var(--secondary-color);
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.card-footer a:hover {
+  text-decoration: underline;
+}
