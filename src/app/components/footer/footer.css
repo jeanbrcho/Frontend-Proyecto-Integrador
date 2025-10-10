@@ -1,22 +1,113 @@
 .app-footer {
-  width: 100%;
-  position: relative;
-  bottom: 0;
-  left: 0;
+    background-color: #455A64; 
+    color: #FFFFFF;
+    padding-top: 30px;
 }
 
-/* Barra gris superior */
-.footer-top {
-  background-color: #455A64;
-  height: 60px; /* ajusta la altura a tu gusto */
+.footer-container {
+    
+    display: grid;
+    grid-template-columns: 1.5fr 1fr 1fr 1fr 1fr;
+    max-width: 1400px; 
+    margin: 0 10px; 
+    
 }
 
-/* Barra negra inferior con el texto */
+.footer-col {
+    padding: 0 15px;
+}
+
+.footer-col h4 {
+    color: #FF9E57; 
+    font-size: 1.2em;
+    margin-bottom: 10px;
+    font-weight: bold;
+}
+
+.footer-col ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.footer-col ul li {
+    margin-bottom: 10px;
+}
+
+.footer-col a {
+    color: #CCCCCC; 
+    text-decoration: none;
+    font-size: 0.95em;
+    transition: color 0.3s;
+}
+
+.footer-col a:hover {
+    color: #FF9E57; 
+}
+
+
+
+.brand-col .brand-title {
+    color: #FF9E57;
+    font-size: 1.5em;
+    margin-bottom: 10px;
+}
+
+
+.social-links {
+    margin-top: 20px;
+    display: flex;
+    gap: 15px;
+}
+
+.social-links a {
+    font-size: 1.5em;
+    color: #FFFFFF;
+}
+
+
 .footer-bottom {
-  background-color: black;
-  color: white;
-  text-align: center;
-  font-size: 0.7rem;
-  line-height: 0;    /* controla la altura de línea */
-  padding: 1px;   /* apenas espacio arriba/abajo del texto */
+    border-top: 1px solid #455A64; 
+    text-align: center;
+    padding: 5px 0;
+    font-size: 0.8em;
+    
+}
+
+
+.footer-logo {
+    width: 200px;
+    
+}
+
+/* RESPONSIVE * 
+
+/* Tabletas y pantallas medianas */
+@media (max-width: 992px) {
+    .footer-container {
+       grid-template-columns: repeat(2, 1fr);
+        margin: 0 20px;
+    }
+    .footer-col:nth-child(2), 
+    .footer-col:nth-child(4) {
+        margin-top: 40px;
+    }
+}
+
+/* Celulares  */
+@media (max-width: 576px) {
+    .footer-container {
+       grid-template-columns: 1fr;
+        padding-bottom: 20px;
+    }
+    .footer-col {
+        padding: 0 15px;
+        margin-bottom: 30px;
+        border-bottom: 1px dashed #444444; 
+        padding-bottom: 20px;
+    }
+    .footer-col:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+    }
 }
