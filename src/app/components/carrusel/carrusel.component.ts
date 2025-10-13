@@ -11,8 +11,9 @@ import { CommonModule } from '@angular/common';
 export class CarruselComponent {
 
   imagenes: string[] = [                   
-  'peluqueria1.jpg',               
+  'peluqueria9.jpg',               
   'peluqueria2.jpg',
-  'peluqueria3.webp'
+  'peluqueria4.jpeg'
   ];
+
 }
