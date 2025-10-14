@@ -1,10 +1,23 @@
 <div class="container py-4">
+
+  <!-- Filtro por tipo -->
+  <div class="filtro-tipo mb-4">
+    <label for="tipoSelect">Filtrar por tipo:</label>
+    <select id="tipoSelect" class="form-select" [(ngModel)]="filtroTipo">
+      <option value="">Todos</option>
+      <option value="veterinaria">Veterinarias</option>
+      <option value="peluqueria">Peluquerías</option>
+    </select>
+  </div>
+
+  <!-- Cards -->
   <div class="row g-4">
-    <div class="col-md-6" *ngFor="let card of cards">
+    <div class="col-md-6" *ngFor="let card of cardsFiltradas()">
       <div class="card servicio-card shadow-sm">
+        
         <!-- Imagen -->
         <div class="servicio-imagen position-relative">
-          <img [src]="card.imagen" alt="Veterinaria" />
+          <img [src]="card.imagen" alt="{{ card.nombre }}" />
           <div class="favorito">
             <i class="bi bi-star"></i>
           </div>
@@ -13,10 +26,12 @@
         <!-- Contenido -->
         <div class="servicio-contenido">
           <h5 class="nombre">{{ card.nombre }}</h5>
+          <p class="tipo"><strong>Tipo:</strong> {{ card.tipo }}</p>
           <p class="servicios"><strong>Servicios:</strong> {{ card.servicios }}</p>
           <p class="horarios"><strong>Horarios:</strong> {{ card.horarios }}</p>
           <p class="direccion"><strong>Dirección:</strong> {{ card.direccion }}</p>
         </div>
+
       </div>
     </div>
   </div>

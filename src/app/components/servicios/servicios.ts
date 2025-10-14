@@ -1,77 +1,39 @@
-import { Component } from '@angular/core';
+import { Component, OnInit} from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { FormsModule } from '@angular/forms';
+import { Card } from '../models/card.model';
+import { CardsService } from '../services/cards.service';
+import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-servicios',
-  imports: [CommonModule],
+  standalone: true,                
+  imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './servicios.html',
-  styleUrl: './servicios.css'
+  styleUrls: ['./servicios.css']
 })
-export class Servicios {
-    cards = [
-    {
-      nombre: 'Veterinaria Patitas Felices',
-      servicios: 'Consultas, Vacunación, Emergencias',
-      horarios: 'Lunes a Sábado: 9:00 - 20:00',
-      direccion: 'Av. Siempre Viva 123',
-      imagen: 'peluqueria2.jpg'
-    },
-    {
-      nombre: 'Clínica Animalia',
-      servicios: 'Baños, Cirugías, Rayos X',
-      horarios: 'Lunes a Viernes: 8:30 - 18:30',
-      direccion: 'Calle Belgrano 456',
-      imagen: 'peluqueria2.jpg'
-    },
-    {
-      nombre: 'Centro Mascotas',
-      servicios: 'Peluquería, Vacunas, Adopciones',
-      horarios: 'Lunes a Domingo: 10:00 - 19:00',
-      direccion: 'San Martín 789',
-      imagen: 'peluqueria2.jpg'
-    },
-    {
-      nombre: 'Veterinaria Los Andes',
-      servicios: 'Emergencias 24hs, Laboratorio',
-      horarios: 'Todos los días: 24hs',
-      direccion: 'Mitre 234',
-      imagen: 'peluqueria2.jpg'
-    },
-    {
-      nombre: 'Animal World',
-      servicios: 'Consultas, Vacunación, Cirugías menores',
-      horarios: 'Lunes a Sábado: 9:00 - 21:00',
-      direccion: 'Av. Libertad 888',
-      imagen: 'peluqueria2.jpg'
-    },
-    {
-      nombre: 'PetCare',
-      servicios: 'Guardería, Radiología, Vacunación',
-      horarios: 'Lunes a Domingo: 10:00 - 19:00',
-      direccion: 'Calle Rivadavia 555',
-      imagen: 'peluqueria2.jpg'
-    },
-    {
-      nombre: 'Care',
-      servicios: 'Guardería, Radiología, Vacunación',
-      horarios: 'Lunes a Domingo: 10:00 - 19:00',
-      direccion: 'Calle Rivadavia 555',
-      imagen: 'peluqueria2.jpg'
-    },
-    {
-      nombre: 'PetCat',
-      servicios: 'Guardería, Radiología, Vacunación',
-      horarios: 'Lunes a Domingo: 10:00 - 19:00',
-      direccion: 'Calle Rivadavia 555',
-      imagen: 'peluqueria2.jpg'
-    },
-    {
-      nombre: 'Pepito',
-      servicios: 'Guardería, Radiología, Vacunación',
-      horarios: 'Lunes a Domingo: 10:00 - 19:00',
-      direccion: 'Calle Rivadavia 555',
-      imagen: 'peluqueria2.jpg'
-    }
-  ];
+export class Servicios implements OnInit{
+  cards: Card[] = [];
+  filtroTipo: string = '';
 
+  constructor(private cardsService: CardsService) {}
+
+  ngOnInit() {
+    console.log('Servicios ngOnInit'); // esto debe verse
+    this.cardsService.getCards().subscribe({
+      next: cards => {
+        console.log('Cards cargadas:', cards); // esto también debe verse
+        this.cards = cards;
+      },
+      error: err => console.error(err)
+    });
+  }
+
+
+  cardsFiltradas(): Card[] {
+  if (!this.filtroTipo) {
+    return this.cards; // devuelve array
+  }
+  return this.cards.filter((card: Card) => card.tipo === this.filtroTipo); // devuelve array filtrado
+}
 }
