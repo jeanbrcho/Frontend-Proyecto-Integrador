@@ -1,4 +1,4 @@
-import { Component, OnInit} from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { Card } from '../models/card.model';
@@ -7,33 +7,52 @@ import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-servicios',
-  standalone: true,                
+  standalone: true,
   imports: [CommonModule, FormsModule, HttpClientModule],
   templateUrl: './servicios.html',
   styleUrls: ['./servicios.css']
 })
-export class Servicios implements OnInit{
+export class Servicios implements OnInit {
   cards: Card[] = [];
   filtroTipo: string = '';
+  mostrarFavoritos = false;
 
-  constructor(private cardsService: CardsService) {}
+  constructor(private cardsService: CardsService) { }
 
   ngOnInit() {
-    console.log('Servicios ngOnInit'); // esto debe verse
     this.cardsService.getCards().subscribe({
       next: cards => {
-        console.log('Cards cargadas:', cards); // esto también debe verse
         this.cards = cards;
+        this.cargarFavoritos();
+        console.log('Cards cargadas:', this.cards);
       },
       error: err => console.error(err)
     });
   }
 
+  cargarFavoritos() {
+    const favoritos: string[] = JSON.parse(localStorage.getItem('favoritos') || '[]');
+    this.cards.forEach(card => {
+      card.favorito = favoritos.includes(card.nombre);
+    });
+  }
 
   cardsFiltradas(): Card[] {
-  if (!this.filtroTipo) {
-    return this.cards; // devuelve array
+    let resultado = this.filtroTipo ? this.cards.filter(c => c.tipo === this.filtroTipo) : this.cards;
+    if (this.mostrarFavoritos) {
+      resultado = resultado.filter(c => c.favorito);
+    }
+    return resultado;
   }
-  return this.cards.filter((card: Card) => card.tipo === this.filtroTipo); // devuelve array filtrado
-}
+
+  toggleFavorito(card: Card) {
+    card.favorito = !card.favorito;
+    this.guardarFavoritos();
+  }
+
+  guardarFavoritos() {
+    // Guardamos solo los nombres de las cards favoritas
+    const favoritos = this.cards.filter(c => c.favorito).map(c => c.nombre);
+    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  }
 }

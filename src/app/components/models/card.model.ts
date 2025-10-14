@@ -5,4 +5,5 @@ export interface Card {
   horarios: string;
   direccion: string;
   imagen: string;
+  favorito?: boolean;
 }
