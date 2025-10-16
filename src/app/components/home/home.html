@@ -1,0 +1,62 @@
+<div class="home-container">
+
+  <!-- Encabezado con perrito -->
+  <div class="bienvenida">
+    <div class="bienvenida-contenido">
+      <div class="bienvenida-texto">
+        <h2>¡Cuidá y consentí a tu peludo sin complicaciones!</h2>
+      </div>
+      <img src="/perrito.png" alt="Perrito feliz" class="dog-image">
+    </div>
+    <button class="btn-establecimientos">Ir a Establecimientos</button>
+  </div>
+
+  <app-carrusel></app-carrusel>
+
+  <section class="opciones-section">
+    <div class="opcion-card">
+      <img src="/turnos.png" alt="Turnos">
+      <div>
+        <h4>Reservar turnos</h4>
+        <p>Elegí peluquerías o veterinarias y reservá tu turno al instante.</p>
+      </div>
+    </div>
+
+    <div class="opcion-card">
+      <img src="/opiniones.png" alt="Opiniones">
+      <div>
+        <h4>Opiniones y calificaciones</h4>
+        <p>Consultá reseñas de otros clientes antes de elegir.</p>
+      </div>
+    </div>
+
+    <div class="opcion-card">
+      <img src="/catalogo.png" alt="Catálogo">
+      <div>
+        <h4>Catálogo de establecimientos</h4>
+        <p>Explorá todas las peluquerías y veterinarias disponibles cerca tuyo.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Beneficios y Contacto-->
+  <section class="beneficios-section">
+    <div class="contacto">
+      <img src="/contacto.png" alt="Icono perro" class="contacto-dog">
+      <a [routerLink]="['/nosotros']" fragment="contacto" class="btn-contacto">CONTACTANOS</a>
+
+    </div>
+
+    <div class="beneficios-texto">
+      <h3>Beneficios de la app</h3>
+      <ul>
+        <li><i class="fa-solid fa-paw fa-xl" style="color: #74C0FC;"></i> Todo en un solo lugar: peluquerías,
+          veterinarias y turnos.</li>
+        <li><i class="fa-solid fa-paw fa-xl" style="color: #74C0FC;"></i> Ahorrá tiempo y organizá mejor tus visitas.
+        </li>
+        <li><i class="fa-solid fa-paw fa-xl" style="color: #74C0FC;"></i> Promociones y novedades exclusivas para tu
+          mascota.</li>
+      </ul>
+    </div>
+  </section>
+</div>

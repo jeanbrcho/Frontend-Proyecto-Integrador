@@ -1,0 +1,243 @@
+/* ============================
+   Sobre Nosotros
+============================ */
+body {
+  background-color: #fff7ec;
+}
+
+.nosotros-container {
+  padding: 40px 20px 20px 20px;
+  display: flex;
+  justify-content: center; /* centra horizontalmente */
+}
+
+.nosotros-contenido {
+  display: flex;
+  align-items: flex-start; /* bloque pegado arriba */
+  gap: 40px;
+  max-width: 1000px;
+  width: 100%;
+}
+
+.nosotros-texto {
+  flex: 1;
+  text-align: left;
+}
+
+.nosotros-texto h1 {
+  font-size: 28px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+.nosotros-texto p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+.nosotros-img {
+  flex: 1;
+  max-width: 250px;
+  height: auto;
+}
+
+/* ============================
+   Equipo
+============================ */
+.equipo-seccion {
+  text-align: center;
+  margin: 60px 20px 20px 20px;
+}
+
+.equipo-titulo {
+  display: flex;
+  align-items: center; /* centra verticalmente H1 e icono */
+  justify-content: center; /* centra todo horizontalmente */
+  gap: 15px; /* espacio entre H1 e icono */
+  margin-bottom: 20px;
+}
+
+.equipo-titulo h1 {
+  font-size: 28px;
+  color: #333;
+  margin: 0;
+}
+
+.icono-nos {
+  max-width: 50px; /* tamaño del icono */
+  height: auto;
+}
+
+.equipo-container {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1000px;
+  margin: 40px auto 0 auto; /* separado un poco de la sección anterior */
+  padding: 0 20px;
+}
+
+/* Tarjeta de miembro */
+.miembro-card {
+  /* tamaños definidos en responsive */
+}
+
+.miembro-card img {
+  /* tamaños definidos en responsive */
+}
+
+.miembro-card h4 {
+  /* tamaños definidos en responsive */
+}
+
+.miembro-card p {
+  /* tamaños definidos en responsive */
+}
+
+/* ============================
+   Contacto (dos columnas)
+============================ */
+.contacto-container {
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 40px;
+  max-width: 1000px;
+  margin: 40px auto;
+  padding: 0 20px;
+}
+
+.contacto-izquierda,
+.contacto-derecha {
+  flex: 1;
+}
+
+.contacto-izquierda h2,
+.contacto-derecha h2 {
+  font-size: 28px;
+  color: #333;
+  margin-bottom: 10px;
+}
+
+.contacto-izquierda p,
+.contacto-derecha p {
+  font-size: 18px;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* ============================
+   Responsive
+============================ */
+@media (max-width: 768px) {
+
+  /* Sobre Nosotros */
+  .nosotros-contenido {
+    flex-direction: column;
+    text-align: center;
+    align-items: center;
+  }
+
+  .nosotros-texto {
+    text-align: center;
+  }
+
+  .nosotros-img {
+    max-width: 180px;
+    margin-top: 20px;
+  }
+
+  .nosotros-texto h1 {
+    font-size: 24px;
+  }
+
+  .nosotros-texto p {
+    font-size: 16px;
+  }
+
+  /* Equipo */
+  .equipo-container {
+    justify-content: center;
+  }
+
+  .miembro-card {
+    width: 120px;
+  }
+
+  .miembro-card img {
+    width: 60px;
+    height: 60px;
+  }
+
+  .miembro-card h4 {
+    font-size: 14px;
+  }
+
+  .miembro-card p {
+    font-size: 12px;
+  }
+
+  /* Contacto */
+  .contacto-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .contacto-izquierda,
+  .contacto-derecha {
+    width: 100%;
+  }
+
+  .contacto-izquierda h2,
+  .contacto-derecha h2 {
+    font-size: 24px;
+  }
+
+  .contacto-izquierda p,
+  .contacto-derecha p {
+    font-size: 16px;
+  }
+}
+
+@media (max-width: 480px) {
+
+  /* Sobre Nosotros */
+  .nosotros-texto h1 {
+    font-size: 20px;
+  }
+
+  .nosotros-texto p {
+    font-size: 14px;
+  }
+
+  .nosotros-img {
+    max-width: 150px;
+  }
+
+  /* Equipo */
+  .miembro-card img {
+    width: 50px;
+    height: 50px;
+  }
+
+  .miembro-card h4 {
+    font-size: 12px;
+  }
+
+  .miembro-card p {
+    font-size: 10px;
+  }
+
+  /* Contacto */
+  .contacto-izquierda h2,
+  .contacto-derecha h2 {
+    font-size: 20px;
+  }
+
+  .contacto-izquierda p,
+  .contacto-derecha p {
+    font-size: 14px;
+  }
+}

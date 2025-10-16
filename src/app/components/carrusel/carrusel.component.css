@@ -1,0 +1,95 @@
+/* ==== Contenedor del carrusel ==== */
+#carouselExampleAutoplaying {
+  position: relative;
+  max-width: 80%;      
+  margin: 20px auto;   
+  border-radius: 12px;
+  overflow: hidden;
+  background-color: #FFF8E7; /* fondo claro de la paleta */
+  box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+}
+
+/* ==== Imágenes ==== */
+#carouselExampleAutoplaying .carousel-item img {
+  height: 600px;
+  object-fit: cover;
+  filter: brightness(0.9);
+  position: relative;
+  z-index: 1; /* encima del overlay */
+}
+
+/* ==== Overlay sobre las imágenes ==== */
+#carouselExampleAutoplaying .carousel-item::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: linear-gradient(to bottom, rgba(69,90,100,0.5), rgba(255,158,87,0.2));
+  z-index: 0; /* debajo de la imagen y texto */
+}
+
+/* ==== Flechas de navegación ==== */
+#carouselExampleAutoplaying .carousel-control-prev,
+#carouselExampleAutoplaying .carousel-control-next {
+  width: 5%;
+  z-index: 3; /* encima del overlay */
+}
+
+#carouselExampleAutoplaying .carousel-control-prev-icon,
+#carouselExampleAutoplaying .carousel-control-next-icon {
+  background-size: 100% 100%;
+  filter: drop-shadow(0 0 5px #455A64) invert(1);
+}
+
+/* ==== Indicadores ==== */
+.carousel-indicators button {
+  background-color: #455A64;
+  border: 1px solid #455A64;
+}
+.carousel-indicators .active {
+  background-color: #FF9E57; /* acento naranja */
+}
+
+/* ==== Texto sobre las imágenes ==== */
+.carousel-caption {
+  z-index: 2; /* encima del overlay */
+  background: rgba(69,90,100,0.5); /* semitransparente */
+  backdrop-filter: blur(4px);
+  padding: 10px 20px;
+  border-radius: 8px;
+  bottom: 60px; /* se separa de los indicadores */
+  color: #FFF8E7;
+}
+
+.carousel-caption h5 {
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.5);
+}
+
+.carousel-caption p {
+  color: #FFF8E7;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
+}
+
+/* ==== Encabezado (título + logo) ==== */
+.carousel-header {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  margin-bottom: 10px;
+  gap: 15px;
+  position: relative;
+}
+
+.header-logo {
+  height: 50px;
+  width: auto;
+}
+
+.header-title {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: #455A64; /* azul grisáceo */
+  text-shadow: 1px 1px 3px rgba(0,0,0,0.2);
+}
+
