@@ -1,0 +1,114 @@
+.servicio-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  overflow: hidden;
+  padding: 20;
+  display: flex;
+  flex-direction: row; /* horizontal */
+  align-items: stretch;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.servicio-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+/* Imagen flexible */
+.servicio-imagen {
+  flex-shrink: 0;
+  width: 60%; /* ocupa 60% del ancho total de la card */
+  max-width: 600px; /* no crece más de 600px */
+  height: auto;
+  position: relative;
+}
+
+.servicio-imagen img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 12px 0 0 12px;
+}
+
+/* Estrella */
+.favorito {
+  position: absolute;
+  top: 270px;
+  right: 320px;
+  font-size: 1.5rem; /* tamaño de la estrella */
+  cursor: pointer;
+  color: white;       /* color por defecto sobre la imagen */
+}
+
+/* Contenido */
+.servicio-contenido {
+  flex-grow: 1; /* ocupa todo el espacio restante */
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.nombre {
+  font-weight: 700;
+  font-size: 1.5rem;
+  margin-bottom: 10px;
+}
+
+.servicios,
+.horarios,
+.direccion {
+  font-size: 1.1rem;
+  color: #555;
+  margin-bottom: 8px;
+}
+
+/* Contenedor del filtro */
+.filtro-tipo {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Label del select */
+.filtro-tipo label {
+  font-weight: 500;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+/* Select */
+.filtro-tipo select {
+  padding: 6px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.filtro-tipo select:focus {
+  border-color: #029cdc; /* color celeste principal */
+  box-shadow: 0 0 5px rgba(2, 156, 220, 0.5);
+}
+
+
+/* Responsive: vertical en pantallas pequeñas */
+@media (max-width: 992px) {
+  .servicio-card {
+    flex-direction: column;
+  }
+
+  .servicio-imagen {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+  }
+
+  .servicio-imagen img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+  }
+}

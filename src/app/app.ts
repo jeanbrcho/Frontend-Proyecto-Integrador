@@ -4,8 +4,6 @@ import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { Perrito } from "./components/perrito/perrito";
 
-
-
 @Component({
   selector: 'app-root',
   imports: [RouterOutlet, Header, Footer, Perrito],
