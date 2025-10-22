@@ -147,11 +147,15 @@
         <button
           type="submit"
           class="register-button"
-          [disabled]="registerForm.invalid"
+          [disabled]="registerForm.invalid || cargando"
         >
-          Registrarme 🐾
+          {{ cargando ? 'Registrando...' : 'Registrarme 🐾' }}
         </button>
+
       </form>
+
+      <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+
     </main>
     <footer class="card-footer">
       <p>¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión aquí.</a></p>
