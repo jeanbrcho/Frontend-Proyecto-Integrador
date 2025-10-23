@@ -1,0 +1,77 @@
+.user-profile-card {
+    
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    
+   
+    width: 90%;
+    max-width: 500px; 
+    margin: 50px auto; 
+    padding: 40px;
+    border: 1px solid #ddd;
+    border-radius: 12px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: #ffffff;
+    text-align: center;
+}
+
+
+.user-profile-card h2 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 1.8em;
+    font-weight: 600;
+    border-bottom: 2px solid #ffcc00; 
+    padding-bottom: 10px;
+}
+
+.logout-btn {
+    
+    border: none;
+    cursor: pointer;
+       background-color: #ff4d4d; 
+    color: white;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 10px 25px;
+    border-radius: 6px;
+    margin-top: 20px;
+    
+   
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.logout-btn:hover {
+    background-color: #e60000; 
+}
+
+.logout-btn:active {
+   
+    transform: scale(0.98); 
+}
+
+
+/* RESPONSIVE 
+ */
+@media (max-width: 576px) {
+    .user-profile-card {
+        margin: 20px auto;
+        padding: 20px; 
+        border-radius: 8px; 
+          box-shadow: none; 
+    }
+
+    .user-profile-card h2 {
+        font-size: 1.4em; 
+        margin-bottom: 20px;
+    }
+
+    .logout-btn {
+       
+        width: 100%;
+        padding: 12px 0;
+        font-size: 1.1em;
+    }
+}
