@@ -25,7 +25,7 @@
       "servicios": "Urgencias, vacunas, peluquería",
       "horarios": "Lun a Vie 8-20",
       "direccion": "Av. Las Flores 789",
-      "imagen": "peluqueria1.jpg"
+      "imagen": "peluqueria8.webp"
     },
     {
       "id": 4,
@@ -34,7 +34,7 @@
       "servicios": "Cortes, baños, estética avanzada",
       "horarios": "Mar a Sab 10-18",
       "direccion": "Calle 123 456",
-      "imagen": "peluqueria2.jpg"
+      "imagen": "peluqueria5.webp"
     },
     {
       "id": 5,
@@ -43,7 +43,7 @@
       "servicios": "Consultas generales y cirugías",
       "horarios": "Lun a Vie 9-17",
       "direccion": "Calle Primavera 321",
-      "imagen": "peluqueria1.jpg"
+      "imagen": "peluqueria7.webp"
     },
     {
       "id": 6,

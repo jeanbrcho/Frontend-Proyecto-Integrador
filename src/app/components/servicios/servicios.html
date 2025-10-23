@@ -10,9 +10,7 @@
     </select>
   </div>
 
-  <button 
-    class="btn btn-warning mb-3"
-    (click)="mostrarFavoritos = !mostrarFavoritos">
+  <button class="btn btn-warning mb-3" (click)="mostrarFavoritos = !mostrarFavoritos">
     <i class="fa" [ngClass]="mostrarFavoritos ? 'fa-solid fa-star' : 'fa-regular fa-star'"></i>
     {{ mostrarFavoritos ? 'Mostrar todos' : 'Mostrar favoritos' }}
   </button>
@@ -25,9 +23,6 @@
         <!-- Imagen -->
         <div class="servicio-imagen position-relative">
           <img [src]="card.imagen" alt="{{ card.nombre }}" />
-          <div class="favorito" (click)="toggleFavorito(card)">
-            <i class="fa" [ngClass]="card.favorito ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star'"></i>
-          </div>
         </div>
 
         <!-- Contenido -->
@@ -37,6 +32,11 @@
           <p class="servicios"><strong>Servicios:</strong> {{ card.servicios }}</p>
           <p class="horarios"><strong>Horarios:</strong> {{ card.horarios }}</p>
           <p class="direccion"><strong>Dirección:</strong> {{ card.direccion }}</p>
+          <a [routerLink]="['/turno']" class="turno">Sacar Turno</a>
+        </div>
+
+        <div class="favorito" (click)="toggleFavorito(card)">
+          <i class="fa" [ngClass]="card.favorito ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star'"></i>
         </div>
 
       </div>
