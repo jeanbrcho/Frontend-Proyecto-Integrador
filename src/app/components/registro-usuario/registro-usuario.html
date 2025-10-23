@@ -1,41 +1,162 @@
 <div class="register-container">
   <div class="register-card">
-
     <main class="card-body">
-      <h1>¡Únete a la familia <br>Guau que corte!</h1>
-      <img class="dog-illustration" src="perrito-registro.png" alt="Ilustración de un perro amigable">
+      <h1>¡Únete a la familia <br />Guau que corte!</h1>
+      <img
+        class="dog-illustration"
+        src="perrito-registro.png"
+        alt="Ilustración de un perro amigable"
+      />
 
-      <form>
+      <form [formGroup]="registerForm" (ngSubmit)="onSubmit()">
+        <!-- Campo Nombre con la llamada a la función corregida -->
         <div class="input-group">
-          <input type="text" placeholder="Nombre" required>
+          <input
+            type="text"
+            placeholder="Nombre"
+            required
+            formControlName="nombre"
+            (input)="cleanInput('nombre', letrasRegex)"
+          />
+          <div
+            *ngIf="nombre?.invalid && (nombre?.dirty || nombre?.touched)"
+            class="error-message"
+          >
+            <div *ngIf="nombre?.errors?.['required']">
+              El nombre es requerido.
+            </div>
+            <div *ngIf="nombre?.errors?.['minlength']">
+              Mínimo 2 caracteres.
+            </div>
+            <div *ngIf="nombre?.errors?.['maxlength']">
+              Máximo 50 caracteres.
+            </div>
+            <div *ngIf="nombre?.errors?.['pattern']">
+              Solo se permiten letras y espacios.
+            </div>
+          </div>
         </div>
-
+        <!-- Campo Apellido con la llamada a la función corregida -->
         <div class="input-group">
-          <input type="text" placeholder="Apellido" required>
+          <input
+            type="text"
+            placeholder="Apellido"
+            required
+            formControlName="apellido"
+            (input)="cleanInput('apellido', letrasRegex)"
+          />
+          <div
+            *ngIf="apellido?.invalid && (apellido?.dirty || apellido?.touched)"
+            class="error-message"
+          >
+            <div *ngIf="apellido?.errors?.['required']">
+              El apellido es requerido.
+            </div>
+            <div *ngIf="apellido?.errors?.['minlength']">
+              Mínimo 2 caracteres.
+            </div>
+            <div *ngIf="apellido?.errors?.['maxlength']">
+              Máximo 50 caracteres.
+            </div>
+            <div *ngIf="apellido?.errors?.['pattern']">
+              Solo se permiten letras y espacios.
+            </div>
+          </div>
         </div>
-
+        <!-- Campo DNI con la llamada a la función corregida -->
         <div class="input-group">
-          <input type="text" placeholder="DNI" required>
+          <input
+            type="text"
+            placeholder="DNI"
+            required
+            formControlName="dni"
+            (input)="cleanInput('dni', numerosRegex)"
+          />
+          <div
+            *ngIf="dni?.invalid && (dni?.dirty || dni?.touched)"
+            class="error-message"
+          >
+            <div *ngIf="dni?.errors?.['required']">El DNI es requerido.</div>
+            <div *ngIf="dni?.errors?.['minlength']">Mínimo 7 caracteres.</div>
+            <div *ngIf="dni?.errors?.['maxlength']">Máximo 10 caracteres.</div>
+            <div *ngIf="dni?.errors?.['pattern']">
+              Solo se permiten números.
+            </div>
+          </div>
         </div>
-
         <div class="input-group">
-          <input type="email" placeholder="Correo Electrónico" required>
+          <input
+            type="email"
+            placeholder="Correo Electrónico"
+            required
+            formControlName="email"
+          />
+          <div
+            *ngIf="email?.invalid && (email?.dirty || email?.touched)"
+            class="error-message"
+          >
+            <div *ngIf="email?.errors?.['required']">
+              El correo es requerido.
+            </div>
+            <div *ngIf="email?.errors?.['email']">
+              El formato del correo no es válido.
+            </div>
+          </div>
         </div>
-
         <div class="input-group">
-          <input type="password" placeholder="Crea tu Contraseña" required>
+          <input
+            type="password"
+            placeholder="Crea tu Contraseña"
+            required
+            formControlName="password"
+          />
+          <div
+            *ngIf="password?.invalid && (password?.dirty || password?.touched)"
+            class="error-message"
+          >
+            <div *ngIf="password?.errors?.['required']">
+              La contraseña es requerida.
+            </div>
+            <div *ngIf="password?.errors?.['minlength']">
+              Mínimo 8 caracteres.
+            </div>
+          </div>
         </div>
-
         <div class="input-group">
-          <input type="password" placeholder="Repite tu Contraseña" required>
+          <input
+            type="password"
+            placeholder="Repite tu Contraseña"
+            required
+            formControlName="confirmPassword"
+          />
+          <div
+            *ngIf="confirmPassword?.invalid && (confirmPassword?.dirty || confirmPassword?.touched)"
+            class="error-message"
+          >
+            <div *ngIf="confirmPassword?.errors?.['required']">
+              Debes repetir la contraseña.
+            </div>
+          </div>
+          <div
+            *ngIf="registerForm.errors?.['passwordMismatch'] && confirmPassword?.touched"
+            class="error-message"
+          >
+            Las contraseñas no coinciden.
+          </div>
         </div>
-
-        <button type="submit" class="register-button">
-          Registrarme 🐾
+        <button
+          type="submit"
+          class="register-button"
+          [disabled]="registerForm.invalid || cargando"
+        >
+          {{ cargando ? 'Registrando...' : 'Registrarme 🐾' }}
         </button>
-      </form>
-    </main>
 
+      </form>
+
+      <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+
+    </main>
     <footer class="card-footer">
       <p>¿Ya tienes cuenta? <a routerLink="/login">Inicia sesión aquí.</a></p>
     </footer>
