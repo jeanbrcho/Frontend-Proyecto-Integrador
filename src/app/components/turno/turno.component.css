@@ -1,0 +1,53 @@
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+  background-color: #f0f8ff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+}
+
+.fun-container {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+}
+
+.speech-bubble {
+  background: #ffb703;
+  color: #03466F;
+  font-weight: bold;
+  font-size: 1.5rem;
+  padding: 20px 25px;
+  border-radius: 25px;
+  position: relative;
+}
+
+.speech-bubble::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: -20px;
+  transform: translateY(-50%);
+  border: 10px solid transparent;
+  border-right-color: #ffb703;
+}
+
+.bouncy {
+  width: 150px;
+  border-radius: 12px;
+  animation: bounce 1.5s infinite;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+@media (max-width: 600px) {
+  .fun-container {
+    flex-direction: column;
+    text-align: center;
+  }
+}
