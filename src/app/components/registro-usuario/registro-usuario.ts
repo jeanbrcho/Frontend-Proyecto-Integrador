@@ -85,11 +85,14 @@ export class RegistroUsuario implements OnInit {
 
     this.userService.registerUser(payload).subscribe({
       next: (res) => {
-        // backend devuelve: { status, message, data }
-        this.mensaje = res?.message || 'Registro exitoso';
-        this.registerForm.reset({ rol: 'user' });
-        this.cargando = false;
-      },
+      // backend devuelve: { status, message, data }
+      this.mensaje = res?.message || 'Registro exitoso';
+      this.registerForm.reset({ rol: 'user' });
+      this.cargando = false;
+
+      // Mostrar alerta flotante
+      this.showAlert = true;
+    },
       error: (err) => {
         console.error('Error al registrar usuario:', err);
         if (err?.error?.message) {
@@ -101,5 +104,13 @@ export class RegistroUsuario implements OnInit {
       }
     });
   }
+
+  closeAlert() {
+    this.showAlert = false;
+  }
+  goToLogin() {
+    this.router.navigate(['/login']);
+  }
+
 
 }
