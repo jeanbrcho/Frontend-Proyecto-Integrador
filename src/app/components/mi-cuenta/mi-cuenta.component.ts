@@ -41,7 +41,9 @@ export class MiCuentaComponent {
       //el complete solamente pasa si la respuesta es exitosa
       complete: () => {
         console.log('Petición de profile completada');
-        this.loading = false
+        setTimeout(() => {
+          this.loading = false
+        }, 400);
       }
     });
   }
