@@ -11,11 +11,17 @@ export interface LoginRequest {
 }
 
 
+
 export interface AuthResponse {
-  token: string;
+  status: string,
+  message: string
+  data: {
+    user: any,
+    token: string
+  }
 }
 
-interface IResponse {
+interface IResponseProfile {
   status: string,
   message: string
   data?: IProfile
@@ -35,7 +41,7 @@ export class AuthService {
   login(credenciales: LoginRequest): Observable<AuthResponse> {
     return this.http.post<AuthResponse>(this.loginUrl, credenciales).pipe(
       tap(response => {
-        this.saveToken(response.token);
+        this.saveToken(response?.data?.token ?? '');
       })
     );
   }
@@ -53,17 +59,17 @@ export class AuthService {
 
 
   logout(): void {
-
     localStorage.clear();
-
-
     this.router.navigateByUrl('/login');
   }
-  userProfile(): Observable<IProfile> {
-    const urlProfile = `${this.baseUrl}/users`;
+
+  userProfile(): Observable<IResponseProfile> {
+    const urlProfile = `${this.baseUrl}/auth/profile`;
+    console.log(localStorage.getItem('auth_token'))
     const headers = {
       Authorization: `Bearer ${localStorage.getItem('auth_token')}`, //el token se envía en el header
     };
-    return this.http.get<IProfile>(urlProfile , {headers});
+    return this.http.get<IResponseProfile>(urlProfile, { headers });
   }
+
 }

@@ -1,9 +1,29 @@
 <div class="user-profile-card">
-    <h2>PERFIL EN CONSTRUCCIÓN</h2>
-    <button (click)="onLogoutClick()" class="logout-btn">
+  <h2 class="profile-title">TU PERFIL</h2>
+
+  @if (loading) {
+    <div class="loading-container">
+      <div class="spinner"></div>
+      <p>Cargando tu información...</p>
+    </div>
+  }
+
+  @if (!loading) {
+    <div class="profile-info">
+      <p class="profile-item">{{ userProfile?.name }}</p>
+      <p class="profile-item">{{ userProfile?.lastname }}</p>
+      <p class="profile-item">{{ userProfile?.dni }}</p>
+      <p class="profile-item">{{ userProfile?.email }}</p>
+    </div>
+
+    <div class="profile-actions">
+      <button (click)="editProfile()" class="edit-btn">
+        Editar Perfil
+      </button>
+
+      <button (click)="onLogoutClick()" class="logout-btn">
         Cerrar Sesión
-    </button>
-    <button (click)="consolaProfile()"> 
-        consola
-    </button>
+      </button>
+    </div>
+  }
 </div>

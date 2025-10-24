@@ -4,7 +4,7 @@ export interface IProfile {
     lastname: string;
     dni: string;
     email: string;
-    rol: string;
-    iat: number;
-    exp: number;
+    rol?: string;
+    iat?: number;
+    exp?: number;
 }

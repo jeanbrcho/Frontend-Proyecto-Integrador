@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../../service/auth.service';
+import { IProfile } from '../../interfaces/ProfileInterface';
 
 @Component({
   selector: 'app-mi-cuenta',
@@ -10,24 +11,43 @@ import { AuthService } from '../../service/auth.service';
 })
 export class MiCuentaComponent {
 
+  userProfile?: IProfile; // aquí guardamos la info del usuario
+  loading: boolean = false
+
   constructor(private authService: AuthService) { }
 
-  onLogoutClick(): void {
-    this.authService.logout();
+  ngOnInit(): void {
+    this.loadUserProfile();
   }
 
-  consolaProfile(): void {
-    this.authService.userProfile().subscribe(({
+  onLogoutClick(): void {
+    setTimeout(()=>{
+      this.authService.logout();
+    },450)
+  }
+
+
+  loadUserProfile(): void {
+    this.loading = true
+    this.authService.userProfile().subscribe({
       next: (response) => {
-        console.log(response);
+        this.userProfile = response.data; // guardamos el profile
+        console.log('Profile cargado:', this.userProfile);
       },
-      error: (err) =>{
-        console.log(err);
+      error: (err) => {
+        console.error('Error al cargar profile', err);
+        this.loading = false
       },
+      //el complete solamente pasa si la respuesta es exitosa
       complete: () => {
-        console.log('complete');
+        console.log('Petición de profile completada');
+        this.loading = false
       }
-    }))
+    });
+  }
+
+  editProfile():void{
+    console.log("metodo editar proximamente")
   }
 
 }
