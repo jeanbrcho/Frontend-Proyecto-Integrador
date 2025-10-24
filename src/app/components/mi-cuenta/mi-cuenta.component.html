@@ -1,29 +1,59 @@
-<div class="user-profile-card">
-  <h2 class="profile-title">TU PERFIL</h2>
+<div class="profile-layout">
+    
+    <div class="main-content">
+        <div class="user-profile-card">
+            <h2 class="profile-title">TU PERFIL</h2>
 
-  @if (loading) {
-    <div class="loading-container">
-      <div class="spinner"></div>
-      <p>Cargando tu información...</p>
+            @if (loading) {
+                <div class="loading-container">
+                    <div class="spinner"></div>
+                    <p>Cargando tu información...</p>
+                </div>
+            }
+
+            @if (!loading) {
+                <div class="profile-info">
+                    <div class="data-item">
+                        <label class="item-label">Nombre:</label>
+                        <p class="profile-item">{{ userProfile?.name }}</p>
+                    </div>
+                    <div class="data-item">
+                        <label class="item-label">Apellido:</label>
+                        <p class="profile-item">{{ userProfile?.lastname }}</p>
+                    </div>
+                    <div class="data-item">
+                        <label class="item-label">DNI:</label>
+                        <p class="profile-item">{{ userProfile?.dni }}</p>
+                    </div>
+                    <div class="data-item">
+                        <label class="item-label">Email:</label>
+                        <p class="profile-item profile-email">{{ userProfile?.email }}</p>
+                    </div>
+                </div>
+                
+
+                <div class="profile-actions">
+                    <button (click)="editProfile()" class="edit-btn">
+                        Editar Perfil
+                    </button>
+                    <button (click)="onLogoutClick()" class="logout-btn">
+                        Cerrar Sesión
+                    </button>
+                </div>
+            }
+        </div>
+        </div>
+
+    <div class="sidebar">
+        <div class="sidebar-module">
+            <h3>🐾 Mis Turnos</h3>
+            <p>Ver mis próximas citas</p>
+        </div>
+        
+        <div class="sidebar-module">
+            <h3>⭐ Favoritos</h3>
+            <p>Veterinarias y profesionales que más visito</p>
+        </div>
     </div>
-  }
 
-  @if (!loading) {
-    <div class="profile-info">
-      <p class="profile-item">{{ userProfile?.name }}</p>
-      <p class="profile-item">{{ userProfile?.lastname }}</p>
-      <p class="profile-item">{{ userProfile?.dni }}</p>
-      <p class="profile-item">{{ userProfile?.email }}</p>
-    </div>
-
-    <div class="profile-actions">
-      <button (click)="editProfile()" class="edit-btn">
-        Editar Perfil
-      </button>
-
-      <button (click)="onLogoutClick()" class="logout-btn">
-        Cerrar Sesión
-      </button>
-    </div>
-  }
 </div>
