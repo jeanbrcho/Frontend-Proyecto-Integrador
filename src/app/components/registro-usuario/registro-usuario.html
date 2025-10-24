@@ -154,7 +154,18 @@
 
       </form>
 
-      <p *ngIf="mensaje" class="mensaje">{{ mensaje }}</p>
+      <!-- Alerta flotante -->
+      <div *ngIf="showAlert" class="success-alert">
+        <div class="alert-content">
+          <button class="close-btn" (click)="closeAlert()">×</button>
+          <img src="/perrito-exitoso.png" alt="Perrito feliz" class="alert-dog" />
+          <h2>¡Registro exitoso! 🐾</h2>
+          <p>Tu cuenta fue creada correctamente.</p>
+          <button (click)="goToLogin()" class="alert-button login-btn">Iniciar sesión</button>
+        </div>
+      </div>
+
+
 
     </main>
     <footer class="card-footer">
