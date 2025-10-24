@@ -4,11 +4,12 @@ import { FormsModule } from '@angular/forms';
 import { Card } from '../models/card.model';
 import { CardsService } from '../services/cards.service';
 import { HttpClientModule } from '@angular/common/http';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-servicios',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule],
+  imports: [CommonModule, FormsModule, HttpClientModule, RouterLink],
   templateUrl: './servicios.html',
   styleUrls: ['./servicios.css']
 })

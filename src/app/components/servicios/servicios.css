@@ -32,12 +32,11 @@
 
 /* Estrella */
 .favorito {
-  position: absolute;
-  top: 270px;
-  right: 320px;
-  font-size: 1.5rem; /* tamaño de la estrella */
-  cursor: pointer;
-  color: white;       /* color por defecto sobre la imagen */
+ margin-top: 20px;  /* separa la estrella del contenido */
+  font-size: 2rem;
+  color: gold;
+  text-align: center; /* centrada */
+  cursor: pointer;    /* color por defecto sobre la imagen */
 }
 
 /* Contenido */
@@ -93,6 +92,21 @@
   box-shadow: 0 0 5px rgba(2, 156, 220, 0.5);
 }
 
+.turno {
+  text-decoration: none;
+  background: #ff9e57;
+  color: white;
+  border: none;
+  padding: 12px 25px;
+  border-radius: 25px;
+  font-weight: bold;
+  cursor: pointer;
+  font-size: large;
+}
+
+.turno:hover {
+  background: #d9762c;
+}
 
 /* Responsive: vertical en pantallas pequeñas */
 @media (max-width: 992px) {
