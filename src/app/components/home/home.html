@@ -1,62 +1,121 @@
-<div class="home-container">
-
-  <!-- Encabezado con perrito -->
-  <div class="bienvenida">
-    <div class="bienvenida-contenido">
-      <div class="bienvenida-texto">
-        <h2>¡Cuidá y consentí a tu peludo sin complicaciones!</h2>
-      </div>
-      <img src="/perrito.png" alt="Perrito feliz" class="dog-image">
-    </div>
-    <button class="btn-establecimientos" routerLink="/servicios">Ir a Establecimientos</button>
+<section class="hero">
+  <div class="hero-content">
+    <h2>Bienvenidos a <span>Guau que Corte</span></h2>
+    <p>
+      ¡Cuidá y consentí a tu peludo sin complicaciones!
+    </p>
+    <a [routerLink]="['/servicios']" class="hero-btn">Ir a Establecimientos</a>
   </div>
 
-  <app-carrusel></app-carrusel>
+  <div class="hero-image">
+    <img src="banner3.png" alt="Perrito feliz">
+  </div>
+</section>
 
-  <section class="opciones-section">
-    <div class="opcion-card">
-      <img src="/turnos.png" alt="Turnos">
-      <div>
-        <h4>Reservar turnos</h4>
-        <p>Elegí peluquerías o veterinarias y reservá tu turno al instante.</p>
+<section class="veterinarias">
+  <h2>Veterinarias recomendadas</h2>
+  <div class="stars">
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+    <i class="fa-solid fa-star"></i>
+  </div>
+</section>
+
+<app-carrusel></app-carrusel>
+
+<section class="info-section">
+  <div class="container">
+    <div class="row align-items-center">
+
+      <!-- Texto con logos -->
+      <div class="col-md-6 info-text">
+        <h2>Descubrí nuestros servicios</h2>
+        <ul>
+          <li>
+            <div class="info-item">
+              <img src="icono1.png" alt="Reservar Turnos" class="info-icon">
+              <div>
+                <h4>Reservar turnos</h4>
+                <p>Elige la peluquería o veterinaria y reserva tu turno en minutos.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="info-item">
+              <img src="icono2.png" alt="Opiniones" class="info-icon">
+              <div>
+                <h4>Opiniones y calificaciones</h4>
+                <p>Consulta reseñas de otros clientes antes de elegir.</p>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="info-item">
+              <img src="icono3.png" alt="Catálogo" class="info-icon">
+              <div>
+                <h4>Catálogo de establecimientos</h4>
+                <p>Explora todas las peluquerías y veterinarias disponibles cerca tuyo.</p>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- Imagen a la derecha -->
+      <div class="col-md-6 text-center">
+        <img src="home3.jpg" alt="Peluquería y Veterinaria" class="info-img">
+      </div>
+
+    </div>
+  </div>
+</section>
+
+
+<section class="cards-section">
+  <h2>Descubrí nuestros servicios</h2>
+  <div class="container text-center">
+    <div class="row justify-content-center">
+
+      <div class="col-md-3 card-item">
+        <div class="circle">
+          <img src="icono4.png" alt="Logo 1">
+        </div>
+        <h3>Todo en un solo lugar: peluquerías, veterinarias y turnos.</h3>
+      </div>
+
+      <div class="col-md-3 card-item">
+        <div class="circle">
+          <img src="icono5.png" alt="Logo 2">
+        </div>
+        <h3>Ahorra tiempo y organiza mejor tus visitas.</h3>
+      </div>
+
+      <div class="col-md-3 card-item">
+        <div class="circle">
+          <img src="icono6.png" alt="Logo 3">
+        </div>
+        <h3>Promociones y novedades exclusivas para tu mascota.</h3>
       </div>
     </div>
+  </div>
+</section>
 
-    <div class="opcion-card">
-      <img src="/opiniones.png" alt="Opiniones">
-      <div>
-        <h4>Opiniones y calificaciones</h4>
-        <p>Consultá reseñas de otros clientes antes de elegir.</p>
-      </div>
+<!-- Beneficios y Contacto-->
+<section class="beneficios-section">
+  <div class="contacto">
+    <img src="/sin fondo miau.png" alt="Icono perro" class="contacto-dog">
+    <a [routerLink]="['/nosotros']" fragment="contacto" class="btn-contacto">CONTACTANOS</a>
+  </div>
+</section>
+
+<section class="seccion-auspiciantes">
+    <h2 class="titulo-auspiciantes">Empresas que confian en nosotros</h2>
+    <div class="contenedor-logos">
+        <img src="auspiciante.png" alt="Auspiciante 1" class="logo-auspiciante">
+        <img src="auspiciante2.png" alt="Auspiciante 2" class="logo-auspiciante">
+        <img src="auspiciante.png" alt="Auspiciante 3" class="logo-auspiciante">
+        <img src="auspiciante2.png" alt="Auspiciante 4" class="logo-auspiciante">
     </div>
-
-    <div class="opcion-card">
-      <img src="/catalogo.png" alt="Catálogo">
-      <div>
-        <h4>Catálogo de establecimientos</h4>
-        <p>Explorá todas las peluquerías y veterinarias disponibles cerca tuyo.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- Beneficios y Contacto-->
-  <section class="beneficios-section">
-    <div class="contacto">
-      <img src="/contacto.png" alt="Icono perro" class="contacto-dog">
-      <a [routerLink]="['/nosotros']" fragment="contacto" class="btn-contacto">CONTACTANOS</a>
-
-    </div>
-
-    <div class="beneficios-texto">
-      <h3>Beneficios de la app</h3>
-      <ul>
-        <li><i class="fa-solid fa-paw fa-xl" style="color: #74C0FC;"></i> Todo en un solo lugar: peluquerías,
-          veterinarias y turnos.</li>
-        <li><i class="fa-solid fa-paw fa-xl" style="color: #74C0FC;"></i> Ahorrá tiempo y organizá mejor tus visitas.
-        </li>
-        <li><i class="fa-solid fa-paw fa-xl" style="color: #74C0FC;"></i> Promociones y novedades exclusivas para tu
-          mascota.</li>
-      </ul>
-    </div>
-  </section>
-</div>
+</section>

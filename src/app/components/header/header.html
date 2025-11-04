@@ -1,26 +1,17 @@
-<header class="app-header">
-  <div class="logo-container">
-    <img src="logo.png" alt="Logo" class="logo" />
-    <h1>¡Guau que corte!</h1>
+<div class="header-wrapper">
+  <div class="logo-section">
+    <div class="brand">
+      <img src="logo.png" alt="Logo" class="logo">
+      <h1 class="brand-title">Guau que Corte</h1>
+    </div>
+    <a [routerLink]="['/login']" class="login-btn">Iniciar sesión</a>
   </div>
 
-  <nav class="menu">
-    <a [routerLink]="['']">Inicio</a>
-    <a [routerLink]="['/nosotros']">Nosotros</a>
-    <a [routerLink]="['/servicios']">Servicios</a>
-  </nav>
-
-  <ng-container *ngIf="authService.isLoggedIn(); else loginButton">
-    <button class="login-btn" routerLink="/mi-cuenta">
-      <span class="paw-icon">🐾</span>
-      Mi Cuenta
-    </button>
-  </ng-container>
-
-  <ng-template #loginButton>
-    <button class="login-btn" routerLink="/login">
-      <span class="paw-icon">🐾</span>
-      Login
-    </button>
-  </ng-template>
-</header>
+  <header [class.fixed]="isFixed" class="main-header">
+    <nav class="nav-links">
+      <a [routerLink]="['/']">Inicio</a>
+      <a [routerLink]="['/nosotros']">Nosotros</a>
+      <a [routerLink]="['/servicios']">Servicios</a>
+    </nav>
+  </header>
+</div>
