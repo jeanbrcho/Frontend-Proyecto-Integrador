@@ -1,243 +1,376 @@
-/* ============================
-   Sobre Nosotros
-============================ */
-body {
-  background-color: #fff7ec;
+:host {
+  display: block;
+  background-color: #FBF7EC;
+  /* 🎨 Fondo general del Home */
 }
 
-.nosotros-container {
-  padding: 40px 20px 20px 20px;
-  display: flex;
-  justify-content: center; /* centra horizontalmente */
-}
-
-.nosotros-contenido {
-  display: flex;
-  align-items: flex-start; /* bloque pegado arriba */
-  gap: 40px;
-  max-width: 1000px;
-  width: 100%;
-}
-
-.nosotros-texto {
-  flex: 1;
-  text-align: left;
-}
-
-.nosotros-texto h1 {
-  font-size: 28px;
-  margin-bottom: 20px;
-  color: #333;
-}
-
-.nosotros-texto p {
-  font-size: 18px;
-  color: #333;
-  line-height: 1.6;
-}
-
-.nosotros-img {
-  flex: 1;
-  max-width: 250px;
-  height: auto;
-}
-
-/* ============================
-   Equipo
-============================ */
-.equipo-seccion {
+.sobre-nosotros {
   text-align: center;
-  margin: 60px 20px 20px 20px;
+  padding: 80px 10%;
+  background-color: #FBF7EC;
 }
 
-.equipo-titulo {
+.sobre-nosotros h2 {
+  font-size: 96px;
+  color: #333333;
+  margin-bottom: 60px;
+  font-weight: bold;
+  animation: fadeInDown 1s ease forwards; /* 🔹 solo el título animado */
+}
+
+/* Contenedor de contenido estático */
+.contenido {
   display: flex;
-  align-items: center; /* centra verticalmente H1 e icono */
-  justify-content: center; /* centra todo horizontalmente */
-  gap: 15px; /* espacio entre H1 e icono */
-  margin-bottom: 20px;
+  align-items: center;
+  justify-content: center;
+  gap: 60px;
+  flex-wrap: wrap;
 }
 
-.equipo-titulo h1 {
-  font-size: 28px;
-  color: #333;
+/* Imagen profesional */
+.contenido img {
+  width: 400px;
+  max-width: 90%;
+  height: auto;
+  border-radius: 20px;
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.2);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.contenido img:hover {
+  transform: scale(1.05);
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
+}
+
+/* Texto */
+.contenido p {
+  flex: 1;
+  max-width: 600px;
+  font-size: 22px;
+  line-height: 1.6;
+  color: #333333;
+  text-align: justify;
+}
+
+/* Animación del título */
+@keyframes fadeInDown {
+  0% { opacity: 0; transform: translateY(-50px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .sobre-nosotros h2 {
+    font-size: 72px;
+  }
+
+  .contenido {
+    gap: 40px;
+  }
+
+  .contenido p {
+    font-size: 20px;
+  }
+
+  .contenido img {
+    width: 350px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sobre-nosotros h2 {
+    font-size: 48px;
+  }
+
+  .contenido {
+    flex-direction: column-reverse;
+    gap: 30px;
+    text-align: center;
+  }
+
+  .contenido p {
+    max-width: 90%;
+    font-size: 18px;
+    text-align: center;
+  }
+
+  .contenido img {
+    width: 80%;
+  }
+}
+
+
+/* info cotacto */
+.contacto-info {
+  padding: 80px 10%;
+  color: #333333;
+}
+
+.contenedor-contacto {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 19px;
+  flex-wrap: wrap; /* se apila en pantallas chicas */
+}
+
+.contenedor-contacto h3 {
+  flex: 1;
+  font-size: 48px;
+  font-weight: 700;
+  margin: 0;
+  min-width: 300px;
+}
+
+.contenedor-contacto p {
+  flex: 2;
+  font-size: 22px;
+  line-height: 1.6;
+  margin: 0;
+  max-width: 800px;
+}
+
+/* 🔹 Responsivo */
+@media (max-width: 992px) {
+  .contenedor-contacto {
+    flex-direction: column; /* pasa uno debajo del otro */
+    gap: 10px;
+    text-align: center;
+  }
+
+  .contenedor-contacto h3 {
+    flex: 1;
+    font-size: 40px;
+  }
+
+  .contenedor-contacto p {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contacto-info {
+    padding: 40px 5%;
+  }
+
+  .contenedor-contacto h3 {
+    font-size: 32px;
+  }
+
+  .contenedor-contacto p {
+    font-size: 16px;
+  }
+}
+
+/* Parte de info formulario */
+.contenedor-contacto h3 {
+  flex: 0 0 40%;
+  font-size: 48px;
+  font-weight: 700;
   margin: 0;
 }
 
-.icono-nos {
-  max-width: 50px; /* tamaño del icono */
-  height: auto;
+.contenedor-contacto p {
+  flex: 1;
+  font-size: 30px;
+  line-height: 1.5;
+  margin: 0;
 }
 
-.equipo-container {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-  max-width: 1000px;
-  margin: 40px auto 0 auto; /* separado un poco de la sección anterior */
-  padding: 0 20px;
+/* Formulario */
+.contenedor-contactanos {
+  padding: 60px 20px;
+  background-color: #ffffff;
+  text-align: center;
 }
 
-/* Tarjeta de miembro */
-.miembro-card {
-  /* tamaños definidos en responsive */
+.titulo-contacto {
+  font-size: 56px;
+  color: #333333;
+  margin-bottom: 50px;
+  text-align: center;
 }
 
-.miembro-card img {
-  /* tamaños definidos en responsive */
-}
-
-.miembro-card h4 {
-  /* tamaños definidos en responsive */
-}
-
-.miembro-card p {
-  /* tamaños definidos en responsive */
-}
-
-/* ============================
-   Contacto (dos columnas)
-============================ */
-.contacto-container {
+.bloque-contacto {
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  gap: 40px;
-  max-width: 1000px;
-  margin: 40px auto;
-  padding: 0 20px;
+  gap: 350px;
+  flex-wrap: wrap;
 }
 
-.contacto-izquierda,
-.contacto-derecha {
-  flex: 1;
+.info-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  align-items: flex-start;
+  font-size: 30px;
 }
 
-.contacto-izquierda h2,
-.contacto-derecha h2 {
-  font-size: 28px;
-  color: #333;
-  margin-bottom: 10px;
+.dato-contacto {
+  display: flex;
+  align-items: center;
+  gap: 15px;
 }
 
-.contacto-izquierda p,
-.contacto-derecha p {
+.dato-contacto p {
+  margin: 0;
+  line-height: 1.2; /* para que el texto quede centrado con el icono */
+}
+
+.icono-contacto {
+  width: 40px;
+  height: 40px;
+  
+}
+
+.formulario-contacto {
+  display: flex;
+  flex-direction: column;
+  gap: 25px;
+  width: 400px;
+  background-color: #ffffff;
+  padding: 40px 30px;
+  border-radius: 25px;
+  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario-contacto:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.formulario-contacto input,
+.formulario-contacto textarea {
+  width: 100%;
+  padding: 15px 20px;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.formulario-contacto input:focus,
+.formulario-contacto textarea:focus {
+  border-color: #029CDC;
+  box-shadow: 0 0 10px rgba(2, 156, 220, 0.2);
+}
+
+.formulario-contacto textarea {
+  min-height: 120px;
+  resize: none;
+}
+
+.formulario-contacto button {
+  background: linear-gradient(135deg, #029CDC, #03466F);
+  color: white;
+  border: none;
+  padding: 15px 0;
   font-size: 18px;
-  color: #333;
-  line-height: 1.6;
+  font-weight: 600;
+  border-radius: 20px;
+  cursor: pointer;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-/* ============================
-   Responsive
-============================ */
+.formulario-contacto button:hover {
+  background: linear-gradient(135deg, #03466F, #029CDC);
+  transform: translateY(-3px);
+}
+
+/* Responsive */
 @media (max-width: 768px) {
-
-  /* Sobre Nosotros */
-  .nosotros-contenido {
-    flex-direction: column;
-    text-align: center;
-    align-items: center;
-  }
-
-  .nosotros-texto {
-    text-align: center;
-  }
-
-  .nosotros-img {
-    max-width: 180px;
-    margin-top: 20px;
-  }
-
-  .nosotros-texto h1 {
-    font-size: 24px;
-  }
-
-  .nosotros-texto p {
-    font-size: 16px;
-  }
-
-  /* Equipo */
-  .equipo-container {
-    justify-content: center;
-  }
-
-  .miembro-card {
-    width: 120px;
-  }
-
-  .miembro-card img {
-    width: 60px;
-    height: 60px;
-  }
-
-  .miembro-card h4 {
-    font-size: 14px;
-  }
-
-  .miembro-card p {
-    font-size: 12px;
-  }
-
-  /* Contacto */
-  .contacto-container {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .contacto-izquierda,
-  .contacto-derecha {
-    width: 100%;
-  }
-
-  .contacto-izquierda h2,
-  .contacto-derecha h2 {
-    font-size: 24px;
-  }
-
-  .contacto-izquierda p,
-  .contacto-derecha p {
-    font-size: 16px;
+  .formulario-contacto {
+    width: 90%;
+    padding: 30px 20px;
   }
 }
+ /* equipo */
+.equipo-section {
+  padding: 80px 10%;
+  text-align: center;
+}
 
-@media (max-width: 480px) {
+.equipo-section h2 {
+  font-size: 56px;
+  font-weight: bold;
+  color: #03466F;
+  margin-bottom: 60px;
+}
 
-  /* Sobre Nosotros */
-  .nosotros-texto h1 {
-    font-size: 20px;
-  }
+/* Contenedor de los círculos */
+.equipo-circulos {
+  display: flex;
+  justify-content: center;
+  gap: 200px; /* 🔹 más separación */
+  flex-wrap: wrap;
+}
 
-  .nosotros-texto p {
-    font-size: 14px;
-  }
+/* Cada círculo */
+.circle-equipo {
+  position: relative;
+  width: 300px;  /* 🔹 más grande */
+  height: 300px; /* 🔹 más grande */
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.6s ease;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* sombra leve */
+}
 
-  .nosotros-img {
-    max-width: 150px;
-  }
+/* Colores alternos usando clases adicionales */
+.circle-amarillo {
+  background-color: #FFA500;
+}
 
-  /* Equipo */
-  .miembro-card img {
-    width: 50px;
-    height: 50px;
-  }
+.circle-azul {
+  background-color: #B4FFFF;
+}
 
-  .miembro-card h4 {
-    font-size: 12px;
-  }
+/* Imagen dentro del círculo */
+.circle-equipo img {
+  width: 130px;  /* 🔹 más grande */
+  height: 130px; /* 🔹 más grande */
+  border-radius: 50%;
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
 
-  .miembro-card p {
-    font-size: 10px;
-  }
+/* Nombre dentro del círculo */
+.nombre-equipo {
+  position: absolute;
+  bottom: 30px;  /* ajustado al nuevo tamaño */
+  font-size: 30px; /* un poquito más grande */
+  font-weight: 600;
+  color: #333333;
+  transition: transform 0.6s ease;
+}
 
-  /* Contacto */
-  .contacto-izquierda h2,
-  .contacto-derecha h2 {
-    font-size: 20px;
-  }
+/* Animación al hover */
+.circle-equipo:hover img {
+  transform: translateY(-130px); /* ajustado al tamaño */
+  opacity: 0;
+}
 
-  .contacto-izquierda p,
-  .contacto-derecha p {
-    font-size: 14px;
+.circle-equipo:hover .nombre-equipo {
+  transform: translateY(-50px); /* ajustado al tamaño */
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .equipo-circulos {
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* separación menor en móvil */
   }
 }

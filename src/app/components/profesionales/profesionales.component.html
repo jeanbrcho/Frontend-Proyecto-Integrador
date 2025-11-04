@@ -1,0 +1,13 @@
+<div class="profesionales-container">
+  <div *ngFor="let prof of profesionales" class="card">
+   <!-- <img [src]="prof.imagesUrl" alt="{{ prof.name }}" class="card-img">  -->
+    <div class="card-body">
+      <h3>{{ prof.name }} {{ prof.lastname }}</h3>
+      <p class="especialidad">{{ prof.specialty }}</p>
+      <p class="direccion">
+        {{ prof.street }} {{ prof.streetNumber }}, {{ prof.neighborhood }}, {{ prof.province }}
+      </p>
+      <p class="establecimiento">{{ prof.nameEstablishment }}</p>
+    </div>
+  </div>
+</div>
