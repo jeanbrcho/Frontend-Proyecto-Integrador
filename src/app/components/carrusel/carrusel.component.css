@@ -1,20 +1,130 @@
-.carousel {
-  margin-top: 40px;
+.carousel-container {
+  text-align: center;
+  margin: 3rem auto;
+  max-width: 1000px;
+  padding: 0 1rem;
+}
+
+.carousel-title {
+  font-size: 1.8rem;
+  font-weight: 700;
+  color: #03466F; /* azul profundo */
+  margin-bottom: 2rem;
+}
+
+.carousel-wrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.carousel-track {
+  display: flex;
+  gap: 1.5rem;
+  justify-content: center;
+  align-items: stretch;
+  transition: transform 0.6s ease-in-out;
+  width: 100%;
+  max-width: 950px;
+  flex-wrap: wrap;
 }
 
 .card {
+  flex: 1 1 30%;
+  background: #ffffff;
   border: none;
-  border-radius: 15px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-  transition: transform 0.3s;
+  border-radius: 1.2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  padding: 1.5rem;
+  transition: transform 0.3s, box-shadow 0.3s;
 }
 
 .card:hover {
   transform: translateY(-5px);
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.15);
 }
 
-.card img {
-  border-radius: 15px 15px 0 0;
-  height: 220px;
-  object-fit: cover;
+.card-title {
+  font-weight: 700;
+  color: #029CDC; /* celeste vibrante */
 }
+
+.card-text {
+  font-size: 0.95rem;
+  color: #333;
+  margin: 0.4rem 0;
+}
+
+.btn-vermas {
+  background: #FFB703;
+  color: #fff;
+  border: none;
+  border-radius: 25px;
+  padding: 0.5rem 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.btn-vermas:hover {
+  background: #f5a300;
+}
+
+.carousel-btn {
+  background: rgba(255, 255, 255, 0.85);
+  border: 2px solid #029CDC;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 10px rgba(2, 156, 220, 0.2);
+  backdrop-filter: blur(5px);
+}
+
+.carousel-btn:hover {
+  background: #029CDC;
+  transform: scale(1.1);
+  box-shadow: 0 6px 14px rgba(2, 156, 220, 0.35);
+}
+
+.carousel-btn i {
+  font-size: 1.4rem;
+  color: #029CDC;
+  transition: color 0.3s ease;
+}
+
+.carousel-btn:hover i {
+  color: #fff;
+}
+
+/* Posicionamiento */
+.prev {
+  position: absolute;
+  left: -3rem; /* antes era -2rem, ahora más afuera */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+.next {
+  position: absolute;
+  right: -3rem; /* antes era -2rem, ahora más afuera */
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 10;
+}
+
+/* Ajuste responsive */
+@media (max-width: 768px) {
+  .prev,
+  .next {
+    left: -1.5rem;
+    right: -1.5rem;
+  }
+}
+

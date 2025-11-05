@@ -3,7 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterLink } from '@angular/router';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators, AbstractControl } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { UserService } from '../../services/user.service';
+import { UserService } from '../../service/user.service';
 import { Router } from '@angular/router';
 
 @Component({

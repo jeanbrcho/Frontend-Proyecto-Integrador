@@ -1,59 +1,60 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Card } from '../models/card.model';
-import { CardsService } from '../services/cards.service';
-import { HttpClientModule } from '@angular/common/http';
+import { ProfesionalesService } from '../../service/profesional.service';
+import { Profesional } from '../../interfaces/profesional.interface';
 import { RouterLink } from '@angular/router';
+
+interface ProfesionalFrontend extends Profesional {
+  favorito: boolean;
+}
 
 @Component({
   selector: 'app-servicios',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './servicios.html',
   styleUrls: ['./servicios.css']
 })
 export class Servicios implements OnInit {
-  cards: Card[] = [];
-  filtroTipo: string = '';
+  profesionales: ProfesionalFrontend[] = [];
   mostrarFavoritos = false;
+  filtroTipo: string = '';
+  todasEspecialidades: string[] = [];
 
-  constructor(private cardsService: CardsService) { }
+  constructor(private profesionalesService: ProfesionalesService) { }
 
-  ngOnInit() {
-    this.cardsService.getCards().subscribe({
-      next: cards => {
-        this.cards = cards;
-        this.cargarFavoritos();
-        console.log('Cards cargadas:', this.cards);
+  ngOnInit(): void {
+    this.profesionalesService.obtenerProfesionales().subscribe({
+      next: (res) => {
+        console.log('Respuesta backend:', res);
+        // Añadimos la propiedad 'favorito' a cada profesional
+        this.profesionales = res.data.map(p => ({ ...p, favorito: false }));
+        const especialidades = this.profesionales.map(p => p.specialty);
+        this.todasEspecialidades = Array.from(new Set(especialidades));
       },
-      error: err => console.error(err)
+      error: (err) => console.error('Error al cargar profesionales:', err)
     });
   }
 
-  cargarFavoritos() {
-    const favoritos: string[] = JSON.parse(localStorage.getItem('favoritos') || '[]');
-    this.cards.forEach(card => {
-      card.favorito = favoritos.includes(card.nombre);
-    });
-  }
+  profesionalesFiltrados(): ProfesionalFrontend[] {
+    let lista = this.profesionales;
 
-  cardsFiltradas(): Card[] {
-    let resultado = this.filtroTipo ? this.cards.filter(c => c.tipo === this.filtroTipo) : this.cards;
-    if (this.mostrarFavoritos) {
-      resultado = resultado.filter(c => c.favorito);
+    // Filtrar por tipo si hay algo seleccionado
+    if (this.filtroTipo) {
+      lista = lista.filter(p => p.specialty.toLowerCase().includes(this.filtroTipo.toLowerCase()));
     }
-    return resultado;
+
+    // Filtrar por favoritos si corresponde
+    if (this.mostrarFavoritos) {
+      lista = lista.filter(p => p.favorito);
+    }
+
+    return lista;
   }
 
-  toggleFavorito(card: Card) {
-    card.favorito = !card.favorito;
-    this.guardarFavoritos();
+  toggleFavorito(prof: ProfesionalFrontend): void {
+    prof.favorito = !prof.favorito;
   }
 
-  guardarFavoritos() {
-    // Guardamos solo los nombres de las cards favoritas
-    const favoritos = this.cards.filter(c => c.favorito).map(c => c.nombre);
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
-  }
 }

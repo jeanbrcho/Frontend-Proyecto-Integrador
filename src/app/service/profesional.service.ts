@@ -11,13 +11,10 @@ export interface ProfesionalesResponse {
 
 @Injectable({ providedIn: 'root' })
 export class ProfesionalesService {
-  private apiUrl = 'http://localhost:3000/professionals'; 
+  private apiUrl = 'http://localhost:3000/professionals/services'; 
 
   constructor(private http: HttpClient) {}
 
-  // obtenerProfesionales(): Observable<Profesional[]> {
-  //   return this.http.get<Profesional[]>(this.apiUrl);
-  // }
   obtenerProfesionales(): Observable<ProfesionalesResponse> {
     return this.http.get<ProfesionalesResponse>(this.apiUrl);
   }
