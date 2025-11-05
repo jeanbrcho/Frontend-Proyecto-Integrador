@@ -4,6 +4,8 @@ import { FormsModule } from '@angular/forms';
 import { ProfesionalesService } from '../../service/profesional.service';
 import { Profesional } from '../../interfaces/profesional.interface';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../service/auth.service'; // asegúrate de que el path sea correcto
+import { Router } from '@angular/router';
 
 interface ProfesionalFrontend extends Profesional {
   favorito: boolean;
@@ -22,13 +24,31 @@ export class Servicios implements OnInit {
   filtroTipo: string = '';
   todasEspecialidades: string[] = [];
 
-  constructor(private profesionalesService: ProfesionalesService) { }
+  constructor(private profesionalesService: ProfesionalesService,
+    private authService: AuthService,
+    private router: Router) { }
+
+  // ngOnInit(): void {
+  //   this.profesionalesService.obtenerProfesionalesConServicios().subscribe({
+  //     next: (res) => {
+  //       console.log('Respuesta backend:', res);
+  //       // Añadimos la propiedad 'favorito' a cada profesional
+  //       this.profesionales = res.data.map(p => ({ ...p, favorito: false }));
+  //       const especialidades = this.profesionales.map(p => p.specialty);
+  //       this.todasEspecialidades = Array.from(new Set(especialidades));
+  //     },
+  //     error: (err) => console.error('Error al cargar profesionales:', err)
+  //   });
+  // }
 
   ngOnInit(): void {
-    this.profesionalesService.obtenerProfesionales().subscribe({
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/login']); // 🔥 Si no está logueado → fuera
+      return;
+    }
+
+    this.profesionalesService.obtenerProfesionalesConServicios().subscribe({
       next: (res) => {
-        console.log('Respuesta backend:', res);
-        // Añadimos la propiedad 'favorito' a cada profesional
         this.profesionales = res.data.map(p => ({ ...p, favorito: false }));
         const especialidades = this.profesionales.map(p => p.specialty);
         this.todasEspecialidades = Array.from(new Set(especialidades));
