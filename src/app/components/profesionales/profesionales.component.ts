@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { ProfesionalesService } from '../../services/profesional.service';
+import { ProfesionalesService } from '../../service/profesional.service';
 import { Profesional } from '../../interfaces/profesional.interface';
 
 @Component({

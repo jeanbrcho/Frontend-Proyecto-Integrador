@@ -1,82 +1,29 @@
-<div id="veterinariasCarousel" class="carousel slide" data-bs-ride="carousel">
-  <div class="carousel-inner">
+<div class="carousel-container" *ngIf="profesionales.length > 0">
+  <div class="carousel-wrapper" (mouseenter)="pauseAutoSlide()" (mouseleave)="resumeAutoSlide()">
+    <button class="carousel-btn prev" (click)="prev()">
+      <i class="bi bi-chevron-left"></i>
+    </button>
 
-    <div class="carousel-item active">
-      <div class="row justify-content-center">
-        <div class="col-md-4">
-          <div class="card">
-            <img src="peluqueria1.jpg" class="card-img-top" alt="Veterinaria 1">
-            <div class="card-body text-center">
-              <h5 class="card-title">Veterinaria Patitas</h5>
-              <p class="card-text">Atención las 24 hs y emergencias.</p>
-              <button class="btn btn-primary">Ver más</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 d-none d-md-block">
-          <div class="card">
-            <img src="peluqueria2.jpg" class="card-img-top" alt="Veterinaria 2">
-            <div class="card-body text-center">
-              <h5 class="card-title">Vet Salud Animal</h5>
-              <p class="card-text">Cuidado profesional con amor.</p>
-              <button class="btn btn-primary">Ver más</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 d-none d-md-block">
-          <div class="card">
-            <img src="peluqueria3.webp" class="card-img-top" alt="Veterinaria 3">
-            <div class="card-body text-center">
-              <h5 class="card-title">Clínica Animalia</h5>
-              <p class="card-text">Atención personalizada y moderna.</p>
-              <button class="btn btn-primary">Ver más</button>
-            </div>
-          </div>
+    <div class="carousel-track">
+      <div class="card" *ngFor="let prof of profesionales.slice(currentIndex, currentIndex + 3)">
+        <div class="card-body">
+          <h5 class="card-title">{{ prof.nameEstablishment }}</h5>
+          <p class="card-text">
+            <strong>Especialidad:</strong> {{ prof.specialty }}
+          </p>
+          <p class="card-text">
+            <strong>Dirección:</strong><br />
+            {{ prof.street }} {{ prof.streetNumber }},
+            {{ prof.neighborhood }}, {{ prof.province }}
+          </p>
+
+          <!-- <button class="btn-vermas">Ver más</button> -->
         </div>
       </div>
     </div>
 
-    <div class="carousel-item">
-      <div class="row justify-content-center">
-        <div class="col-md-4">
-          <div class="card">
-            <img src="peluqueria5.webp" class="card-img-top" alt="Veterinaria 4">
-            <div class="card-body text-center">
-              <h5 class="card-title">Animal Center</h5>
-              <p class="card-text">Especialistas en animales exóticos.</p>
-              <button class="btn btn-primary">Ver más</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 d-none d-md-block">
-          <div class="card">
-            <img src="peluqueria6.webp" class="card-img-top" alt="Veterinaria 5">
-            <div class="card-body text-center">
-              <h5 class="card-title">Huella Feliz</h5>
-              <p class="card-text">Todo para tu mascota en un solo lugar.</p>
-              <button class="btn btn-primary">Ver más</button>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-4 d-none d-md-block">
-          <div class="card">
-            <img src="peluqueria7.webp" class="card-img-top" alt="Veterinaria 6">
-            <div class="card-body text-center">
-              <h5 class="card-title">PetCare</h5>
-              <p class="card-text">Cuidado integral y peluquería.</p>
-              <button class="btn btn-primary">Ver más</button>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
+    <button class="carousel-btn next" (click)="next()">
+      <i class="bi bi-chevron-right"></i>
+    </button>
   </div>
-
-  <button class="carousel-control-prev" type="button" data-bs-target="#veterinariasCarousel" data-bs-slide="prev">
-    <span class="carousel-control-prev-icon"></span>
-  </button>
-  <button class="carousel-control-next" type="button" data-bs-target="#veterinariasCarousel" data-bs-slide="next">
-    <span class="carousel-control-next-icon"></span>
-  </button>
 </div>

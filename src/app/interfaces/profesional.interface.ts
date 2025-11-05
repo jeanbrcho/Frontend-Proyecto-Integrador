@@ -20,4 +20,14 @@ export interface Profesional {
   postalCode: string;
   createdAt: string;
   updatedAt: string;
+  services: Servicio[];
+}
+
+export interface Servicio{
+  id: string;
+  name: string;
+  description: string;
+  price: number;
+  createdAt: string;
+  updatedAt: string;
 }

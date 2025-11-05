@@ -4,7 +4,19 @@
       <img src="logo.png" alt="Logo" class="logo">
       <h1 class="brand-title">Guau que Corte</h1>
     </div>
-    <a [routerLink]="['/login']" class="login-btn">Iniciar sesión</a>
+     <!-- 🔥 ESTE bloque decide qué botón mostrar -->
+    <ng-container *ngIf="authService.isLoggedIn(); else loginButton">
+      <a routerLink="/mi-cuenta" class="login-btn">
+        <span class="paw-icon">🐾</span> Mi Cuenta
+      </a>
+    </ng-container>
+
+    <ng-template #loginButton>
+      <a routerLink="/login" class="login-btn">
+        <span class="paw-icon">🐾</span> Iniciar sesión
+      </a>
+    </ng-template>
+    <!-- <a [routerLink]="['/login']" class="login-btn">Iniciar sesión</a> -->
   </div>
 
   <header [class.fixed]="isFixed" class="main-header">
@@ -14,4 +26,18 @@
       <a [routerLink]="['/servicios']">Servicios</a>
     </nav>
   </header>
+
+  <!-- <ng-container *ngIf="authService.isLoggedIn(); else loginButton">
+    <button class="login-btn" routerLink="/mi-cuenta">
+      <span class="paw-icon">🐾</span>
+      Mi Cuenta
+    </button>
+  </ng-container>
+
+  <ng-template #loginButton>
+    <button class="login-btn" routerLink="/login">
+      <span class="paw-icon">🐾</span>
+      Login
+    </button>
+  </ng-template> -->
 </div>

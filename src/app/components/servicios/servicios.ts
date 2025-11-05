@@ -1,59 +1,80 @@
 import { Component, OnInit } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
-import { Card } from '../models/card.model';
-import { CardsService } from '../services/cards.service';
-import { HttpClientModule } from '@angular/common/http';
+import { ProfesionalesService } from '../../service/profesional.service';
+import { Profesional } from '../../interfaces/profesional.interface';
 import { RouterLink } from '@angular/router';
+import { AuthService } from '../../service/auth.service'; // asegúrate de que el path sea correcto
+import { Router } from '@angular/router';
+
+interface ProfesionalFrontend extends Profesional {
+  favorito: boolean;
+}
 
 @Component({
   selector: 'app-servicios',
   standalone: true,
-  imports: [CommonModule, FormsModule, HttpClientModule, RouterLink],
+  imports: [CommonModule, FormsModule, RouterLink],
   templateUrl: './servicios.html',
   styleUrls: ['./servicios.css']
 })
 export class Servicios implements OnInit {
-  cards: Card[] = [];
-  filtroTipo: string = '';
+  profesionales: ProfesionalFrontend[] = [];
   mostrarFavoritos = false;
+  filtroTipo: string = '';
+  todasEspecialidades: string[] = [];
 
-  constructor(private cardsService: CardsService) { }
+  constructor(private profesionalesService: ProfesionalesService,
+    private authService: AuthService,
+    private router: Router) { }
 
-  ngOnInit() {
-    this.cardsService.getCards().subscribe({
-      next: cards => {
-        this.cards = cards;
-        this.cargarFavoritos();
-        console.log('Cards cargadas:', this.cards);
-      },
-      error: err => console.error(err)
-    });
-  }
+  // ngOnInit(): void {
+  //   this.profesionalesService.obtenerProfesionalesConServicios().subscribe({
+  //     next: (res) => {
+  //       console.log('Respuesta backend:', res);
+  //       // Añadimos la propiedad 'favorito' a cada profesional
+  //       this.profesionales = res.data.map(p => ({ ...p, favorito: false }));
+  //       const especialidades = this.profesionales.map(p => p.specialty);
+  //       this.todasEspecialidades = Array.from(new Set(especialidades));
+  //     },
+  //     error: (err) => console.error('Error al cargar profesionales:', err)
+  //   });
+  // }
 
-  cargarFavoritos() {
-    const favoritos: string[] = JSON.parse(localStorage.getItem('favoritos') || '[]');
-    this.cards.forEach(card => {
-      card.favorito = favoritos.includes(card.nombre);
-    });
-  }
-
-  cardsFiltradas(): Card[] {
-    let resultado = this.filtroTipo ? this.cards.filter(c => c.tipo === this.filtroTipo) : this.cards;
-    if (this.mostrarFavoritos) {
-      resultado = resultado.filter(c => c.favorito);
+  ngOnInit(): void {
+    if (!this.authService.isLoggedIn()) {
+      this.router.navigate(['/login']); // 🔥 Si no está logueado → fuera
+      return;
     }
-    return resultado;
+
+    this.profesionalesService.obtenerProfesionalesConServicios().subscribe({
+      next: (res) => {
+        this.profesionales = res.data.map(p => ({ ...p, favorito: false }));
+        const especialidades = this.profesionales.map(p => p.specialty);
+        this.todasEspecialidades = Array.from(new Set(especialidades));
+      },
+      error: (err) => console.error('Error al cargar profesionales:', err)
+    });
   }
 
-  toggleFavorito(card: Card) {
-    card.favorito = !card.favorito;
-    this.guardarFavoritos();
+  profesionalesFiltrados(): ProfesionalFrontend[] {
+    let lista = this.profesionales;
+
+    // Filtrar por tipo si hay algo seleccionado
+    if (this.filtroTipo) {
+      lista = lista.filter(p => p.specialty.toLowerCase().includes(this.filtroTipo.toLowerCase()));
+    }
+
+    // Filtrar por favoritos si corresponde
+    if (this.mostrarFavoritos) {
+      lista = lista.filter(p => p.favorito);
+    }
+
+    return lista;
   }
 
-  guardarFavoritos() {
-    // Guardamos solo los nombres de las cards favoritas
-    const favoritos = this.cards.filter(c => c.favorito).map(c => c.nombre);
-    localStorage.setItem('favoritos', JSON.stringify(favoritos));
+  toggleFavorito(prof: ProfesionalFrontend): void {
+    prof.favorito = !prof.favorito;
   }
+
 }
