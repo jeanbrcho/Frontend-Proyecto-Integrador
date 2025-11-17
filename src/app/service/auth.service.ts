@@ -31,7 +31,7 @@ interface IResponseProfile {
   providedIn: 'root'
 })
 export class AuthService {
-  private baseUrl = 'http://localhost:3000';
+  private baseUrl = 'https://btdyww2b6k.execute-api.us-east-1.amazonaws.com';
   private loginUrl = `${this.baseUrl}/auth/login`;
 
 
@@ -42,6 +42,11 @@ export class AuthService {
     return this.http.post<AuthResponse>(this.loginUrl, credenciales).pipe(
       tap(response => {
         this.saveToken(response?.data?.token ?? '');
+
+        // ✅ Guardamos el ID del usuario
+        if (response?.data?.user?.id) {
+          localStorage.setItem('user_id', response.data.user.id);
+        }
       })
     );
   }
@@ -51,6 +56,17 @@ export class AuthService {
 
   }
 
+  getUserId(): string | null {
+    const token = localStorage.getItem('auth_token');
+    if (!token) return null;
+
+    try {
+      const payload = JSON.parse(atob(token.split('.')[1]));
+      return payload.id || null;
+    } catch {
+      return null;
+    }
+  }
 
   isLoggedIn(): boolean {
     const token = localStorage.getItem('auth_token');

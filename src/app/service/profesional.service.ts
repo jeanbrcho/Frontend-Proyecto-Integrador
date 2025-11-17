@@ -11,7 +11,7 @@ export interface ProfesionalesResponse {
 
 @Injectable({ providedIn: 'root' })
 export class ProfesionalesService {
-  private apiUrl = 'http://localhost:3000/professionals';
+  private apiUrl = 'https://btdyww2b6k.execute-api.us-east-1.amazonaws.com/professionals';
 
   constructor(private http: HttpClient) { }
 
