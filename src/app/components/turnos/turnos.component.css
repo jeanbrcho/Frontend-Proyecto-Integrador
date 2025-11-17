@@ -1,0 +1,54 @@
+.turno-container {
+  max-width: 550px;
+  margin: auto;
+  padding: 20px;
+  border-radius: 12px;
+  background: #ffffff;
+  box-shadow: 0px 4px 10px rgba(0,0,0,0.1);
+}
+
+.titulo {
+  text-align: center;
+  margin-bottom: 15px;
+  font-weight: 700;
+}
+
+.info-box {
+  background: #f7fafd;
+  padding: 15px;
+  border-left: 4px solid #029CDC;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.info-box h3 {
+  margin: 0 0 5px;
+}
+
+.formulario {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.form-control {
+  padding: 8px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.btn-guardar {
+  margin-top: 10px;
+  background: #029CDC;
+  color: white;
+  padding: 10px;
+  border: none;
+  border-radius: 6px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+.btn-guardar:hover {
+  background: #047aad;
+}

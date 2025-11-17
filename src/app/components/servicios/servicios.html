@@ -29,20 +29,25 @@
           <h5 class="nombre">{{ prof.nameEstablishment }}</h5>
           <p class="tipo"><strong>Especialidad:</strong> {{ prof.specialty }}</p>
 
-          <!-- Servicios -->
-          <div class="servicios" *ngIf="prof.services && prof.services.length">
-            <strong>Servicios:</strong>
-            <ul>
-              <li *ngFor="let s of prof.services">{{ s.name }}: {{ s.description }}</li>
-            </ul>
-          </div>
-
           <p class="direccion">
             <strong>Dirección:</strong>
             {{ prof.street }} {{ prof.streetNumber }}, {{ prof.neighborhood }}, {{ prof.province }}
           </p>
 
-          <a [routerLink]="['/turno']" class="btn btn-primary mt-2">Sacar Turno</a>
+          <!-- Servicios -->
+          <div class="servicios" *ngIf="prof.services && prof.services.length">
+            <strong>Servicios:</strong>
+            <ul>
+              <li *ngFor="let s of prof.services">{{ s.name }}: {{ s.description }}
+                <!-- <a [routerLink]="['/turnos']" [state]="{ servicio: s, profesional: prof }" class="btn btn-primary mt-2">Sacar Turno</a> -->
+                <button class="btn btn-primary mt-2" (click)="irATurnos(s,prof)">
+                  Sacar Turno
+                </button>
+              </li>
+
+            </ul>
+          </div>
+
         </div>
 
         <!-- Favorito -->
