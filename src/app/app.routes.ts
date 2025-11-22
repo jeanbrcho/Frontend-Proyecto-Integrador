@@ -8,6 +8,7 @@ import { MiCuentaComponent } from './components/mi-cuenta/mi-cuenta.component';
 import { ProfesionalesComponent } from './components/profesionales/profesionales.component';
 import { authGuard } from './guards/auth.guard';
 import { TurnosComponent } from './components/turnos/turnos.component';
+import { DetalleProfesionalComponent } from './components/detalle-profesional/detalle-profesional.component';
 
 export const routes: Routes = [
    { path: '', component: Home },
@@ -17,6 +18,7 @@ export const routes: Routes = [
    { path: 'servicios', component: Servicios},
    { path: 'mi-cuenta', component: MiCuentaComponent },
    { path: 'cads', component: ProfesionalesComponent},
+   { path: 'detalle-profesional', component: DetalleProfesionalComponent},
    { path: 'turnos', component: TurnosComponent, canActivate: [authGuard] }
 ];
 
