@@ -12,6 +12,10 @@
     {{ profesionalData?.neighborhood }}, {{ profesionalData?.province }}
   </p>
 
+  <iframe width="100%" height="250" frameborder="0" [src]="googleMapsUrl | safe" allowfullscreen>
+  </iframe>
+
+
   <h3>Servicios que ofrece</h3>
   <ul>
     <li *ngFor="let servicio of (profesionalData?.services || profesional?.services)">
