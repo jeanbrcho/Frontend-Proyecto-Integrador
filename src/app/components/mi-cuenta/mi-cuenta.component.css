@@ -1,8 +1,15 @@
+
+
+.profile-container {
+    background-color: var(--color-fondo-pagina);
+    padding: 20px 0;
+    min-height: 100vh; 
+}
 .profile-layout {
     display: grid;
     grid-template-columns: 1.5fr 1fr; 
     gap: 30px; 
-    
+   
     max-width: 1100px; 
     margin: 50px auto; 
     padding: 0 20px; 
@@ -13,7 +20,7 @@
     max-width: 100%; 
     margin: 0; 
     padding: 35px;
-    background-color: #fffaf0; 
+    background-color: var(--color-fondo-secundario);
     border: 1px solid #ffcc66; 
     border-radius: 20px; 
     box-shadow: 0 8px 16px rgba(180, 100, 0, 0.15); 
@@ -109,7 +116,8 @@
 }
 
 .sidebar-module {
-    background-color: #fffaf0; 
+    background-color: var(--color-fondo-secundario); 
+    color: var(--color-texto-principal);
     border: 1px solid #ffcc66;
     border-radius: 15px;
     padding: 20px;
