@@ -9,7 +9,7 @@
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
-  background-color: #fff7ec;
+  background-color: var(--color-fondo-pagina);
 }
 
 
@@ -44,12 +44,16 @@
 .login-card {
   width: 60%;
   padding: 40px;
-  background: #fff;
+  background: var(--color-fondo-principal);
   box-shadow: none;
   text-align: center;
   animation: fadeIn 0.3s ease-in-out;
 }
 
+.login-card h2 {
+  
+  color: var(--color-texto-principal);
+}
 
 
 form {
@@ -62,7 +66,7 @@ form {
 label {
   font-weight: bold;
   font-size: 14px;
-  color: #444;
+  color: var(--color-texto-principal);
 }
 
 input {
@@ -78,7 +82,7 @@ input:focus {
 
 .btn {
   background: #ff9e57;
-  color: white;
+  color: var(--color-fondo-principal);
   border: none;
   padding: 12px;
   border-radius: 8px;

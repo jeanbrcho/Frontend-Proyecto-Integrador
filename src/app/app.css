@@ -1,0 +1,45 @@
+/* app.component.css */
+
+.dark-mode-btn-flotante {
+    position: fixed; 
+    top: 90px;       /* O el valor que prefieras */
+    right: 5%;       
+    z-index: 999;    
+
+    /* 🔑 CLAVE: Hacer el botón más grande y redondo */
+    width: 60px;     /* Ancho fijo */
+    height: 60px;    /* Altura fija (para que sea cuadrado) */
+    border-radius: 50%; /* 🔑 CLAVE: Para que sea circular */
+    
+    /* Para centrar el ícono perfectamente */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    cursor: pointer;
+    transition: all 0.3s;
+    border: none; /* Asegurar que no tenga un borde por defecto */
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil para darle profundidad */
+    
+}
+
+/* 🔑 CLAVE: Estilo de los Íconos dentro del botón */
+.dark-mode-btn-flotante i {
+    font-size: 18px; /* Tamaño del ícono */
+    transition: color 0.3s; /* Transición para el color del ícono */
+}
+
+
+/* 🔄 ESTILO INVERTIDO (Si estás en Modo CLARO, el botón se ve OSCURO) */
+.dark-mode-btn-flotante:not(.is-dark-on) {
+    background-color: var(--color-texto-principal); /* Fondo Oscuro (color del tema al que irás) */
+    color: yellow;           /* Texto Claro (color del ícono) */
+    border: 1px solid var(--color-texto-principal);
+}
+
+/* 🔄 ESTILO INVERTIDO (Si estás en Modo OSCURO, el botón se ve CLARO) */
+.dark-mode-btn-flotante.is-dark-on {
+    background-color: whitesmoke; /* Fondo Claro (color del tema al que irás) */
+    color: orangered;         /* Texto Oscuro (color del ícono) */
+    border: 1px solid var(--color-borde);
+}

@@ -3,7 +3,7 @@
   display: flex;
   flex-direction: column;
   align-items: center; /* centra todo */
-  background-color: #FBF7EC;
+  background-color: var(--color-fondo-secundario);
 
 }
 
@@ -59,7 +59,7 @@
   width: 80%; /* mismo ancho que el logo-section */
   max-width: 1200px;
   padding: 10px 0;
-  background-color: #455A64;
+  background-color: var(--color-fondo-navbar);
   transition: background-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
   position: relative; /* no fijo al inicio */
   border-radius: 100px; /* opcional, bordes redondeados */

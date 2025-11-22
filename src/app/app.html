@@ -1,5 +1,15 @@
 <app-header></app-header>
 
+<button 
+    class="dark-mode-btn-flotante" 
+    [class.is-dark-on]="isDarkMode"  
+    (click)="toggleDarkMode()">
+    
+    <i *ngIf="!isDarkMode" class="fas fa-moon"></i>
+    
+    <i *ngIf="isDarkMode" class="fas fa-sun"></i>
+</button>
+
 
 <router-outlet></router-outlet>
 <app-perrito></app-perrito>
