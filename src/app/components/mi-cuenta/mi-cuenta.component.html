@@ -1,55 +1,76 @@
 <div class="profile-layout">
-    
+
     <div class="main-content">
         <div class="user-profile-card">
             <h2 class="profile-title">TU PERFIL</h2>
 
             @if (loading) {
-                <div class="loading-container">
-                    <div class="spinner"></div>
-                    <p>Cargando tu información...</p>
-                </div>
+            <div class="loading-container">
+                <div class="spinner"></div>
+                <p>Cargando tu información...</p>
+            </div>
             }
 
             @if (!loading) {
-                <div class="profile-info">
-                    <div class="data-item">
-                        <label class="item-label">Nombre:</label>
-                        <p class="profile-item">{{ userProfile?.name }}</p>
-                    </div>
-                    <div class="data-item">
-                        <label class="item-label">Apellido:</label>
-                        <p class="profile-item">{{ userProfile?.lastname }}</p>
-                    </div>
-                    <div class="data-item">
-                        <label class="item-label">DNI:</label>
-                        <p class="profile-item">{{ userProfile?.dni }}</p>
-                    </div>
-                    <div class="data-item">
-                        <label class="item-label">Email:</label>
-                        <p class="profile-item profile-email">{{ userProfile?.email }}</p>
-                    </div>
+            <div class="profile-info">
+                <div class="data-item">
+                    <label class="item-label">Nombre:</label>
+                    <p class="profile-item">{{ userProfile?.name }}</p>
                 </div>
-                
+                <div class="data-item">
+                    <label class="item-label">Apellido:</label>
+                    <p class="profile-item">{{ userProfile?.lastname }}</p>
+                </div>
+                <div class="data-item">
+                    <label class="item-label">DNI:</label>
+                    <p class="profile-item">{{ userProfile?.dni }}</p>
+                </div>
+                <div class="data-item">
+                    <label class="item-label">Email:</label>
+                    <p class="profile-item profile-email">{{ userProfile?.email }}</p>
+                </div>
+            </div>
 
-                <div class="profile-actions">
-                    <button (click)="editProfile()" class="edit-btn">
-                        Editar Perfil
-                    </button>
-                    <button (click)="onLogoutClick()" class="logout-btn">
-                        Cerrar Sesión
-                    </button>
-                </div>
+
+            <div class="profile-actions">
+                <button (click)="editProfile()" class="edit-btn">
+                    Editar Perfil
+                </button>
+                <button (click)="onLogoutClick()" class="logout-btn">
+                    Cerrar Sesión
+                </button>
+            </div>
             }
         </div>
-        </div>
+    </div>
 
     <div class="sidebar">
         <div class="sidebar-module">
             <h3>🐾 Mis Turnos</h3>
             <p>Ver mis próximas citas</p>
+            <!-- Loader mientras se cargan los turnos -->
+            <div *ngIf="loadingTurnos" class="loading-container">
+                <div class="spinner"></div>
+                <p>Cargando tus turnos...</p>
+            </div>
+
+            <!-- Lista de turnos -->
+            <ul *ngIf="!loadingTurnos && turnos.length > 0" class="turnos-list">
+                <li *ngFor="let t of turnos" class="turno-item">
+                    <p><strong>Veterinaria / Profesional:</strong> {{ t.service.professional.nameEstablishment }} — {{
+                        t.service.professional.name }} {{ t.service.professional.lastname }}</p>
+                    <p><strong>Servicio:</strong> {{ t.service.name }}</p>
+                    <p><strong>Fecha:</strong> {{ t.date }} - {{ t.time }}</p>
+                    <p><strong>Mascota:</strong> {{ t.petname }}</p>
+                </li>
+            </ul>
+
+            <!-- Mensaje si no hay turnos -->
+            <p *ngIf="!loadingTurnos && turnos.length === 0">
+                No tienes turnos registrados aún.
+            </p>
         </div>
-        
+
         <div class="sidebar-module">
             <h3>⭐ Favoritos</h3>
             <p>Veterinarias y profesionales que más visito</p>

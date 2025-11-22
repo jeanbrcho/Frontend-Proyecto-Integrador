@@ -40,13 +40,15 @@
             <ul>
               <li *ngFor="let s of prof.services">{{ s.name }}: {{ s.description }}
                 <!-- <a [routerLink]="['/turnos']" [state]="{ servicio: s, profesional: prof }" class="btn btn-primary mt-2">Sacar Turno</a> -->
-                <button class="btn btn-primary mt-2" (click)="irATurnos(s,prof)">
-                  Sacar Turno
-                </button>
               </li>
 
             </ul>
           </div>
+
+          <!-- ⭐ Nuevo botón Ver más -->
+          <button class="btn btn-info mt-2" (click)="verMas(prof)">
+            Ver más
+          </button>
 
         </div>
 

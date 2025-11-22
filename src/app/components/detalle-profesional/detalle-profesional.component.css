@@ -1,0 +1,129 @@
+:host {
+  display: block;
+  padding: 60px 10%;
+  background-color: #FBF7EC; /* mismo fondo */
+  font-family: 'Segoe UI', sans-serif;
+}
+
+/* Mensaje de carga */
+.loading {
+  text-align: center;
+  font-size: 32px;
+  font-weight: 600;
+  color: #03466F;
+  padding: 40px 0;
+}
+
+/* Tarjeta del profesional */
+.info-card {
+  background: #ffffff;
+  padding: 50px;
+  border-radius: 30px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+  animation: fadeIn 0.7s ease;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* Títulos dentro de la tarjeta */
+.info-card h2 {
+  font-size: 56px;
+  color: #03466F;
+  margin-bottom: 20px;
+  font-weight: 700;
+}
+
+.info-card h3 {
+  margin-top: 40px;
+  font-size: 40px;
+  color: #333333;
+}
+
+/* Texto general */
+.info-card p {
+  font-size: 24px;
+  color: #333333;
+  line-height: 1.5;
+  margin: 10px 0;
+}
+
+/* Lista de servicios */
+.info-card ul {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.info-card li {
+  background-color: #B4FFFF;
+  padding: 18px 25px;
+  font-size: 22px;
+  border-radius: 20px;
+  margin-bottom: 15px;
+  border-left: 8px solid #03466F;
+  transition: transform 0.3s ease;
+}
+
+.info-card li:hover {
+  transform: translateX(10px);
+}
+
+/* Botón Sacar Turno */
+.btn {
+  margin-top: 40px;
+  background: linear-gradient(135deg, #029CDC, #03466F);
+  color: white;
+  border: none;
+  padding: 20px 40px;
+  font-size: 28px;
+  font-weight: 600;
+  border-radius: 25px;
+  cursor: pointer;
+  display: block;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.btn:hover {
+  background: linear-gradient(135deg, #03466F, #029CDC);
+  transform: translateY(-4px);
+}
+
+/* Animación */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsivo */
+@media (max-width: 768px) {
+  :host {
+    padding: 40px 5%;
+  }
+
+  .info-card {
+    padding: 30px;
+  }
+
+  .info-card h2 {
+    font-size: 38px;
+  }
+
+  .info-card p,
+  .info-card li {
+    font-size: 18px;
+  }
+
+  .btn {
+    font-size: 22px;
+    padding: 15px 30px;
+  }
+}
