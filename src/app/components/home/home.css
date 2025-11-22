@@ -1,22 +1,22 @@
 :host {
   display: block;
-  background-color: #FBF7EC;
+  background-color: var(--color-fondo-pagina);
   /* 🎨 Fondo general del Home */
 }
 
 /* Asegura que ocupe toda la altura visible */
 :host ::ng-deep body {
-  background-color: #FBF7EC !important;
+  background-color: var(--color-fondo-pagina) !important;
 }
 
 /* banner */
 .hero {
   display: flex;
   align-items: center;
-  ;
+  
   justify-content: space-between;
   padding: 40px 10% 0 10%;
-  background: linear-gradient(135deg, #c6fbfb, #B4FFFF);
+  background: var(--color-gradiente-hero);
 
   box-sizing: border-box;
 }
@@ -30,7 +30,7 @@
 .hero-content h2 {
   font-family: 'Poppins', sans-serif;
   font-size: 70px;
-  color: #333333;
+  color: var(--color-texto-principal);
   margin-bottom: 20px;
   animation: fadeInLeft 1s ease forwards;
   /* 🔹 animación al ingresar */
@@ -43,7 +43,7 @@
 .hero-content p {
   font-size: 50px;
   line-height: 1.5;
-  color: #455A64;
+  color: var(--color-texto-secundario);
   margin-bottom: 30px;
   animation: fadeInUp 1s ease 0.5s forwards;
   /* 🔹 delay de 0.5s para aparecer después del h2 */
@@ -52,7 +52,7 @@
 .hero-btn {
   display: inline-block;
   background-color: #FF9E57;
-  color: #03466F;
+  color: var(--color-acento-texto);
   padding: 12px 30px;
   border-radius: 30px;
   text-decoration: none;
@@ -181,7 +181,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: 40px;
   font-weight: 600;
-  color: #03466F;
+  color: var(--color-acento-texto);
   margin-bottom: 15px;
 }
 
@@ -205,7 +205,7 @@
 /* reservas de turnos e info */
 
 .info-section {
-  background-color: #fff;
+  background-color: var(--color-fondo-principal);
   padding: 80px 20px;
   margin-top: 80px;
   /* 🔹 espacio entre el carrusel y la sección */
@@ -216,7 +216,7 @@
 }
 
 .info-text h2 {
-  color: #03466F;
+  color: var(--color-acento-texto);
   font-weight: 700;
   margin-bottom: 25px;
   text-align: left;
@@ -236,6 +236,12 @@
   margin-bottom: 25px;
 }
 
+.info-section .info-item p {
+  font-size: 22px;
+  color: var(--color-texto-principal);      /* Texto principal claro */
+
+}
+
 .info-icon {
   width: 60px;
   height: 60px;
@@ -243,7 +249,7 @@
 }
 
 .info-item h4 {
-  color: #333333;
+  color: var(--color-texto-principal);
   font-weight: 600;
   margin-bottom: 5px;
   font-size: 30px;
@@ -287,13 +293,13 @@
 
 /* cards con info */
 .cards-section {
-  background-color: #B4FFFF;
+  background-color: var(--color-fondo-acento-claro);
   padding: 80px 10%;
 }
 
 .cards-section h2 {
   font-size: 40px;
-  color: #03466F;
+  color: var(--color-acento-texto);
   font-weight: 700;
   margin-bottom: 50px;
   text-align: center;
@@ -418,7 +424,9 @@
   background-color: #000000;
   text-align: center;
   align-items: center;
-  height: 20vh;
+  height: 50vh;
+
+  
 }
 
 .titulo-auspiciantes {

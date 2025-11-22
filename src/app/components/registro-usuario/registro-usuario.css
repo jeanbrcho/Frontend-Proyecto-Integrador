@@ -16,7 +16,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff7ec;
+  background-color: var(--color-fondo-pagina);
   font-family: "Nunito", sans-serif;
   padding: 2rem;
   position: relative;
@@ -24,7 +24,7 @@
 }
 
 .register-card {
-  background-color: #ffffff;
+  background-color: var(--color-fondo-form2);
   padding: 2.5rem 3rem;
   border-radius: 25px;
   box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
@@ -38,7 +38,7 @@
 .card-body h1 {
   font-size: 2.2rem;
   font-weight: 800;
-  color: #34495e;
+  color: var(--color-texto-principal);
   margin-bottom: 1rem;
   line-height: 1.2;
 }
@@ -96,7 +96,7 @@ input:focus {
   width: 100%;
   padding: 1rem;
   background-color: #ff9e57;
-  color: white;
+  color: var(--color-texto-principal);
   border: 1px solid transparent;
   border-radius: 9999px;
   font-size: 1.1rem;
