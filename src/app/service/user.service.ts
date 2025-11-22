@@ -15,7 +15,8 @@ export interface UserInput {
   providedIn: 'root'
 })
 export class UserService {
-  private apiUrl = 'http://localhost:3000/users';
+  // private apiUrl = 'http://localhost:3000/users';
+  private apiUrl = 'https://btdyww2b6k.execute-api.us-east-1.amazonaws.com/users';
 
   constructor(private http: HttpClient) {}
 

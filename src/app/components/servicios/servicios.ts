@@ -3,7 +3,6 @@ import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ProfesionalesService } from '../../service/profesional.service';
 import { Profesional } from '../../interfaces/profesional.interface';
-import { RouterLink } from '@angular/router';
 import { AuthService } from '../../service/auth.service'; // asegúrate de que el path sea correcto
 import { Router } from '@angular/router';
 
@@ -30,14 +29,14 @@ export class Servicios implements OnInit {
 
 
   ngOnInit(): void {
-    if (!this.authService.isLoggedIn()) {
-      this.router.navigate(['/login']);
-      return;
-    }
+    // if (!this.authService.isLoggedIn()) {
+    //   this.router.navigate(['/login']);
+    //   return;
+    // }
 
     this.profesionalesService.obtenerProfesionalesConServicios().subscribe({
       next: (res) => {
-        console.log("Profesionales con servicios recibidos:", res.data); 
+        console.log("Profesionales con servicios recibidos:", res.data);
         this.profesionales = res.data.map(p => ({ ...p, favorito: false }));
         const especialidades = this.profesionales.map(p => p.specialty);
         this.todasEspecialidades = Array.from(new Set(especialidades));
@@ -68,7 +67,14 @@ export class Servicios implements OnInit {
 
   irATurnos(servicio: any, profesional: any) {
     console.log("Navegando a turnos con:", servicio, profesional);
-    this.router.navigate(['/turnos'], { state: { servicio , profesional } });
+    this.router.navigate(['/turnos'], { state: { servicio, profesional } });
   }
+
+  verMas(prof: any) {
+    this.router.navigate(['/detalle-profesional'], {
+      state: { profesional: prof }
+    });
+  }
+
 
 }
