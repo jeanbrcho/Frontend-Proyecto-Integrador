@@ -12,14 +12,15 @@
     {{ profesionalData?.neighborhood }}, {{ profesionalData?.province }}
   </p>
 
-  <div *ngIf="tieneDireccion">
-    <iframe width="100%" height="300" frameborder="0" [src]="googleMapsUrl | safe" allowfullscreen>
-    </iframe>
+    <!-- MAPA -->
+  <div *ngIf="tieneDireccion; else noDireccion">
+    <iframe width="100%" height="300" frameborder="0" [src]="googleMapsUrl | safe" allowfullscreen></iframe>
   </div>
 
-  <div *ngIf="!tieneDireccion">
-    Dirección no encontrada.
-  </div>
+  <ng-template #noDireccion>
+    <div class="alert alert-warning">Dirección no encontrada o fuera de Argentina.</div>
+  </ng-template>
+
 
   <h3>Servicios que ofrece</h3>
   <ul>

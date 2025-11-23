@@ -33,4 +33,5 @@ export interface Servicio {
   price: number;
   createdAt: string;
   updatedAt: string;
+  idProfessional?: string;
 }

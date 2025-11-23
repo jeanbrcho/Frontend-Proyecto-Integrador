@@ -24,34 +24,27 @@ export class DetalleProfesionalComponent implements OnInit, OnChanges {
 
   // 👉 Función que arma el iframe de Google Maps
   obtenerCoordenadas() {
-    if (!this.profesionalData) return;
+    // ✅ Solo si hay calle y número exactos
+    if (this.profesionalData?.street && this.profesionalData?.streetNumber) {
 
-    // ---- Construcción dinámica de la dirección ----
-    const partes = [
-      `${this.profesionalData.street} ${this.profesionalData.streetNumber}`,
-      this.profesionalData.postalCode,
-      this.profesionalData.neighborhood,
-      this.profesionalData.province,
-      'Argentina'
-    ].filter(x => x && x.trim() !== '');
+      // Construimos la dirección completa (solo con datos existentes)
+      const partes = [
+        this.profesionalData.street,
+        this.profesionalData.streetNumber,
+        this.profesionalData.neighborhood,
+        this.profesionalData.province,
+        'Argentina'
+      ].filter(x => x && x.trim() !== '').join(', ');
 
-    const address = partes.join(', ');
+      // URL de Google Maps con la dirección exacta
+      this.googleMapsUrl = `https://www.google.com/maps?q=${encodeURIComponent(partes)}&output=embed`;
+      this.tieneDireccion = true;
 
-    console.log("🗺 Buscando dirección:", address);
-
-    // ---- Geocodificación ----
-    this.nominatim.geocode(address).subscribe({
-      next: geo => {
-        this.tieneDireccion = true;
-
-        this.googleMapsUrl =
-          `https://www.google.com/maps?q=${geo.lat},${geo.lng}&z=15&output=embed`;
-      },
-      error: () => {
-        this.tieneDireccion = false;
-        console.warn("❌ No se encontró la dirección");
-      }
-    });
+    } else {
+      // Si falta calle o número, no mostramos mapa
+      this.tieneDireccion = false;
+      this.googleMapsUrl = '';
+    }
   }
 
 

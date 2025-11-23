@@ -72,10 +72,9 @@ export class TurnosComponent implements OnInit {
 
     const turno: any = {
       idUser: idUser,
-      idProfessional: this.profesional.id,
       idService: this.servicioSeleccionado.id,
-      date: this.fecha,
-      time: this.hora,
+      date: this.fecha,   // YYYY-MM-DD
+      time: this.hora,    // HH:mm
       petname: this.petname,
       phone: this.phone
     };
