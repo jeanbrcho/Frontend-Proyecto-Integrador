@@ -12,7 +12,10 @@ export interface Profesional {
   streetNumber: string;
   neighborhood: string;
   province: string;
-  location: string;
+  location: {
+    latitude: number;
+    longitude: number;
+  };
   imagesUrl: string;
   email: string;
   password: string;
@@ -23,7 +26,7 @@ export interface Profesional {
   services: Servicio[];
 }
 
-export interface Servicio{
+export interface Servicio {
   id: string;
   name: string;
   description: string;

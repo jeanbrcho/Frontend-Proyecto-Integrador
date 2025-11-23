@@ -4,7 +4,7 @@
   <h2>{{ profesionalData?.name || profesional?.name }}</h2>
 
   <p><strong>Especialidad:</strong> {{ profesionalData?.specialty || profesional?.specialty }}</p>
-  <p><strong>Ubicación:</strong> {{ profesionalData?.location || profesional?.location }}</p>
+  <!-- <p><strong>Ubicación:</strong> {{ profesionalData?.location || profesional?.location }}</p> -->
 
   <p>
     <strong>Dirección:</strong>
@@ -12,9 +12,14 @@
     {{ profesionalData?.neighborhood }}, {{ profesionalData?.province }}
   </p>
 
-  <iframe width="100%" height="250" frameborder="0" [src]="googleMapsUrl | safe" allowfullscreen>
-  </iframe>
+  <div *ngIf="tieneDireccion">
+    <iframe width="100%" height="300" frameborder="0" [src]="googleMapsUrl | safe" allowfullscreen>
+    </iframe>
+  </div>
 
+  <div *ngIf="!tieneDireccion">
+    Dirección no encontrada.
+  </div>
 
   <h3>Servicios que ofrece</h3>
   <ul>
