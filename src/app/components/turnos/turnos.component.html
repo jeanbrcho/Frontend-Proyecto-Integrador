@@ -1,0 +1,47 @@
+<h1 class="titulo">Sacar Turno 🐾</h1>
+
+<!-- Mostrar los datos apenas llegamos -->
+<div *ngIf="profesional" class="info-box">
+  <h3>{{ profesional.nameEstablishment }}</h3>
+  <p><strong>Profesional:</strong> {{ profesional.name }} {{ profesional.lastname }}</p>
+  <p><strong>Especialidad:</strong> {{ profesional.specialty }}</p>
+</div>
+
+<form (ngSubmit)="guardarTurno()" class="formulario">
+
+  <label>Fecha:</label>
+  <input type="date" [(ngModel)]="fecha" name="fecha" required />
+
+  <label>Hora:</label>
+  <select [(ngModel)]="hora" name="hora" required>
+    <option value="" disabled selected>Seleccioná una hora</option>
+    <option *ngFor="let h of horasDisponibles" [value]="h">
+      {{ h }}
+    </option>
+  </select>
+
+  <label>Nombre de la mascota:</label>
+  <input type="text" [(ngModel)]="petname" name="petname" placeholder="Ej: Pancho" required />
+
+  <label>Teléfono:</label>
+  <input type="text" [(ngModel)]="phone" name="phone" placeholder="Ej: 1122334455" required />
+
+  <label>Seleccioná un servicio:</label>
+  <select [(ngModel)]="servicioSeleccionado" name="servicioSeleccionado" required>
+    <option value="" disabled selected>Elegí un servicio</option>
+
+    <option *ngFor="let s of servicios" [ngValue]="s">
+      {{ s.name }} — ${{ s.price }}
+    </option>
+  </select>
+
+  <div *ngIf="servicioSeleccionado" class="info-box">
+    <p><strong>Servicio:</strong> {{ servicioSeleccionado.name }}</p>
+    <p><strong>Precio:</strong> ${{ servicioSeleccionado.price }}</p>
+  </div>
+
+
+  <button type="submit" class="btn-guardar">
+    Confirmar Turno 🐾
+  </button>
+</form>

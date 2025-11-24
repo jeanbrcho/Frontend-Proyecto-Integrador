@@ -1,0 +1,63 @@
+<div class="container py-4">
+
+  <!-- Filtro por especialidad -->
+  <div class="filtro-tipo mb-4">
+    <label for="tipoSelect">Filtrar por especialidad:</label>
+    <select id="tipoSelect" class="form-select" [(ngModel)]="filtroTipo">
+      <option value="">Todos</option>
+      <option *ngFor="let s of todasEspecialidades" [value]="s">{{ s }}</option>
+    </select>
+  </div>
+
+  <button class="btn btn-warning mb-3" (click)="mostrarFavoritos = !mostrarFavoritos">
+    <i class="fa" [ngClass]="mostrarFavoritos ? 'fa-solid fa-star' : 'fa-regular fa-star'"></i>
+    {{ mostrarFavoritos ? 'Mostrar todos' : 'Mostrar favoritos' }}
+  </button>
+
+  <!-- Cards -->
+  <div class="row g-4">
+    <div class="col-md-6" *ngFor="let prof of profesionalesFiltrados()">
+      <div class="card servicio-card shadow-sm">
+
+        <!-- Imagen placeholder -->
+        <!-- <div class="servicio-imagen position-relative">
+          <img src="assets/placeholder.jpg" alt="{{ prof.nameEstablishment }}" />
+        </div> -->
+
+        <!-- Contenido -->
+        <div class="servicio-contenido">
+          <h5 class="nombre">{{ prof.nameEstablishment }}</h5>
+          <p class="tipo"><strong>Especialidad:</strong> {{ prof.specialty }}</p>
+
+          <p class="direccion">
+            <strong>Dirección:</strong>
+            {{ prof.street }} {{ prof.streetNumber }}, {{ prof.neighborhood }}, {{ prof.province }}
+          </p>
+
+          <!-- Servicios -->
+          <div class="servicios" *ngIf="prof.services && prof.services.length">
+            <strong>Servicios:</strong>
+            <ul>
+              <li *ngFor="let s of prof.services">{{ s.name }}: {{ s.description }}
+                <!-- <a [routerLink]="['/turnos']" [state]="{ servicio: s, profesional: prof }" class="btn btn-primary mt-2">Sacar Turno</a> -->
+              </li>
+
+            </ul>
+          </div>
+
+          <!-- ⭐ Nuevo botón Ver más -->
+          <button class="btn btn-info mt-2" (click)="verMas(prof)">
+            Ver más
+          </button>
+
+        </div>
+
+        <!-- Favorito -->
+        <div class="favorito" (click)="toggleFavorito(prof)">
+          <i class="fa" [ngClass]="prof.favorito ? 'fa-solid fa-star text-warning' : 'fa-regular fa-star'"></i>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</div>

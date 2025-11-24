@@ -2,3 +2,63 @@
  html {
      font-family:  'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
+
+
+/* ==================================== */
+/* TEMA CLARO  */
+/* ==================================== */
+
+:root {
+    /* Fondos */
+    --color-fondo-pagina: #FBF7EC;       /* Nuevo fondo base (#FBF7EC) */
+    --color-fondo-principal: #fff;       /* Fondo de tarjetas (Base es blanco) */
+    --color-fondo-acento-claro: #B4FFFF; /* Nuevo fondo para Cards Section */
+    --color-fondo-navbar: #455A64;
+    --color-fondo-secundario:  #FBF7EC;  
+    --color-fondo-form: #FFFFFF;
+    --color-fondo-form2: #FFFFFF;
+    /* Textos y Acentos */
+    --color-texto-principal: #333333;    /* Texto principal */
+    --color-texto-secundario: #455A64;   /* Párrafos, gris oscuro */
+    --color-acento-marca: #FF9E57;       /* Naranja (se mantiene para botones/acentos) */
+    --color-acento-texto: #03466F;       /* Nuevo Azul/Petróleo para títulos */
+    --color-acento-secundario: #FFA500;  /* Nuevo Naranja/Amarillo para círculos */
+    --color-acento-hover: #FFD166;       /* Hover de botones */
+
+    /* Gradiente (Debe ser usado directamente donde aplique) */
+    --color-gradiente-hero: linear-gradient(135deg, #c6fbfb, #B4FFFF);
+}
+
+/* ==================================== */
+/* TEMA OSCURO . ACA HAY QUE CAMBIAR LOS COLORES SI SE NECESITA */
+/* ==================================== */
+
+body.dark-theme {
+    /* Fondos (Inversión) */
+    --color-fondo-pagina: #1A202C;         /* Fondo muy oscuro */
+    --color-fondo-principal: #2D3748;      /* Fondo de tarjetas (Gris Azulado) */
+    --color-fondo-acento-claro: #3E4A5C;   /* Fondo de Cards Section (Gris intermedio) */
+    --color-fondo-navbar: #1A202C;
+    --color-fondo-secundario:#4A5568;
+    --color-fondo-form: #1A202C;
+    --color-fondo-form2: #455A64;
+
+    /* Textos y Acentos (Inversión) */
+    --color-texto-principal: #E2E8F0;      /* Texto principal claro */
+    --color-texto-secundario: #A0AEC0;     /* Gris claro para párrafos */
+    
+    /* Acentos (Se mantienen visibles) */
+    --color-acento-marca: #FF9E57;         /* Naranja (Se mantiene para destacar) */
+    --color-acento-texto: #B4FFFF;         /* Cian/Azul claro para títulos */
+    --color-acento-secundario: #FFB703;    /* Amarillo/Dorado para círculos/estrellas */
+    --color-acento-hover: #D9762C;         /* Hover oscuro */
+
+    /* Gradiente (Inversión) */
+    --color-gradiente-hero: linear-gradient(135deg, #001f3f, #004080); /* Gradiente oscuro */
+}
+
+body {
+    transition: background-color 0.4s, color 0.4s;
+    background-color: var(--color-fondo-pagina);
+    color: var(--color-texto-principal);
+}

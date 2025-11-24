@@ -1,6 +1,6 @@
 .app-footer {
-    background-color: #455A64; 
-    color: #FFFFFF;
+    background-color: var(--color-fondo-navbar); 
+    color: var(--color-fondo-principal);
     padding-top: 30px;
 }
 
@@ -18,7 +18,7 @@
 }
 
 .footer-col h4 {
-    color: #FF9E57; 
+    color:var( --color-acento-marca); 
     font-size: 1.2em;
     margin-bottom: 10px;
     font-weight: bold;
@@ -42,13 +42,13 @@
 }
 
 .footer-col a:hover {
-    color: #FF9E57; 
+    color:var( --color-acento-marca); 
 }
 
 
 
 .brand-col .brand-title {
-    color: #FF9E57;
+    color:var( --color-acento-marca);
     font-size: 1.5em;
     margin-bottom: 10px;
 }
@@ -62,12 +62,12 @@
 
 .social-links a {
     font-size: 1.5em;
-    color: #FFFFFF;
+    color: var(--color-fondo-principal);
 }
 
 
 .footer-bottom {
-    border-top: 1px solid #455A64; 
+    border-top: 1px solid var(--color-fondo-navbar); 
     text-align: center;
     padding: 5px 0;
     font-size: 0.8em;

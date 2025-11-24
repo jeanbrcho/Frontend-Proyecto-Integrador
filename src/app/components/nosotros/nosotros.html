@@ -1,65 +1,99 @@
-<body>
-    <!-- Sección Sobre Nosotros -->
-    <div class="nosotros-container">
-        <div class="nosotros-contenido">
-            <div class="nosotros-texto">
-                <h1>Sobre Nosotros</h1>
-                <p>
-                    Somos una plataforma que conecta a dueños de mascotas con peluquerías caninas y veterinarias de
-                    confianza.
-                    Nuestro objetivo es facilitar la vida de los peluditos y sus familias, brindando un sistema rápido,
-                    seguro y sencillo
-                    para reservar turnos, descubrir nuevos lugares y acceder a promociones.
-                </p>
+<section class="sobre-nosotros">
+    <h2>Sobre Nosotros</h2>
+    <div class="contenido">
+        <img src="nosotros.webp" alt="Sobre Nosotros">
+        <p>
+            Somos una plataforma que conecta a dueños de mascotas con peluquerías caninas y veterinarias de confianza.
+            Nuestro objetivo es facilitar la vida de los peluditos y sus familias, brindando un sistema rápido, seguro y
+            sencillo para reservar turnos, descubrir nuevos lugares y acceder a promociones.
+        </p>
+    </div>
+</section>
+
+<section class="contacto-info">
+    <div class="contenedor-contacto">
+        <h3>¿Tenés dudas, sugerencias o querés más información?</h3>
+        <p>
+            Estamos para ayudarte. Escribinos y nos pondremos en contacto con vos lo antes posible.
+            ¡Tu opinión nos ayuda a seguir mejorando para vos y tu mascota!
+        </p>
+    </div>
+</section>
+
+
+<div class="contenedor-contactanos">
+    <h2 id="contacto" class="titulo-contacto">¡Contactanos!</h2>
+
+    <div class="bloque-contacto">
+        <div class="info-contacto">
+            <div class="dato-contacto">
+                <img src="iconsNos.png" alt="Correo" class="icono-contacto">
+                <p>contacto&#64;guauquecorte.com</p>
             </div>
 
-            <img src="/perritoNos.png" alt="Perrito feliz" class="nosotros-img">
-        </div>
-    </div>
-
-    <!-- Sección Frontend -->
-    <div class="equipo-seccion">
-        <div class="equipo-titulo">
-            <h1>Frontend</h1>
-            <img src="/iconoNos.png" alt="icono" class="icono-nos">
-        </div>
-        <div class="equipo-container">
-            <div class="miembro-card" *ngFor="let miembro of equipo1">
-                <img [src]="miembro.img" alt="{{miembro.nombre}}">
-                <h2>{{miembro.nombre}}</h2>
+            <div class="dato-contacto">
+                <img src="iconoNos2.png" alt="Dirección" class="icono-contacto">
+                <p>Av. Mascotas Felices 123, Buenos Aires</p>
             </div>
         </div>
-    </div>
 
-    <!-- Sección Backend -->
-    <div class="equipo-seccion">
-        <div class="equipo-titulo">
-            <h1>Backend</h1>
-            <img src="/iconoNos.png" alt="icono" class="icono-nos">
-        </div>
-        <div class="equipo-container">
-            <div class="miembro-card" *ngFor="let miembro of equipo2">
-                <img [src]="miembro.img" alt="{{miembro.nombre}}">
-                <h2>{{miembro.nombre}}</h2>
+        <form class="formulario-contacto">
+            <div class="form-group">
+                <input type="text" placeholder="Tu nombre" required>
+                <input type="email" placeholder="Tu correo electrónico" required>
+            </div>
+            <textarea placeholder="Escribí tu mensaje aquí..." required></textarea>
+            <button type="submit">Enviar Mensaje</button>
+        </form>
+    </div>
+</div>
+
+<section class="equipo-section">
+    <h2>Nuestro Equipo!</h2>
+    <div class="equipo-circulos">
+
+        <div class="equipo-item">
+            <div class="circle-equipo circle-amarillo">
+                <img src="integrante1.jpg" alt="Nombre 1">
+                <span class="nombre-equipo">Claudia</span>
             </div>
         </div>
-    </div>
 
-    <!-- Sección Contacto -->
-    <div id="contacto" class="contacto-container">
-        <div class="contacto-izquierda">
-            <h2>¿Tenés dudas, sugerencias o querés más información?</h2>
-            <p>
-                Estamos para ayudarte. Escribinos y nos pondremos en contacto con vos lo antes posible. ¡Tu opinión nos
-                ayuda a seguir mejorando para vos y tu mascota!
-            </p>
+        <div class="equipo-item">
+            <div class="circle-equipo circle-azul">
+                <img src="integrante2.jpg" alt="Nombre 2">
+                <span class="nombre-equipo">Jean</span>
+            </div>
         </div>
 
-        <div class="contacto-derecha">
-            <h2>Contactanos!</h2>
-            <p>📧 Correo: contacto&#64;tupeluapp.com</p>
-            <p>📱 Teléfono/WhatsApp: +54 9 11 1234-5678</p>
-            <p>📍 Ubicación: Buenos Aires, Argentina</p>
+        <div class="equipo-item">
+            <div class="circle-equipo circle-amarillo">
+                <img src="integrante3.jpg" alt="Nombre 3">
+                <span class="nombre-equipo">Sole</span>
+            </div>
+
         </div>
+
+        <div class="equipo-item">
+            <div class="circle-equipo circle-azul">
+                <img src="integrante3.jpg" alt="Nombre 3">
+                <span class="nombre-equipo">Sergio</span>
+            </div>
+        </div>
+
+        <div class="equipo-item">
+            <div class="circle-equipo circle-amarillo">
+                <img src="integrante3.jpg" alt="Nombre 3">
+                <span class="nombre-equipo">Edgar</span>
+            </div>
+        </div>
+
+        <div class="equipo-item">
+            <div class="circle-equipo circle-azul">
+                <img src="integrante3.jpg" alt="Nombre 3">
+                <span class="nombre-equipo">Juanjo</span>
+            </div>
+        </div>
+
     </div>
-</body>
+</section>

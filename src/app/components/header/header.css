@@ -1,112 +1,105 @@
-/* Header general */
-.app-header {
+
+.header-wrapper {
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
-  background-color: #455A64;
-  height: 100px; /* antes 2.5cm */
-  padding: 0 1rem 0 0;
-  color: white;
-  gap: 2rem;
+  flex-direction: column;
+  align-items: center; /* centra todo */
+  background-color: var(--color-fondo-secundario);
+
 }
 
-/* Logo */
-.logo-container {
+.logo-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%; /* ancho limitado al 80% de la pantalla */
+  max-width: 1200px; /* opcional, para pantallas muy grandes */
+  padding: 20px 0;
+}
+
+/* Contenedor de logo + texto */
+.brand {
   display: flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 10px; /* 🔹 espacio entre logo y texto */
 }
 
 .logo {
-  width: 100px;
-  height: 80px;
-  border-radius: 50%;
-  object-fit: cover;
+  height: 70px;
+  transition: all 0.4s ease;
 }
 
-.logo-container h1 {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: #FF9E57;
-}
-
-/* Menú */
-.menu {
-  display: flex;
-  gap: 2rem;
-}
-
-.menu a {
-  text-decoration: none;
-  color: #FF9E57;
-  font-size: 1rem;
+/* Texto del logo */
+.brand-title {
+  font-size: 32px; /* 🔹 ajustá a tu gusto (40 si querés igual que en Figma) */
+  font-family: 'Poppins', sans-serif;
   font-weight: 600;
-  transition: color 0.3s ease;
+  color: #FF9E57;
+  margin: 0;
+  letter-spacing: 1px;
 }
 
-.menu a:hover {
-  color: white;
-}
-
-/* Botón Login */
 .login-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  margin-left: auto;
   background-color: #FF9E57;
-  color: white;
-  border: none;
-  border-radius: 9999px;
-  padding: 0.6rem 1.5rem;
-  font-weight: bold;
-  font-size: 1rem;
-  cursor: pointer;
-  transition: background 0.3s ease;
+  color: #03466F;
+  padding: 8px 15px;
+  border-radius: 20px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: 0.3s;
 }
 
 .login-btn:hover {
-  background-color: white;
-  color: #FF9E57;
+  background-color: #FFD166;
 }
 
-.login-btn:hover .paw-icon {
-  color: #FF9E57;
+.main-header {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  width: 80%; /* mismo ancho que el logo-section */
+  max-width: 1200px;
+  padding: 10px 0;
+  background-color: var(--color-fondo-navbar);
+  transition: background-color 0.4s ease, box-shadow 0.4s ease, padding 0.4s ease;
+  position: relative; /* no fijo al inicio */
+  border-radius: 100px; /* opcional, bordes redondeados */
 }
 
-.paw-icon {
-  font-size: 1.2rem;
+.main-header.fixed {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;              /* ocupa todo el ancho */
+  max-width: 100%;          /* asegura full width */
+  border-radius: 0;         /* sin bordes redondeados */
+  margin: 0;                /* sin márgenes */
+  padding: 10px 0;          /* solo padding vertical */
+  background-color: #455A64;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+  z-index: 1000;
+}
+
+.main-header.fixed .nav-links a {
   color: white;
 }
 
-/* Media queries para móviles */
-@media (max-width: 768px) {
-  .app-header {
-    height: 70px;      /* más compacto en móviles */
-    padding: 0 0.5rem;
-    gap: 1rem;
-  }
-
-  .logo {
-    width: 60px;
-    height: 60px;
-  }
-
-  .logo-container h1 {
-    font-size: 1rem;   /* título más pequeño */
-  }
-
-  .menu a {
-    font-size: 0.80rem; /* links más pequeños */
-    gap: 0.4rem;
-  }
-
-  .login-btn {
-    padding: 0.3rem 0.8rem;
-    font-size: 0.75rem;
-  }
-
-  .paw-icon {
-    font-size: 0.9rem;
-  }
+.nav-links {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 120px;
 }
+
+.nav-links a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  padding: 5px 10px;
+  transition: color 0.3s;
+  font-size: 40px;
+}
+
+.nav-links a:hover {
+  color: #FF9E57;
+}
+

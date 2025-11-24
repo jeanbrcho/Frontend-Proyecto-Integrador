@@ -1,46 +1,38 @@
-<!-- Encabezado con título y logo -->
-<div class="carousel-header">
-  <h2 class="header-title">Veterinarias Recomendadas</h2>
-  <img src="estetoscopio.png" alt="Logo" class="header-logo">
-</div>
+<div class="carousel-container" *ngIf="profesionales.length > 0">
+  <div class="carousel-wrapper" (mouseenter)="pauseAutoSlide()" (mouseleave)="resumeAutoSlide()">
+    <button class="carousel-btn prev" (click)="prev()">
+      <i class="bi bi-chevron-left"></i>
+    </button>
 
-<!-- Contenedor del carrusel -->
-<div class="carousel-container">
-  <div id="carouselExampleAutoplaying" class="carousel slide" data-bs-ride="carousel" data-bs-pause="hover" data-bs-interval="3000">
-    
-    <!-- Indicadores -->
-    <div class="carousel-indicators">
-      <button *ngFor="let img of imagenes; let i = index"
-              type="button"
-              data-bs-target="#carouselExampleAutoplaying"
-              [attr.data-bs-slide-to]="i"
-              [class.active]="i === 0"
-              [attr.aria-label]="'Slide ' + (i+1)">
-      </button>
-    </div>
+    <div class="carousel-track">
+      <div class="card" *ngFor="let prof of profesionales.slice(currentIndex, currentIndex + 3)">
 
-    <!-- Imágenes -->
-    <div class="carousel-inner">
-      <div *ngFor="let img of imagenes; let i = index"
-           class="carousel-item"
-           [class.active]="i === 0">
-        <img [src]="img" class="d-block w-100" alt="imagen {{ i + 1 }}">
-        <div class="carousel-caption d-none d-md-block">
-          <h5>Veterinaria {{ i + 1 }}</h5>
-          <p>Servicio 24hs - Emergencias</p>
+         <!-- ⭐ Imagen si existe -->
+        <img 
+          *ngIf="prof.imagesUrl && prof.imagesUrl.length > 0"
+          [src]="prof.imagesUrl[0]"
+          alt="Foto del establecimiento"
+          class="card-img"
+        />
+        
+        <div class="card-body">
+          <h5 class="card-title">{{ prof.nameEstablishment }}</h5>
+          <p class="card-text">
+            <strong>Especialidad:</strong> {{ prof.specialty }}
+          </p>
+          <p class="card-text">
+            <strong>Dirección:</strong><br />
+            {{ prof.street }} {{ prof.streetNumber }},
+            {{ prof.neighborhood }}, {{ prof.province }}
+          </p>
+
+          <!-- <button class="btn-vermas">Ver más</button> -->
         </div>
       </div>
     </div>
 
-    <!-- Botones -->
-    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="prev">
-      <span class="carousel-control-prev-icon"></span>
-      <span class="visually-hidden">Anterior</span>
-    </button>
-
-    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleAutoplaying" data-bs-slide="next">
-      <span class="carousel-control-next-icon"></span>
-      <span class="visually-hidden">Siguiente</span>
+    <button class="carousel-btn next" (click)="next()">
+      <i class="bi bi-chevron-right"></i>
     </button>
   </div>
 </div>

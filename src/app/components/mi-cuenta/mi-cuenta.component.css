@@ -1,0 +1,243 @@
+.profile-layout {
+    display: grid;
+    grid-template-columns: 1.5fr 1fr; 
+    gap: 30px; 
+    
+    max-width: 1100px; 
+    margin: 50px auto; 
+    padding: 0 20px; 
+}
+
+
+.user-profile-card {
+    max-width: 100%; 
+    margin: 0; 
+    padding: 35px;
+    background-color: #fffaf0; 
+    border: 1px solid #ffcc66; 
+    border-radius: 20px; 
+    box-shadow: 0 8px 16px rgba(180, 100, 0, 0.15); 
+    text-align: center;
+    font-family: 'Segoe UI', sans-serif;
+    width: 100%;
+}
+
+.profile-title {
+    font-size: 1.8rem;
+    color: #ff6600; 
+    margin-bottom: 25px;
+    border-bottom: 3px solid #ffcc66;
+    display: inline-block;
+    padding-bottom: 8px;
+    font-weight: 700;
+}
+
+
+.profile-info {
+    margin-bottom: 30px;
+    width: 100%;
+}
+
+.data-item {
+    display: flex;
+    justify-content: space-between; 
+    align-items: center;
+    margin: 10px 0;
+    padding: 12px 15px;
+    background-color: #f7f7f7; 
+    border-radius: 8px;
+    border-left: 5px solid #ff9933; 
+}
+
+.item-label {
+    font-weight: 600;
+    color: #666;
+    text-align: left;
+    min-width: 80px; 
+}
+
+.profile-item {
+    font-size: 1rem;
+    color: #333;
+    margin: 0; 
+    text-align: right;
+    font-weight: 500;
+    overflow-wrap: break-word; 
+}
+
+
+.profile-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    width: 100%; 
+}
+
+.edit-btn, .logout-btn {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 10px; 
+    font-size: 1.05rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+.edit-btn {
+    background-color: #ff9933; 
+    color: white;
+}
+.edit-btn:hover {
+    background-color: #e68a2e;
+    transform: scale(1.02);
+}
+
+.logout-btn {
+    background-color: #cc0000; 
+    color: white;
+}
+.logout-btn:hover {
+    background-color: #990000;
+    transform: scale(1.02);
+}
+
+
+.sidebar {
+    padding-top: 5px; 
+}
+
+.sidebar-module {
+    background-color: #fffaf0; 
+    border: 1px solid #ffcc66;
+    border-radius: 15px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 8px rgba(180, 100, 0, 0.1);
+}
+
+.sidebar-module h3 {
+    color: #ff9933; 
+    font-size: 1.2em;
+    border-bottom: 2px solid #ffcc66;
+    padding-bottom: 5px;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+
+/* ------------------------------------ */
+/* Carga */
+/* ------------------------------------ */
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 30px 0;
+    color: #ff9933;
+    font-weight: 600;
+}
+
+.spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #e0e0e0;
+    border-top: 4px solid #ff9933;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-bottom: 10px;
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* RESPONSIVE PARA TABLETS Y CELUS */
+@media (max-width: 992px) {
+    .profile-layout {
+        grid-template-columns: 1fr; 
+        gap: 20px; 
+        padding: 0 15px;
+    }
+    
+    .user-profile-card {
+        max-width: 500px; 
+        margin: 0 auto; 
+    }
+
+    .sidebar {
+        padding-top: 0; 
+    }
+}
+
+@media (max-width: 576px) {
+    .user-profile-card {
+        padding: 20px; 
+        border-radius: 10px; 
+        box-shadow: none; 
+    }
+
+    .profile-title {
+        font-size: 1.6rem;
+    }
+    
+    .data-item {
+        padding: 10px;
+    }
+}
+
+/* turnos */
+.turnos-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.turno-item {
+    background-color: #ffffff;
+    padding: 15px 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.turno-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+}
+
+.turno-item p {
+    margin: 4px 0;
+    font-size: 16px;
+}
+
+.loading-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.spinner {
+    width: 30px;
+    height: 30px;
+    border: 4px solid #ccc;
+    border-top-color: #029CDC;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
+}

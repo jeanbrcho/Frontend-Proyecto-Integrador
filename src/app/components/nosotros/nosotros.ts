@@ -9,17 +9,6 @@ import { ActivatedRoute } from '@angular/router';
   styleUrl: './nosotros.css'
 })
 export class Nosotros implements AfterViewInit {
-  equipo1 = [
-    { nombre: 'Claudia', img: '/perrito2Nos.png' },
-    { nombre: 'Jean', img: '/perrito2Nos.png' },
-    { nombre: 'Sole', img: '/perrito2Nos.png' }
-  ];
-
-  equipo2 = [
-    { nombre: 'Sergio', img: '/perrito.png' },
-    { nombre: 'Edgar', img: '/perrito.png' },
-    { nombre: 'Juanjo', img: '/perrito.png' }
-  ];
 
   constructor(private route: ActivatedRoute) { }
 

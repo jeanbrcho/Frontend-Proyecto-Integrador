@@ -1,0 +1,33 @@
+<div *ngIf="loading" class="loading">Cargando profesional...</div>
+
+<div *ngIf="!loading" class="info-card">
+  <h2>{{ profesionalData?.name || profesional?.name }}</h2>
+
+  <p><strong>Especialidad:</strong> {{ profesionalData?.specialty || profesional?.specialty }}</p>
+  <!-- <p><strong>Ubicación:</strong> {{ profesionalData?.location || profesional?.location }}</p> -->
+
+  <p>
+    <strong>Dirección:</strong>
+    {{ profesionalData?.street }} {{ profesionalData?.streetNumber }},
+    {{ profesionalData?.neighborhood }}, {{ profesionalData?.province }}
+  </p>
+
+    <!-- MAPA -->
+  <div *ngIf="tieneDireccion; else noDireccion">
+    <iframe width="100%" height="300" frameborder="0" [src]="googleMapsUrl | safe" allowfullscreen></iframe>
+  </div>
+
+  <ng-template #noDireccion>
+    <div class="alert alert-warning">Dirección no encontrada o fuera de Argentina.</div>
+  </ng-template>
+
+
+  <h3>Servicios que ofrece</h3>
+  <ul>
+    <li *ngFor="let servicio of (profesionalData?.services || profesional?.services)">
+      {{ servicio.name }} — ${{ servicio.price }}
+    </li>
+  </ul>
+
+  <button class="btn" (click)="sacarTurno()">Sacar turno</button>
+</div>
