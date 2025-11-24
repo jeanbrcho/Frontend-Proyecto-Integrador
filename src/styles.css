@@ -4,6 +4,7 @@
 }
 
 
+
 /* ==================================== */
 /* TEMA CLARO  */
 /* ==================================== */
@@ -62,3 +63,4 @@ body {
     background-color: var(--color-fondo-pagina);
     color: var(--color-texto-principal);
 }
+
