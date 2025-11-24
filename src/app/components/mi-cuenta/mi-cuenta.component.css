@@ -1,8 +1,15 @@
+
+
+.profile-container {
+    background-color: var(--color-fondo-pagina);
+    padding: 20px 0;
+    min-height: 100vh; 
+}
 .profile-layout {
     display: grid;
     grid-template-columns: 1.5fr 1fr; 
     gap: 30px; 
-    
+   
     max-width: 1100px; 
     margin: 50px auto; 
     padding: 0 20px; 
@@ -13,8 +20,8 @@
     max-width: 100%; 
     margin: 0; 
     padding: 35px;
-    background-color: #fffaf0; 
-    border: 1px solid #ffcc66; 
+    background-color: var(--color-fondo-secundario);
+    border: 1px solid var(--color-acento-marca); 
     border-radius: 20px; 
     box-shadow: 0 8px 16px rgba(180, 100, 0, 0.15); 
     text-align: center;
@@ -26,7 +33,7 @@
     font-size: 1.8rem;
     color: #ff6600; 
     margin-bottom: 25px;
-    border-bottom: 3px solid #ffcc66;
+    border-bottom: 3px solid var(--color-acento-marca);
     display: inline-block;
     padding-bottom: 8px;
     font-weight: 700;
@@ -109,8 +116,9 @@
 }
 
 .sidebar-module {
-    background-color: #fffaf0; 
-    border: 1px solid #ffcc66;
+    background-color: var(--color-fondo-secundario); 
+    color: var(--color-texto-principal);
+    border: 1px solid var(--color-acento-marca);
     border-radius: 15px;
     padding: 20px;
     margin-bottom: 20px;
@@ -120,7 +128,7 @@
 .sidebar-module h3 {
     color: #ff9933; 
     font-size: 1.2em;
-    border-bottom: 2px solid #ffcc66;
+    border-bottom: 2px solid var(--color-acento-marca);
     padding-bottom: 5px;
     margin-top: 0;
     margin-bottom: 15px;

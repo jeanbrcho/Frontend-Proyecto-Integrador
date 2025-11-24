@@ -48,7 +48,7 @@
   transform: translateY(20px) scale(0.95);
   pointer-events: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 999;
+   z-index: 1000;
   overflow: hidden;
 }
 
