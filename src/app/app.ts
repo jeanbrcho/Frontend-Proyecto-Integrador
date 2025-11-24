@@ -3,11 +3,12 @@ import { RouterOutlet } from '@angular/router';
 import { Header } from './components/header/header';
 import { Footer } from './components/footer/footer';
 import { Perrito } from "./components/perrito/perrito";
+import { ChatbotComponent } from './components/chatbot/chatbot.component';
 import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Header, Footer, Perrito, CommonModule],
+  imports: [RouterOutlet, Header, Footer, Perrito, ChatbotComponent, CommonModule],
   standalone: true,
   templateUrl: './app.html',
   styleUrl: './app.css'
