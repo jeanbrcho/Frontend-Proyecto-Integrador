@@ -6,6 +6,15 @@
 
     <div class="carousel-track">
       <div class="card" *ngFor="let prof of profesionales.slice(currentIndex, currentIndex + 3)">
+
+         <!-- ⭐ Imagen si existe -->
+        <img 
+          *ngIf="prof.imagesUrl && prof.imagesUrl.length > 0"
+          [src]="prof.imagesUrl[0]"
+          alt="Foto del establecimiento"
+          class="card-img"
+        />
+        
         <div class="card-body">
           <h5 class="card-title">{{ prof.nameEstablishment }}</h5>
           <p class="card-text">
