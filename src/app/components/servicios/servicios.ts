@@ -28,22 +28,34 @@ export class Servicios implements OnInit {
     private router: Router) { }
 
 
+  // ngOnInit(): void {
+  //   this.profesionalesService.obtenerProfesionalesConServicios().subscribe({
+  //     next: (res) => {
+  //       console.log("Profesionales con servicios recibidos:", res.data);
+  //       this.profesionales = res.data.map(p => ({ ...p, favorito: false }));
+  //       const especialidades = this.profesionales.map(p => p.specialty);
+  //       this.todasEspecialidades = Array.from(new Set(especialidades));
+  //     },
+  //     error: (err) => console.error('Error al cargar profesionales:', err)
+  //   });
+  // }
   ngOnInit(): void {
-    // if (!this.authService.isLoggedIn()) {
-    //   this.router.navigate(['/login']);
-    //   return;
-    // }
-
     this.profesionalesService.obtenerProfesionalesConServicios().subscribe({
       next: (res) => {
         console.log("Profesionales con servicios recibidos:", res.data);
-        this.profesionales = res.data.map(p => ({ ...p, favorito: false }));
+
+        this.profesionales = res.data
+          // 🔥 SOLO mostrar profesionales con servicios activos
+          .filter((p: any) => p.active)  
+          .map((p: any) => ({ ...p, favorito: false }));
+
         const especialidades = this.profesionales.map(p => p.specialty);
         this.todasEspecialidades = Array.from(new Set(especialidades));
       },
       error: (err) => console.error('Error al cargar profesionales:', err)
     });
   }
+
 
   profesionalesFiltrados(): ProfesionalFrontend[] {
     let lista = this.profesionales;
