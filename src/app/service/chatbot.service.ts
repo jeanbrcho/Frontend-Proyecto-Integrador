@@ -17,7 +17,7 @@ export interface ChatbotResponse {
 })
 export class ChatbotService {
   private http = inject(HttpClient);
-  private apiUrl = 'http://localhost:3000/chatbot/chat'; // Ajusta según tu backend
+  private apiUrl = 'https://btdyww2b6k.execute-api.us-east-1.amazonaws.com/chatbot/chat'; // Ajusta según tu backend
 
   sendMessage(message: string, token?: string): Observable<ChatbotResponse> {
     const headers = new HttpHeaders({
