@@ -1,18 +1,5 @@
-<!-- Botón flotante -->
-<button 
-  class="chat-button" 
-  (click)="toggleChat()"
-  [class.open]="isOpen()"
-  aria-label="Abrir chat">
-  @if (!isOpen()) {
-    <span>💬</span>
-  } @else {
-    <span>✕</span>
-  }
-</button>
-
-<!-- Ventana del chat -->
 <div class="chat-window" [class.open]="isOpen()">
+
   <!-- Header -->
   <div class="chat-header">
     <div class="header-content">
@@ -25,28 +12,18 @@
   <!-- Mensajes -->
   <div class="chat-messages" #messagesContainer>
     @for (msg of messages(); track $index) {
-      <div 
-        class="message"
-        [class.user]="msg.isUser"
-        [class.bot]="!msg.isUser">
+      <div class="message" [class.user]="msg.isUser" [class.bot]="!msg.isUser">
         <div class="message-content">
           <p>{{ msg.text }}</p>
-          <span class="timestamp">
-            {{ msg.timestamp | date:'HH:mm' }}
-          </span>
+          <span class="timestamp">{{ msg.timestamp | date:'HH:mm' }}</span>
         </div>
       </div>
     }
 
-    <!-- Indicador de carga -->
     @if (isLoading()) {
       <div class="message bot">
         <div class="message-content">
-          <div class="typing-indicator">
-            <span></span>
-            <span></span>
-            <span></span>
-          </div>
+          <div class="typing-indicator"><span></span><span></span><span></span></div>
         </div>
       </div>
     }
@@ -54,18 +31,8 @@
 
   <!-- Input -->
   <div class="chat-input">
-    <input 
-      type="text" 
-      [(ngModel)]="newMessage"
-      (keypress)="onKeyPress($event)"
-      placeholder="Escribe tu mensaje..."
-      [disabled]="isLoading()"
-      aria-label="Mensaje">
-    <button 
-      (click)="sendMessage()" 
-      [disabled]="!newMessage().trim() || isLoading()"
-      aria-label="Enviar mensaje">
-      📤
-    </button>
+    <input type="text" [(ngModel)]="newMessage" (keypress)="onKeyPress($event)" placeholder="Escribe tu mensaje..." [disabled]="isLoading()" aria-label="Mensaje">
+    <button (click)="sendMessage()" [disabled]="!newMessage().trim() || isLoading()" aria-label="Enviar mensaje">📤</button>
   </div>
+
 </div>

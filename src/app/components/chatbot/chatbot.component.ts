@@ -2,6 +2,7 @@ import { Component, signal, effect, ViewChild, ElementRef, inject } from '@angul
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 import { ChatbotService, ChatMessage } from '../../service/chatbot.service';
+import { ChatStateService } from '../../service/chat-state.service';
 
 @Component({
   selector: 'app-chatbot',
@@ -11,16 +12,23 @@ import { ChatbotService, ChatMessage } from '../../service/chatbot.service';
   styleUrls: ['./chatbot.component.css']
 })
 export class ChatbotComponent {
+
   @ViewChild('messagesContainer') private messagesContainer!: ElementRef;
 
-  isOpen = signal(false);
+  private chatbotService = inject(ChatbotService);
+  
+  // Primero declaramos chatState
+  public chatState = inject(ChatStateService);
+
+  // Ahora ya podemos usarlo
+  isOpen = this.chatState.isOpen;
+
   messages = signal<ChatMessage[]>([]);
   newMessage = signal('');
   isLoading = signal(false);
 
-  private chatbotService = inject(ChatbotService);
-
   constructor() {
+
     // Mensaje de bienvenida
     this.messages.set([{
       text: '¡Hola! Soy el asistente virtual de Guau que corte 🐾. ¿En qué puedo ayudarte?',
@@ -28,7 +36,6 @@ export class ChatbotComponent {
       timestamp: new Date()
     }]);
 
-    // Auto-scroll cuando se agregan mensajes
     effect(() => {
       this.messages();
       setTimeout(() => this.scrollToBottom(), 100);
@@ -36,14 +43,13 @@ export class ChatbotComponent {
   }
 
   toggleChat() {
-    this.isOpen.update(value => !value);
+    this.chatState.toggle();
   }
 
   sendMessage() {
     const message = this.newMessage().trim();
     if (!message || this.isLoading()) return;
 
-    // Agregar mensaje del usuario
     this.messages.update(msgs => [...msgs, {
       text: message,
       isUser: true,
@@ -53,10 +59,8 @@ export class ChatbotComponent {
     this.newMessage.set('');
     this.isLoading.set(true);
 
-    // Obtener token del localStorage si existe
     const token = localStorage.getItem('token') || undefined;
 
-    // Enviar al backend
     this.chatbotService.sendMessage(message, token).subscribe({
       next: (response) => {
         this.messages.update(msgs => [...msgs, {
@@ -66,8 +70,7 @@ export class ChatbotComponent {
         }]);
         this.isLoading.set(false);
       },
-      error: (error) => {
-        console.error('Error al enviar mensaje:', error);
+      error: () => {
         this.messages.update(msgs => [...msgs, {
           text: 'Lo siento, hubo un error al procesar tu mensaje. Por favor intenta nuevamente.',
           isUser: false,
@@ -85,10 +88,10 @@ export class ChatbotComponent {
     }
   }
 
-  private scrollToBottom(): void {
+  private scrollToBottom() {
     if (this.messagesContainer) {
-      const element = this.messagesContainer.nativeElement;
-      element.scrollTop = element.scrollHeight;
+      const el = this.messagesContainer.nativeElement;
+      el.scrollTop = el.scrollHeight;
     }
   }
 }
