@@ -121,6 +121,7 @@
   background: #d9762c;
 }
 
+
 /* Responsive: vertical en pantallas pequeñas */
 @media (max-width: 992px) {
   .servicio-card {
@@ -137,5 +138,21 @@
     width: 100%;
     height: auto;
     border-radius: 12px;
+  }
+}
+
+@media (max-width: 768px) {
+  :host ::ng-deep .row > [class*="col-"] {
+    max-width: 100% !important;
+    flex: 0 0 100% !important;
+  }
+
+  .servicio-card {
+    flex-direction: column !important;
+  }
+
+  .servicio-imagen {
+    width: 100% !important;
+    max-width: 100% !important;
   }
 }

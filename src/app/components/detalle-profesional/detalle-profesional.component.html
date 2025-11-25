@@ -1,33 +1,70 @@
-<div *ngIf="loading" class="loading">Cargando profesional...</div>
+<div class="prof-container">
 
-<div *ngIf="!loading" class="info-card">
-  <h2>{{ profesionalData?.name || profesional?.name }}</h2>
+  <!-- Nombre de la veterinaria centrado -->
+  <h2 class="establishment-name">{{ profesional.nameEstablishment }}</h2>
 
-  <p><strong>Especialidad:</strong> {{ profesionalData?.specialty || profesional?.specialty }}</p>
-  <!-- <p><strong>Ubicación:</strong> {{ profesionalData?.location || profesional?.location }}</p> -->
+  <div class="content-layout">
 
-  <p>
-    <strong>Dirección:</strong>
-    {{ profesionalData?.street }} {{ profesionalData?.streetNumber }},
-    {{ profesionalData?.neighborhood }}, {{ profesionalData?.province }}
-  </p>
+    <!-- COLUMNA IZQUIERDA -->
+    <div class="left-column">
 
-    <!-- MAPA -->
-  <div *ngIf="tieneDireccion; else noDireccion">
-    <iframe width="100%" height="300" frameborder="0" [src]="googleMapsUrl | safe" allowfullscreen></iframe>
+      <!-- Dirección -->
+      <div class="address-box">
+        <h3>Dirección</h3>
+        <p>{{ profesional.street }} {{ profesional.streetNumber }}</p>
+        <p>{{ profesional.neighborhood }}</p>
+        <p>{{ profesional.province }}</p>
+      </div>
+
+      <!-- Google Maps -->
+      <div class="map-box">
+        <iframe width="100%" height="300" frameborder="0" [src]="googleMapsUrl | safe" allowfullscreen>
+        </iframe>
+      </div>
+      <div class="rating">
+        <span class="stars">⭐⭐⭐⭐⭐</span>
+        <span class="count">(12 reseñas)</span>
+      </div>
+
+    </div>
+
+
+    <!-- COLUMNA DERECHA -->
+    <div class="right-column">
+
+      <!-- Biografía -->
+      <div class="bio-box">
+        <h4>Acerca del Profesional:</h4>
+        <h3>{{ profesional.name }} {{ profesional.lastname }}</h3>
+        <p class="professional-specialty" *ngIf="profesional.specialty">
+          Especialista en {{ profesional.specialty }}
+        </p>
+        <p *ngIf="profesional.biography; else noBio">
+          {{ profesional.biography }}
+        </p>
+        <ng-template #noBio>
+          <p>Este profesional aún no ha cargado su biografía.</p>
+        </ng-template>
+      </div>
+
+      <!-- Servicios (SOLO SI EXISTEN) -->
+      <div class="services-box" *ngIf="profesional.services?.length > 0">
+        <div class="schedule-box">
+          <h3>Horarios de Atención</h3>
+          <p>Lunes a Viernes: 09:00 – 19:00</p>
+          <p>Sábados: 09:00 – 14:00</p>
+        </div>
+        <h3>Servicios Ofrecidos</h3>
+        <div class="service-item" *ngFor="let service of profesional.services">
+          <b>{{ service.name }}</b>
+          <p>{{ service.description }}</p>
+          <p><b>Precio:</b> ${{ service.price }}</p>
+        </div>
+      </div>
+
+    </div>
   </div>
-
-  <ng-template #noDireccion>
-    <div class="alert alert-warning">Dirección no encontrada o fuera de Argentina.</div>
-  </ng-template>
-
-
-  <h3>Servicios que ofrece</h3>
-  <ul>
-    <li *ngFor="let servicio of (profesionalData?.services || profesional?.services)">
-      {{ servicio.name }} — ${{ servicio.price }}
-    </li>
-  </ul>
-
-  <button class="btn" (click)="sacarTurno()">Sacar turno</button>
+  <div class="btn-center">
+    <button class="btn-sacar-turno" (click)="sacarTurno()">Sacar turno</button>
+  </div>
 </div>
