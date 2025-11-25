@@ -5,7 +5,9 @@
     <label for="tipoSelect">Filtrar por especialidad:</label>
     <select id="tipoSelect" class="form-select" [(ngModel)]="filtroTipo">
       <option value="">Todos</option>
-      <option *ngFor="let s of todasEspecialidades" [value]="s">{{ s }}</option>
+      <option *ngFor="let s of todasEspecialidades" [value]="s">
+        {{ s }}
+      </option>
     </select>
   </div>
 
@@ -38,8 +40,7 @@
           <div class="servicios" *ngIf="prof.services && prof.services.length">
             <strong>Servicios:</strong>
             <ul>
-              <li *ngFor="let s of prof.services">{{ s.name }}: {{ s.description }}
-                <!-- <a [routerLink]="['/turnos']" [state]="{ servicio: s, profesional: prof }" class="btn btn-primary mt-2">Sacar Turno</a> -->
+              <li *ngFor="let s of prof.services">{{ s.name }}
               </li>
 
             </ul>
