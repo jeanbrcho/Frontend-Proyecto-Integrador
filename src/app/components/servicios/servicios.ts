@@ -32,7 +32,7 @@ export class Servicios implements OnInit {
       next: (res) => {
 
         this.profesionales = res.data
-          .filter((p: any) => p.active)
+          // .filter((p: any) => p.active)
           .filter((p: any) => p.services && p.services.length > 0)
           .map((p: any) => ({
             ...p,

@@ -33,7 +33,7 @@
 
 .chat-window {
   position: fixed;
-  bottom: 100px;
+  bottom: 40px;
   left: 24px;
   width: 400px;
   max-width: calc(100vw - 48px);
@@ -283,6 +283,14 @@
 }
 
 /* Responsive */
+@media (max-width: 700px) {
+  .chat-window {
+    bottom: 90px; /* altura original que querías en móvil */
+    width: calc(100vw - 32px);
+    height: calc(100vh - 120px);
+    left: 16px;
+  }
+}
 @media (max-width: 480px) {
   .chat-window {
     width: calc(100vw - 32px);
