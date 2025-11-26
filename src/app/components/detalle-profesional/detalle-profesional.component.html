@@ -16,11 +16,19 @@
         <p>{{ profesional.province }}</p>
       </div>
 
-      <!-- Google Maps -->
-      <div class="map-box">
-        <iframe width="100%" height="300" frameborder="0" [src]="googleMapsUrl | safe" allowfullscreen>
-        </iframe>
+      <div *ngIf="mostrarMapa; else noMapa" class="map-container">
+        <iframe [src]="googleMapsUrl | safeUrl" width="100%" height="300" style="border:0; border-radius: 12px;"
+          loading="lazy"></iframe>
       </div>
+
+      <ng-template #noMapa>
+        <div class="no-map">
+          📍 Mapa no disponible
+        </div>
+      </ng-template>
+
+
+
       <div class="rating">
         <span class="stars">⭐⭐⭐⭐⭐</span>
         <span class="count">(12 reseñas)</span>
