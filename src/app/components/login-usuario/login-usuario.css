@@ -150,3 +150,56 @@ input:focus {
     display: none;
   }
 }
+
+/* boton inicio profesionales */
+
+.profesional-cta {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.profesional-cta p {
+  font-size: 20px;
+  font-weight: 500;
+  color: #03466F; /* azul oscuro */
+  margin-bottom: 15px;
+}
+
+.btn-repo {
+  background-color: #FFB703; /* amarillo dorado */
+  color: #03466F;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-repo:hover {
+  background-color: #FFD166; /* más claro al pasar el mouse */
+  transform: scale(1.05);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .profesional-cta p {
+    font-size: 18px;
+  }
+
+  .btn-repo {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profesional-cta p {
+    font-size: 16px;
+  }
+
+  .btn-repo {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
+}

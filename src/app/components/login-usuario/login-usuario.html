@@ -1,37 +1,34 @@
 <div class="login-page-container">
   <div class="login-container-wrapper">
-    
+
     <div class="login-card">
       <h2>Iniciar sesión</h2>
-      
+
       <form (ngSubmit)="onLogin()">
-        
+
         <label for="email">Correo electrónico</label>
-        <input 
-          type="email" 
-          id="email" 
-          name="email" 
-          [(ngModel)]="email" 
-          placeholder="ejemplo@correo.com"
-          required>
+        <input type="email" id="email" name="email" [(ngModel)]="email" placeholder="ejemplo@correo.com" required>
 
         <label for="password">Contraseña</label>
-        <input 
-          type="password" 
-          id="password" 
-          name="password" 
-          [(ngModel)]="password" 
-          placeholder="********"
-          required>
+        <input type="password" id="password" name="password" [(ngModel)]="password" placeholder="********" required>
 
         <button class="btn" type="submit">Ingresar</button>
       </form>
 
       <div class="register-link">
-        ¿No tenés cuenta? 
-        <a routerLink="/registro"> Registrate acá</a> 
-        
+        ¿No tenés cuenta?
+        <a routerLink="/registro"> Registrate acá</a>
+
       </div>
+
+      <div class="profesional-cta">
+        <p>¿Sos profesional? ¡Iniciá sesión acá!</p>
+        <a href="https://main.dpn3jlgxgqznm.amplifyapp.com/" target="_blank" class="btn-repo">
+          Ir al login de profesionales
+        </a>
+      </div>
+
+
     </div>
 
     <div class="login-image-side">
