@@ -25,6 +25,10 @@
   overflow: hidden;
 }
 
+.chat-window {
+  z-index: 9999 !important;
+}
+
 .chat-window.open {
   opacity: 1;
   transform: translateY(0) scale(1);
@@ -258,7 +262,7 @@
   .chat-window {
     bottom: 90px;
     width: calc(100vw - 32px);
-    height: calc(100vh - 120px);
+    height: calc(100vh - 180px);
     left: 16px;
   }
 }
@@ -266,7 +270,7 @@
 @media (max-width: 480px) {
   .chat-window {
     width: calc(100vw - 32px);
-    height: calc(100vh - 120px);
+    height: calc(100vh - 200px);
     bottom: 90px;
     left: 16px;
   }
@@ -274,5 +278,31 @@
   .chat-button {
     bottom: 16px;
     left: 16px;
+  }
+}
+
+/* 📌 NUEVO — PANTALLAS MUY CHICAS (Ej. Samsung viejo, iPhone SE) */
+@media (max-width: 360px) {
+ .chat-window {
+    bottom: 100px !important;
+    left: 12px;
+    width: calc(100vw - 24px);
+    height: calc(100vh - 180px);
+  }
+
+  .chat-input {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .chat-input input {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .chat-input button {
+    font-size: 14px;
+    padding: 8px 12px;
+    min-width: 40px;
   }
 }
