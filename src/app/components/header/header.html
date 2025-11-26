@@ -4,7 +4,6 @@
       <img src="logo.png" alt="Logo" class="logo">
       <h1 class="brand-title">Guau que Corte</h1>
     </div>
-     <!-- 🔥 ESTE bloque decide qué botón mostrar -->
     <ng-container *ngIf="authService.isLoggedIn(); else loginButton">
       <a routerLink="/mi-cuenta" class="login-btn">
         <span class="paw-icon">🐾</span> Mi Cuenta
@@ -16,28 +15,45 @@
         <span class="paw-icon">🐾</span> Iniciar sesión
       </a>
     </ng-template>
-    <!-- <a [routerLink]="['/login']" class="login-btn">Iniciar sesión</a> -->
   </div>
 
   <header [class.fixed]="isFixed" class="main-header">
-    <nav class="nav-links">
-      <a [routerLink]="['/']">Inicio</a>
-      <a [routerLink]="['/nosotros']">Nosotros</a>
-      <a [routerLink]="['/servicios']">Servicios</a>
+    <button class="hamburger" [class.active]="menuOpen" (click)="toggleMenu()" aria-label="Menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    
+    <nav class="nav-links" [class.open]="menuOpen">
+      <div class="menu-brand">
+        <img src="logo.png" alt="Logo" class="menu-logo">
+        <h2 class="menu-brand-title">Guau que Corte</h2>
+      </div>
+      
+      <a [routerLink]="['/']" (click)="closeMenu()">Inicio</a>
+      <a [routerLink]="['/nosotros']" (click)="closeMenu()">Nosotros</a>
+      <a [routerLink]="['/servicios']" (click)="closeMenu()">Servicios</a>
+      
+      <div class="menu-auth">
+        <button class="menu-dark-mode-btn" (click)="toggleDarkMode()">
+          <i *ngIf="!isDarkMode" class="fas fa-moon"></i>
+          <i *ngIf="isDarkMode" class="fas fa-sun"></i>
+          <span *ngIf="!isDarkMode">Modo Oscuro</span>
+          <span *ngIf="isDarkMode">Modo Claro</span>
+        </button>
+        
+        <ng-container *ngIf="authService.isLoggedIn(); else loginButton">
+          <button class="menu-login-btn" (click)="logout(); closeMenu()">
+            <span class="paw-icon">🐾</span> Cerrar sesión
+          </button>
+        </ng-container>
+
+        <ng-template #loginButton>
+          <a routerLink="/login" class="menu-login-btn" (click)="closeMenu()">
+            <span class="paw-icon">🐾</span> Iniciar sesión
+          </a>
+        </ng-template>
+      </div>
     </nav>
   </header>
-
-  <!-- <ng-container *ngIf="authService.isLoggedIn(); else loginButton">
-    <button class="login-btn" routerLink="/mi-cuenta">
-      <span class="paw-icon">🐾</span>
-      Mi Cuenta
-    </button>
-  </ng-container>
-
-  <ng-template #loginButton>
-    <button class="login-btn" routerLink="/login">
-      <span class="paw-icon">🐾</span>
-      Login
-    </button>
-  </ng-template> -->
 </div>

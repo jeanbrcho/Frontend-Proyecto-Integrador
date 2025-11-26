@@ -424,7 +424,7 @@
   background-color: #000000;
   text-align: center;
   align-items: center;
-  height: 50vh;
+  height: 20vh;
 
   
 }
@@ -455,4 +455,50 @@
 .logo-auspiciante:hover {
   filter: grayscale(0%) brightness(100%);
   opacity: 1;
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .seccion-auspiciantes {
+    padding: 30px 5%;
+    height: auto; /* que crezca según contenido */
+  }
+
+  .titulo-auspiciantes {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .contenedor-logos {
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .logo-auspiciante {
+    height: 50px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .seccion-auspiciantes {
+    padding: 20px 5%;
+    height: auto;
+  }
+
+  .titulo-auspiciantes {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .contenedor-logos {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo-auspiciante {
+    height: 40px;
+    max-width: 80%; /* que no se pase del contenedor */
+    margin: 0 auto;
+  }
 }
