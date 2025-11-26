@@ -1,39 +1,35 @@
+/* ===================== Body ===================== */
 body {
-
     position: fixed;
     bottom: 0;
     right: 0;
     width: 200px;
     z-index: 1000;
-
 }
 
+/* ===================== Dog Wrapper ===================== */
 .dog-wrapper {
-    transform: scale(0.5);
-    /* achica a la mitad */
-    transform-origin: bottom right;
-    /* para que no se mueva de posición */
+    transform: scale(0.5); /* achica a la mitad */
+    transform-origin: bottom right; /* para que no se mueva de posición */
     position: fixed;
     bottom: 50;
     right: 90;
     z-index: 9999;
 }
 
+/* ===================== Dog ===================== */
 .dog {
     background-color: #fdb44e;
     height: 75px;
     width: 120px;
-    /* position: absolute; */
-    /* top: 40%;
-    left: 35%; */
     border-radius: 0 0 0 120px;
     position: fixed;
     bottom: 14%;
     right: 8%;
     z-index: 9999;
-
 }
 
+/* ===================== Dog Parts ===================== */
 .body {
     background-color: #fdb44e;
     height: 100px;
@@ -54,27 +50,10 @@ body {
     position: relative;
 }
 
-.leg1 {
-    left: 120px;
-    top: 27px;
-}
-
-.leg2 {
-    left: 150px;
-    bottom: 23px;
-}
-
-.leg3 {
-    left: 218px;
-    bottom: 74px;
-    background-color: rgba(151, 89, 2, .5);
-    z-index: -1;
-}
-
-.leg4 {
-    left: 247px;
-    bottom: 123px;
-}
+.leg1 { left: 120px; top: 27px; }
+.leg2 { left: 150px; bottom: 23px; }
+.leg3 { left: 218px; bottom: 74px; background-color: rgba(151, 89, 2, .5); z-index: -1; }
+.leg4 { left: 247px; bottom: 123px; }
 
 .tail {
     width: 0;
@@ -91,9 +70,7 @@ body {
 }
 
 @keyframes wag {
-    50% {
-        transform: rotate(10deg);
-    }
+    50% { transform: rotate(10deg); }
 }
 
 .ear {
@@ -126,7 +103,7 @@ body {
     left: 50px;
 }
 
-/* Tablet: achicar más */
+/* ===================== Responsive Dog ===================== */
 @media (max-width: 900px) {
     .dog-wrapper {
         transform: scale(0.35);
@@ -141,26 +118,19 @@ body {
         transform-origin: bottom right;
         position: fixed;
         bottom: 35px;
-        left: 650px;
-        /* MOVÉ ESTE VALOR HASTA QUE TE GUSTE */
+        left: 650px; /* MOVÉ ESTE VALOR HASTA QUE TE GUSTE */
     }
 }
 
-
-/* Celular: ocultar */
 @media (max-width: 700px) {
-    .dog-wrapper {
-        display: none !important;
-    }
+    .dog-wrapper { display: none !important; }
 }
 
-/* Logo flotante en móviles */
+/* ===================== Mobile Logo ===================== */
 .chat-button.mobile-logo {
     position: fixed;
-    bottom: 24px;
-    /* margen inferior */
-    left: 24px;
-    /* alineado con el chat a la izquierda */
+    bottom: 24px; /* margen inferior */
+    left: 24px;   /* alineado con el chat a la izquierda */
     width: 60px;
     height: 60px;
     border-radius: 50%;
@@ -185,11 +155,10 @@ body {
     transform: scale(0.95);
 }
 
-/* Burbuja de diálogo */
+/* ===================== Dog Dialog ===================== */
 .dog-dialog {
     position: fixed;
-    bottom: 110px;
-    /* ajusta según la altura del perro */
+    bottom: 110px; /* ajusta según la altura del perro */
     right: 24px;
     background-color: #fff;
     color: #333;
@@ -199,61 +168,25 @@ body {
     font-weight: 500;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     white-space: nowrap;
-    animation: fadeIn 0.5s ease;
+    animation: dogBubbleIn 0.5s ease forwards, dogBubbleBounce 1s infinite;
 }
 
 @keyframes dogBubbleIn {
-    0% {
-        opacity: 0;
-        transform: translateY(20px) scale(0.8);
-    }
-
-    60% {
-        opacity: 1;
-        transform: translateY(-5px) scale(1.05);
-    }
-
-    100% {
-        transform: translateY(0) scale(1);
-    }
-}
-
-.dog-dialog {
-    animation: dogBubbleIn 0.5s ease forwards;
+    0% { opacity: 0; transform: translateY(20px) scale(0.8); }
+    60% { opacity: 1; transform: translateY(-5px) scale(1.05); }
+    100% { transform: translateY(0) scale(1); }
 }
 
 @keyframes dogBubbleBounce {
-
-    0%,
-    100% {
-        transform: translateY(0);
-    }
-
-    50% {
-        transform: translateY(-5px);
-    }
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-5px); }
 }
-
-.dog-dialog {
-    animation: dogBubbleBounce 1s infinite;
-}
-
 
 @keyframes fadeIn {
-    from {
-        opacity: 0;
-        transform: translateY(10px);
-    }
-
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
-/* Opcional: ocultar en móvil */
 @media (max-width: 700px) {
-    .dog-dialog {
-        display: none;
-    }
+    .dog-dialog { display: none; }
 }
