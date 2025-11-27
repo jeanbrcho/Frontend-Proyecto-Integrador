@@ -15,7 +15,8 @@
   color: var(--color-texto-principal);
   margin-bottom: 60px;
   font-weight: bold;
-  animation: fadeInDown 1s ease forwards; /* 🔹 solo el título animado */
+  animation: fadeInDown 1s ease forwards;
+  /* 🔹 solo el título animado */
 }
 
 /* Contenedor de contenido estático */
@@ -54,8 +55,15 @@
 
 /* Animación del título */
 @keyframes fadeInDown {
-  0% { opacity: 0; transform: translateY(-50px); }
-  100% { opacity: 1; transform: translateY(0); }
+  0% {
+    opacity: 0;
+    transform: translateY(-50px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Responsive */
@@ -111,7 +119,8 @@
   align-items: center;
   justify-content: space-between;
   gap: 19px;
-  flex-wrap: wrap; /* se apila en pantallas chicas */
+  flex-wrap: wrap;
+  /* se apila en pantallas chicas */
 }
 
 .contenedor-contacto h3 {
@@ -133,7 +142,8 @@
 /* 🔹 Responsivo */
 @media (max-width: 992px) {
   .contenedor-contacto {
-    flex-direction: column; /* pasa uno debajo del otro */
+    flex-direction: column;
+    /* pasa uno debajo del otro */
     gap: 10px;
     text-align: center;
   }
@@ -216,13 +226,14 @@
 
 .dato-contacto p {
   margin: 0;
-  line-height: 1.2; /* para que el texto quede centrado con el icono */
+  line-height: 1.2;
+  /* para que el texto quede centrado con el icono */
 }
 
 .icono-contacto {
   width: 40px;
   height: 40px;
-  
+
 }
 
 .formulario-contacto {
@@ -233,13 +244,13 @@
   background-color: var(--color-fondo-form);
   padding: 40px 30px;
   border-radius: 25px;
-  box-shadow: 0 8px 25px rgba(0,0,0,0.1);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
 .formulario-contacto:hover {
   transform: translateY(-5px);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
 }
 
 .form-group {
@@ -294,7 +305,8 @@
     padding: 30px 20px;
   }
 }
- /* equipo */
+
+/* equipo */
 .equipo-section {
   padding: 80px 10%;
   text-align: center;
@@ -311,15 +323,18 @@
 .equipo-circulos {
   display: flex;
   justify-content: center;
-  gap: 200px; /* 🔹 más separación */
+  gap: 200px;
+  /* 🔹 más separación */
   flex-wrap: wrap;
 }
 
 /* Cada círculo */
 .circle-equipo {
   position: relative;
-  width: 300px;  /* 🔹 más grande */
-  height: 300px; /* 🔹 más grande */
+  width: 310px;
+  /* 🔹 más grande */
+  height: 310px;
+  /* 🔹 más grande */
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -327,7 +342,8 @@
   cursor: pointer;
   overflow: hidden;
   transition: all 0.6s ease;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.15); /* sombra leve */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+  /* sombra leve */
 }
 
 /* Colores alternos usando clases adicionales */
@@ -341,8 +357,10 @@
 
 /* Imagen dentro del círculo */
 .circle-equipo img {
-  width: 130px;  /* 🔹 más grande */
-  height: 130px; /* 🔹 más grande */
+  width: 170px;
+  /* 🔹 más grande */
+  height: 170px;
+  /* 🔹 más grande */
   border-radius: 50%;
   transition: transform 0.6s ease, opacity 0.6s ease;
 }
@@ -350,21 +368,40 @@
 /* Nombre dentro del círculo */
 .nombre-equipo {
   position: absolute;
-  bottom: 30px;  /* ajustado al nuevo tamaño */
-  font-size: 30px; /* un poquito más grande */
+  bottom: 20px;
+  /* ajustado al nuevo tamaño */
+  font-size: 30px;
+  /* un poquito más grande */
   font-weight: 600;
   color: var(--color-texto-principal);
   transition: transform 0.6s ease;
 }
 
+.rol-equipo {
+  position: absolute;
+  bottom: 18px; /* un poquito debajo del nombre */
+  font-size: 18px;
+  color: var(--color-texto-principal);
+  opacity: 0; /* aparece solo al hover */
+  transition: transform 0.6s ease, opacity 0.6s ease;
+}
+
+/* Al hacer hover: sube igual que el nombre */
+.circle-equipo:hover .rol-equipo {
+  opacity: 1;
+  transform: translateY(-30px);
+}
+
 /* Animación al hover */
 .circle-equipo:hover img {
-  transform: translateY(-130px); /* ajustado al tamaño */
+  transform: translateY(-130px);
+  /* ajustado al tamaño */
   opacity: 0;
 }
 
 .circle-equipo:hover .nombre-equipo {
-  transform: translateY(-50px); /* ajustado al tamaño */
+  transform: translateY(-50px);
+  /* ajustado al tamaño */
 }
 
 /* Responsive */
@@ -372,6 +409,106 @@
   .equipo-circulos {
     flex-direction: column;
     align-items: center;
-    gap: 40px; /* separación menor en móvil */
+    gap: 40px;
+    /* separación menor en móvil */
+  }
+}
+
+/* RESPONSIVE PARA CONTACTANOS */
+@media (max-width: 992px) {
+  .bloque-contacto {
+    flex-direction: column;
+    gap: 40px; /* mucho más chico en tablet */
+    align-items: center;
+    text-align: center;
+  }
+
+  .info-contacto {
+    align-items: center;
+    font-size: 24px;
+  }
+
+  .dato-contacto {
+    justify-content: center;
+  }
+
+  .icono-contacto {
+    width: 35px;
+    height: 35px;
+  }
+}
+
+@media (max-width: 600px) {
+  .contenedor-contactanos {
+    padding: 40px 10px;
+  }
+
+  .titulo-contacto {
+    font-size: 42px;
+  }
+
+  .bloque-contacto {
+    gap: 30px; /* más compacto aún */
+  }
+
+  .info-contacto {
+    font-size: 20px;
+    gap: 18px;
+  }
+
+  .dato-contacto p {
+    font-size: 18px;
+  }
+
+  .icono-contacto {
+    width: 28px;
+    height: 28px;
+  }
+
+  .formulario-contacto {
+    width: 100%;
+    max-width: 350px; 
+    padding: 25px 20px;
+  }
+}
+
+/* ===== RESPONSIVE PARA CONTACTO-INFO ===== */
+
+@media (max-width: 992px) {
+  .contenedor-contacto {
+    flex-direction: column;
+    text-align: center;
+    gap: 20px;
+  }
+
+  .contenedor-contacto h3 {
+    font-size: 38px;
+    min-width: auto;
+  }
+
+  .contenedor-contacto p {
+    font-size: 20px;
+    max-width: 90%;
+  }
+}
+
+@media (max-width: 600px) {
+  .contacto-info {
+    padding: 40px 5%;
+  }
+
+  .contenedor-contacto h3 {
+    font-size: 32px;
+    line-height: 1.2;
+  }
+
+  .contenedor-contacto p {
+    font-size: 16px;
+    line-height: 1.5;
+    max-width: 100%;
+  }
+
+  .contenedor-contacto {
+    gap: 10px;
   }
 }
