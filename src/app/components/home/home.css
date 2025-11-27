@@ -108,23 +108,123 @@
   }
 }
 
+@media (min-width: 1300px) and (max-width: 1599px) {
+
+  .hero {
+    padding: 90px 8% 70px 8%; /* más aire arriba y abajo */
+    gap: 60px; /* separa texto e imagen */
+    align-items: center;
+  }
+
+  .hero-content h2 {
+    font-size: 60px;
+  }
+
+  .hero-content p {
+    font-size: 32px;
+  }
+
+  .hero-btn {
+    margin-top: 20px;
+    margin-bottom: 40px; /* baja el botón */
+    padding: 14px 32px;
+  }
+
+  .hero-image {
+    margin-top: 190px; /* BAJA LA IMAGEN */
+    margin-bottom: -70px; /* la pega al borde */
+  }
+
+  .hero-image img {
+     width: 90%;          /* 🔥 MUCHO MÁS GRANDE */
+    max-width: 650px;    /* 🔥 antes 520px → ahora 650px */
+    height: auto;
+  }
+}
+
+/* Sub-breakpoint para 1200px a 1299px — arregla 1280, 1290, 1294px */
+@media (min-width: 1200px) and (max-width: 1299px) {
+
+  .hero {
+    padding-top: 10px !important;  /* 🔥 antes 140px → ahora 180px */
+  }
+
+  .hero-content h2 {
+    font-size: 54px !important; /* baja un poco el título */
+  }
+
+  .hero-content p {
+    font-size: 28px !important; /* baja un toque el texto */
+  }
+
+  .hero-image img {
+    max-width: 600px !important; /* evita que la imagen empuje hacia arriba */
+    margin-top: 135;       /* ❗SIN MARGIN RARO */
+    margin-bottom: 80px; 
+  }
+  
+}
+
+
+@media (min-width: 1025px) and (max-width: 1299px) {
+
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 70px 6% 60px 6%; 
+    /* 🔥 sube el padding-top para que SIEMPRE baje la imagen
+       independientemente de la altura */
+    gap: 60px;
+  }
+
+  .hero-content h2 {
+    font-size: 58px;
+  }
+
+  .hero-content p {
+    font-size: 30px;
+  }
+
+  .hero-btn {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 135;       /* ❗SIN MARGIN RARO */
+    margin-bottom: -80px; /* opcional, para pegarla abajo */
+  }
+
+  .hero-image img {
+    width: 95%;
+    max-width: 900px; /* 🔥 más grande para estas pantallas */
+    height: auto;
+  }
+}
+
+
+
 /* Responsive para tablets y móviles */
 @media (max-width: 1024px) {
   .hero {
     flex-direction: column;
-    /* apila texto y imagen */
     padding: 40px 5%;
+    padding-bottom: 20; /* imagen más pegada abajo */
   }
 
   .hero-content {
     max-width: 100%;
     text-align: center;
-    /* centra el texto */
   }
 
   .hero-content h2 {
     font-size: 50px;
-    /* más pequeño */
   }
 
   .hero-content p {
@@ -139,8 +239,8 @@
   .hero-image {
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
-    /* espacio entre texto e imagen */
+    margin-top: 30px; /* BAJA LA IMAGEN */
+    margin-bottom: -20px; /* la pega al borde */
   }
 
   .hero-image img {
@@ -149,6 +249,7 @@
     height: auto;
   }
 }
+
 
 @media (max-width: 600px) {
   .hero-content h2 {
@@ -169,6 +270,7 @@
     max-width: 350px;
   }
 }
+
 
 
 /* veterinarias recomendadas */
