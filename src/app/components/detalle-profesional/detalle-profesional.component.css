@@ -72,6 +72,24 @@
 /* ===========================
     MAPA
 =========================== */
+.map-container {
+  margin-top: 20px;
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+}
+
+.no-map {
+  margin-top: 20px;
+  padding: 20px;
+  background: #f2f2f2;
+  text-align: center;
+  border-radius: 12px;
+  color: #666;
+  font-size: 1rem;
+  border: 1px solid #ddd;
+}
+
 .map-box iframe {
   width: 100%;
   height: 300px;

@@ -30,7 +30,7 @@
 }
 
 /* Ocultar botón flotante en móviles (se usa el del menú) */
-@media (max-width: 768px) {
+@media (max-width: 800px) {
     .dark-mode-btn-flotante {
         display: none;
     }
