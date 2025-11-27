@@ -1,39 +1,12 @@
+/* ===================== Host ===================== */
 :host {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
-.chat-button {
-  position: fixed;
-  bottom: 24px;
-  left: 24px;
-  width: 64px;
-  height: 64px;
-  border-radius: 50%;
-  background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
-  color: white;
-  border: none;
-  font-size: 28px;
-  cursor: pointer;
-  box-shadow: 0 6px 20px rgba(255, 107, 107, 0.4);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1000;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.chat-button:hover {
-  transform: scale(1.1);
-  box-shadow: 0 8px 24px rgba(255, 107, 107, 0.5);
-}
-
-.chat-button:active {
-  transform: scale(0.95);
-}
-
+/* ===================== Chat Window ===================== */
 .chat-window {
   position: fixed;
-  bottom: 100px;
+  bottom: 40px;
   left: 24px;
   width: 400px;
   max-width: calc(100vw - 48px);
@@ -48,8 +21,12 @@
   transform: translateY(20px) scale(0.95);
   pointer-events: none;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-   z-index: 1000;
+  z-index: 1000;
   overflow: hidden;
+}
+
+.chat-window {
+  z-index: 9999 !important;
 }
 
 .chat-window.open {
@@ -58,6 +35,7 @@
   pointer-events: all;
 }
 
+/* ===================== Chat Header ===================== */
 .chat-header {
   background: linear-gradient(135deg, #ff6b6b 0%, #ff8e53 100%);
   color: white;
@@ -104,6 +82,7 @@
   background: rgba(255, 255, 255, 0.3);
 }
 
+/* ===================== Chat Messages ===================== */
 .chat-messages {
   flex: 1;
   overflow-y: auto;
@@ -117,17 +96,6 @@
 .message {
   display: flex;
   animation: slideIn 0.3s ease;
-}
-
-@keyframes slideIn {
-  from {
-    opacity: 0;
-    transform: translateY(10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
 }
 
 .message.user {
@@ -174,6 +142,7 @@
   text-align: right;
 }
 
+/* ===================== Typing Indicator ===================== */
 .typing-indicator {
   display: flex;
   gap: 6px;
@@ -207,6 +176,12 @@
   }
 }
 
+@keyframes slideIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===================== Chat Input ===================== */
 .chat-input {
   display: flex;
   padding: 16px;
@@ -263,7 +238,7 @@
   transform: none;
 }
 
-/* Scrollbar personalizada */
+/* ===================== Scrollbar ===================== */
 .chat-messages::-webkit-scrollbar {
   width: 8px;
 }
@@ -282,11 +257,20 @@
   background: #868e96;
 }
 
-/* Responsive */
+/* ===================== Responsive ===================== */
+@media (max-width: 700px) {
+  .chat-window {
+    bottom: 90px;
+    width: calc(100vw - 32px);
+    height: calc(100vh - 180px);
+    left: 16px;
+  }
+}
+
 @media (max-width: 480px) {
   .chat-window {
     width: calc(100vw - 32px);
-    height: calc(100vh - 120px);
+    height: calc(100vh - 200px);
     bottom: 90px;
     left: 16px;
   }
@@ -294,5 +278,31 @@
   .chat-button {
     bottom: 16px;
     left: 16px;
+  }
+}
+
+/* 📌 NUEVO — PANTALLAS MUY CHICAS (Ej. Samsung viejo, iPhone SE) */
+@media (max-width: 360px) {
+ .chat-window {
+    bottom: 100px !important;
+    left: 12px;
+    width: calc(100vw - 24px);
+    height: calc(100vh - 180px);
+  }
+
+  .chat-input {
+    padding: 8px;
+    gap: 6px;
+  }
+
+  .chat-input input {
+    font-size: 13px;
+    padding: 8px 10px;
+  }
+
+  .chat-input button {
+    font-size: 14px;
+    padding: 8px 12px;
+    min-width: 40px;
   }
 }

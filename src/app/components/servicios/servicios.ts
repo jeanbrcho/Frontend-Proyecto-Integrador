@@ -27,27 +27,18 @@ export class Servicios implements OnInit {
     private authService: AuthService,
     private router: Router) { }
 
-
-  // ngOnInit(): void {
-  //   this.profesionalesService.obtenerProfesionalesConServicios().subscribe({
-  //     next: (res) => {
-  //       console.log("Profesionales con servicios recibidos:", res.data);
-  //       this.profesionales = res.data.map(p => ({ ...p, favorito: false }));
-  //       const especialidades = this.profesionales.map(p => p.specialty);
-  //       this.todasEspecialidades = Array.from(new Set(especialidades));
-  //     },
-  //     error: (err) => console.error('Error al cargar profesionales:', err)
-  //   });
-  // }
   ngOnInit(): void {
     this.profesionalesService.obtenerProfesionalesConServicios().subscribe({
       next: (res) => {
-        console.log("Profesionales con servicios recibidos:", res.data);
 
         this.profesionales = res.data
-          // 🔥 SOLO mostrar profesionales con servicios activos
-          .filter((p: any) => p.active)  
-          .map((p: any) => ({ ...p, favorito: false }));
+          // .filter((p: any) => p.active)
+          .filter((p: any) => p.services && p.services.length > 0)
+          .map((p: any) => ({
+            ...p,
+            specialty: p.specialty && p.specialty.trim() !== '' ? p.specialty : 'Sin servicio',
+            favorito: false
+          }));
 
         const especialidades = this.profesionales.map(p => p.specialty);
         this.todasEspecialidades = Array.from(new Set(especialidades));
@@ -55,7 +46,6 @@ export class Servicios implements OnInit {
       error: (err) => console.error('Error al cargar profesionales:', err)
     });
   }
-
 
   profesionalesFiltrados(): ProfesionalFrontend[] {
     let lista = this.profesionales;

@@ -8,6 +8,15 @@
 </div>
 
 <form (ngSubmit)="guardarTurno()" class="formulario">
+  <label>Seleccioná un servicio:</label>
+  <select [(ngModel)]="servicioSeleccionado" name="servicioSeleccionado" required>
+    <option value="" disabled selected>Elegí un servicio</option>
+
+    <option *ngFor="let s of servicios" [ngValue]="s">
+      {{ s.name }} — ${{ s.price }}
+    </option>
+  </select>
+
 
   <label>Fecha:</label>
   <input type="date" [(ngModel)]="fecha" name="fecha" required />
@@ -25,21 +34,6 @@
 
   <label>Teléfono:</label>
   <input type="text" [(ngModel)]="phone" name="phone" placeholder="Ej: 1122334455" required />
-
-  <label>Seleccioná un servicio:</label>
-  <select [(ngModel)]="servicioSeleccionado" name="servicioSeleccionado" required>
-    <option value="" disabled selected>Elegí un servicio</option>
-
-    <option *ngFor="let s of servicios" [ngValue]="s">
-      {{ s.name }} — ${{ s.price }}
-    </option>
-  </select>
-
-  <div *ngIf="servicioSeleccionado" class="info-box">
-    <p><strong>Servicio:</strong> {{ servicioSeleccionado.name }}</p>
-    <p><strong>Precio:</strong> ${{ servicioSeleccionado.price }}</p>
-  </div>
-
 
   <button type="submit" class="btn-guardar">
     Confirmar Turno 🐾

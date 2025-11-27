@@ -108,23 +108,123 @@
   }
 }
 
+@media (min-width: 1300px) and (max-width: 1599px) {
+
+  .hero {
+    padding: 90px 8% 70px 8%; /* más aire arriba y abajo */
+    gap: 60px; /* separa texto e imagen */
+    align-items: center;
+  }
+
+  .hero-content h2 {
+    font-size: 60px;
+  }
+
+  .hero-content p {
+    font-size: 32px;
+  }
+
+  .hero-btn {
+    margin-top: 20px;
+    margin-bottom: 40px; /* baja el botón */
+    padding: 14px 32px;
+  }
+
+  .hero-image {
+    margin-top: 190px; /* BAJA LA IMAGEN */
+    margin-bottom: -70px; /* la pega al borde */
+  }
+
+  .hero-image img {
+     width: 90%;          /* 🔥 MUCHO MÁS GRANDE */
+    max-width: 650px;    /* 🔥 antes 520px → ahora 650px */
+    height: auto;
+  }
+}
+
+/* Sub-breakpoint para 1200px a 1299px — arregla 1280, 1290, 1294px */
+@media (min-width: 1200px) and (max-width: 1299px) {
+
+  .hero {
+    padding-top: 10px !important;  /* 🔥 antes 140px → ahora 180px */
+  }
+
+  .hero-content h2 {
+    font-size: 54px !important; /* baja un poco el título */
+  }
+
+  .hero-content p {
+    font-size: 28px !important; /* baja un toque el texto */
+  }
+
+  .hero-image img {
+    max-width: 600px !important; /* evita que la imagen empuje hacia arriba */
+    margin-top: 135;       /* ❗SIN MARGIN RARO */
+    margin-bottom: 80px; 
+  }
+  
+}
+
+
+@media (min-width: 1025px) and (max-width: 1299px) {
+
+  .hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 70px 6% 60px 6%; 
+    /* 🔥 sube el padding-top para que SIEMPRE baje la imagen
+       independientemente de la altura */
+    gap: 60px;
+  }
+
+  .hero-content h2 {
+    font-size: 58px;
+  }
+
+  .hero-content p {
+    font-size: 30px;
+  }
+
+  .hero-btn {
+    margin-top: 20px;
+    margin-bottom: 40px;
+  }
+
+  .hero-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin-top: 135;       /* ❗SIN MARGIN RARO */
+    margin-bottom: -80px; /* opcional, para pegarla abajo */
+  }
+
+  .hero-image img {
+    width: 95%;
+    max-width: 900px; /* 🔥 más grande para estas pantallas */
+    height: auto;
+  }
+}
+
+
+
 /* Responsive para tablets y móviles */
 @media (max-width: 1024px) {
   .hero {
     flex-direction: column;
-    /* apila texto y imagen */
     padding: 40px 5%;
+    padding-bottom: 20; /* imagen más pegada abajo */
   }
 
   .hero-content {
     max-width: 100%;
     text-align: center;
-    /* centra el texto */
   }
 
   .hero-content h2 {
     font-size: 50px;
-    /* más pequeño */
   }
 
   .hero-content p {
@@ -139,8 +239,8 @@
   .hero-image {
     justify-content: center;
     align-items: center;
-    margin-top: 30px;
-    /* espacio entre texto e imagen */
+    margin-top: 30px; /* BAJA LA IMAGEN */
+    margin-bottom: -20px; /* la pega al borde */
   }
 
   .hero-image img {
@@ -149,6 +249,7 @@
     height: auto;
   }
 }
+
 
 @media (max-width: 600px) {
   .hero-content h2 {
@@ -169,6 +270,7 @@
     max-width: 350px;
   }
 }
+
 
 
 /* veterinarias recomendadas */
@@ -424,7 +526,7 @@
   background-color: #000000;
   text-align: center;
   align-items: center;
-  height: 50vh;
+  height: 20vh;
 
   
 }
@@ -455,4 +557,102 @@
 .logo-auspiciante:hover {
   filter: grayscale(0%) brightness(100%);
   opacity: 1;
+}
+
+/* Tablets */
+@media (max-width: 992px) {
+  .seccion-auspiciantes {
+    padding: 30px 5%;
+    height: auto; /* que crezca según contenido */
+  }
+
+  .titulo-auspiciantes {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+
+  .contenedor-logos {
+    gap: 15px;
+    justify-content: center;
+  }
+
+  .logo-auspiciante {
+    height: 50px;
+  }
+}
+
+/* Móviles */
+@media (max-width: 768px) {
+  .seccion-auspiciantes {
+    padding: 20px 5%;
+    height: auto;
+  }
+
+  .titulo-auspiciantes {
+    font-size: 20px;
+    margin-bottom: 15px;
+  }
+
+  .contenedor-logos {
+    flex-direction: column;
+    gap: 15px;
+  }
+
+  .logo-auspiciante {
+    height: 40px;
+    max-width: 80%; /* que no se pase del contenedor */
+    margin: 0 auto;
+  }
+}
+
+
+.profesional-cta {
+  text-align: center;
+  margin: 30px 0;
+}
+
+.profesional-cta p {
+  font-size: 20px;
+  font-weight: 500;
+  color: #03466F; /* azul oscuro */
+  margin-bottom: 15px;
+}
+
+.btn-repo {
+  background-color: #FFB703; /* amarillo dorado */
+  color: #03466F;
+  padding: 12px 30px;
+  border-radius: 25px;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-repo:hover {
+  background-color: #FFD166; /* más claro al pasar el mouse */
+  transform: scale(1.05);
+}
+
+/* Responsive para móviles */
+@media (max-width: 768px) {
+  .profesional-cta p {
+    font-size: 18px;
+  }
+
+  .btn-repo {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .profesional-cta p {
+    font-size: 16px;
+  }
+
+  .btn-repo {
+    font-size: 14px;
+    padding: 8px 16px;
+  }
 }
